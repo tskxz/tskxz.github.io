@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Website em construção.">
-    <title>Em Construção</title>
+    <meta name="description" content="Tanjil Khan - Software Engineer Portfolio. Experience, education, projects and certifications.">
+    <title>Tanjil Khan | Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -18,67 +18,1373 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
-            color: #111111;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
+            color: #111827;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
+        a {
+            color: #111827;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        a:hover {
+            color: #4b5563;
+        }
+
         .container {
-            text-align: center;
-            max-width: 560px;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 48px 24px 80px 24px;
         }
 
-        .status-tag {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #666666;
-            background-color: #f4f4f5;
-            border: 1px solid #e4e4e7;
-            border-radius: 9999px;
-            padding: 6px 14px;
-            margin-bottom: 24px;
+        /* Header */
+        header {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 32px;
+            margin-bottom: 40px;
         }
 
-        h1 {
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .header-titles h1 {
             font-size: 2.25rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: -0.03em;
-            line-height: 1.2;
-            color: #09090b;
+            color: #111827;
+            line-height: 1.1;
+        }
+
+        .header-titles .role {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #4b5563;
+            margin-top: 6px;
+        }
+
+        /* Language Switcher */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            background-color: #ffffff;
+            overflow: hidden;
+            font-size: 0.8125rem;
+            font-weight: 600;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            color: #6b7280;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        .lang-btn.active {
+            background-color: #111827;
+            color: #ffffff;
+        }
+
+        .header-contact-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 24px;
+            font-size: 0.9375rem;
+            color: #4b5563;
+            margin-top: 16px;
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-item svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #111827;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        /* Summary */
+        .summary-text {
+            font-size: 1rem;
+            color: #374151;
+            line-height: 1.7;
+        }
+
+        /* Item Cards */
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .item-card {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        .logo-slot {
+            width: 48px;
+            height: 48px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            background-color: #f9fafb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .entity-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .logo-placeholder-text {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: #9ca3af;
+            text-align: center;
+            line-height: 1.1;
+            padding: 2px;
+            user-select: none;
+        }
+
+        .item-content {
+            flex: 1;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .item-period {
+            font-size: 0.8125rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .item-subtitle {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: #4b5563;
+            margin-bottom: 8px;
+        }
+
+        .grade-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #111827;
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 3px;
+            padding: 2px 8px;
+            margin-bottom: 8px;
+        }
+
+        .item-bullet-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            font-size: 0.9375rem;
+            color: #374151;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .item-bullet-list li {
+            line-height: 1.5;
+        }
+
+        /* Board Style Project Cards */
+        .projects-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 16px;
+        }
+
+        .project-board-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 20px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-board-top {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
             margin-bottom: 12px;
         }
 
-        p {
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.6;
-            color: #71717a;
+        .project-board-header {
+            flex: 1;
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.75rem;
+        .project-name {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: #111827;
+            line-height: 1.25;
+            margin-bottom: 4px;
+        }
+
+        .project-meta-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+            font-size: 0.8125rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .project-association {
+            color: #374151;
+            font-weight: 600;
+        }
+
+        .project-desc {
+            font-size: 0.875rem;
+            color: #374151;
+            line-height: 1.55;
+            margin-bottom: 14px;
+            flex: 1;
+        }
+
+        .project-footer {
+            margin-top: auto;
+            border-top: 1px solid #f3f4f6;
+            padding-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .project-skill-badge {
+            font-size: 0.75rem;
+            font-weight: 500;
+            background-color: #f4f4f5;
+            color: #3f3f46;
+            border: 1px solid #e4e4e7;
+            padding: 2px 7px;
+            border-radius: 3px;
+        }
+
+        .project-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 0.8125rem;
+            font-weight: 500;
+        }
+
+        .project-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #111827;
+            text-decoration: none;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 4px 10px;
+            background-color: #ffffff;
+        }
+
+        .project-link-btn:hover {
+            background-color: #f9fafb;
+            border-color: #9ca3af;
+        }
+
+        .project-link-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        /* Tags and Skills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* Simple 1-column grid for certifications and awards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .simple-card {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            background-color: #ffffff;
+        }
+
+        .simple-card .card-info {
+            flex: 1;
+        }
+
+        .simple-card .card-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 2px;
+        }
+
+        .simple-card .card-issuer {
+            font-size: 0.8125rem;
+            color: #6b7280;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 24px;
+            margin-top: 60px;
+            font-size: 0.8125rem;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 28px 16px 60px 16px;
             }
 
-            p {
-                font-size: 0.9375rem;
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-titles h1 {
+                font-size: 1.875rem;
+            }
+
+            .projects-board {
+                grid-template-columns: 1fr;
+            }
+
+            .item-card {
+                gap: 12px;
+            }
+
+            .logo-slot {
+                width: 40px;
+                height: 40px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                gap: 2px;
             }
         }
     </style>
 </head>
 <body>
-    <main class="container">
-        <div class="status-tag">Portfolio</div>
-        <h1>Em construção</h1>
-        <p>O novo website estará disponível brevemente.</p>
-    </main>
+
+<div class="container">
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="header-titles">
+                <h1>Tanjil Khan</h1>
+                <div class="role" data-i18n="role">Software Engineer</div>
+            </div>
+            <div class="lang-switch" role="group" aria-label="Language Selector">
+                <button type="button" class="lang-btn active" id="btn-pt" onclick="setLanguage('pt')">PT</button>
+                <button type="button" class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+            </div>
+        </div>
+
+        <div class="header-contact-list">
+            <span class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span data-i18n="location">Moreira da Maia, Porto, Portugal</span>
+            </span>
+            <span class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:tanjilkh@gmail.com">tanjilkh@gmail.com</a>
+            </span>
+            <span class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.9 0-1.63.73-1.63 1.64s.73 1.63 1.63 1.63c.9 0 1.63-.73 1.63-1.63s-.73-1.64-1.63-1.64z"/></svg>
+                <a href="https://www.linkedin.com/in/tanjil-khan" target="_blank" rel="noopener noreferrer">linkedin.com/in/tanjil-khan</a>
+            </span>
+            <span class="contact-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <a href="https://github.com/tskxz/" target="_blank" rel="noopener noreferrer">github.com/tskxz</a>
+            </span>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section>
+        <h2 class="section-title" data-i18n="aboutTitle">Sobre</h2>
+        <p class="summary-text" data-i18n="aboutText">
+            Engenheiro de Software com sólida experiência em desenvolvimento web moderno, arquiteturas serverless e infraestrutura. Experiência prática na construção de aplicações escaláveis com Nuxt 3, TypeScript, Laravel, Cloudflare Workers e gestão de bases de dados relacionais e edge.
+        </p>
+    </section>
+
+    <!-- Projects (Board Layout) -->
+    <section>
+        <h2 class="section-title" data-i18n="projectsTitle">Projetos</h2>
+        <div class="projects-board" id="projects-container">
+            <!-- Project cards dynamically or statically injected with full i18n support -->
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section>
+        <h2 class="section-title" data-i18n="experienceTitle">Experiência Profissional</h2>
+        <div class="item-list">
+
+            <!-- Cogniwave -->
+            <article class="item-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/cogniwave.png" alt="Logótipo Cogniwave" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <h3 class="item-title">Cogniwave</h3>
+                        <span class="item-period" data-i18n="exp1Period">março de 2025 - julho de 2025</span>
+                    </div>
+                    <div class="item-subtitle"><span data-i18n="exp1Role">Web Developer</span> &middot; Portugal</div>
+                    <div class="grade-tag" data-i18n="exp1Grade">Nota: 20/20</div>
+                    <ul class="item-bullet-list" data-i18n-list="exp1Bullets">
+                        <li>Desenvolvimento de uma plataforma web para memoriais de animais utilizando Nuxt 3 e TypeScript.</li>
+                        <li>Construção de arquitetura serverless implementada em Cloudflare Workers com NuxtHub para edge deployment e Drizzle ORM para operações de base de dados.</li>
+                        <li>Integração com Brevo para envio de emails transacionais e configuração de GitHub Actions para automação de CI/CD.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Filipa de Vilhena -->
+            <article class="item-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/filipa-de-vilhena.png" alt="Logótipo Filipa de Vilhena" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <h3 class="item-title">Filipa de Vilhena</h3>
+                        <span class="item-period" data-i18n="exp2Period">junho de 2023 - julho de 2023</span>
+                    </div>
+                    <div class="item-subtitle"><span data-i18n="exp2Role">Web Developer</span> &middot; Porto, Portugal</div>
+                    <div class="grade-tag" data-i18n="exp2Grade">Nota: 19/20</div>
+                    <ul class="item-bullet-list" data-i18n-list="exp2Bullets">
+                        <li>Criação de um sistema de gestão de conteúdos (CMS) administrativo para o projeto "Eco-Escolas" usando Laravel e Livewire.</li>
+                        <li>Desenvolvimento de funcionalidades dinâmicas CRUD permitindo a professores autorizados criar e editar secções de páginas personalizadas com envio de texto e imagens.</li>
+                        <li>Construção de interfaces de utilizador reativas com componentes Livewire e lógica estruturada de base de dados via Eloquent ORM / MySQL.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Colegio Caja General de Ahorros de Granada -->
+            <article class="item-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/colegio-caja-granada.png" alt="Logótipo Colegio Caja General de Ahorros de Granada" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <h3 class="item-title">Colegio Caja General de Ahorros de Granada</h3>
+                        <span class="item-period" data-i18n="exp3Period">maio de 2023 - junho de 2023</span>
+                    </div>
+                    <div class="item-subtitle"><span data-i18n="exp3Role">Computer Technician</span> &middot; Granada, Espanha</div>
+                    <ul class="item-bullet-list" data-i18n-list="exp3Bullets">
+                        <li>Atualização do website institucional em Wix, ajustando a estrutura de páginas e layouts para melhorar a experiência do utilizador (UI/UX).</li>
+                        <li>Implementação do Reboot Restore Rx em postos de trabalho públicos para restaurar automaticamente alterações de sistema não autorizadas após reinicialização.</li>
+                        <li>Otimização do desempenho do Windows através da edição de chaves de registo (Regedit), desativação de serviços de arranque não essenciais e limpeza de caches do sistema.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- AGIFODENT -->
+            <article class="item-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/agifodent.png" alt="Logótipo AGIFODENT" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <h3 class="item-title">AGIFODENT</h3>
+                        <span class="item-period" data-i18n="exp4Period">maio de 2023</span>
+                    </div>
+                    <div class="item-subtitle"><span data-i18n="exp4Role">IT Technician</span> &middot; Granada, Espanha</div>
+                    <ul class="item-bullet-list" data-i18n-list="exp4Bullets">
+                        <li>Implementação de distribuições Linux ultra-leves (Tiny Core Linux e antiX) em portáteis de baixo desempenho, ajustando a escolha do SO a fortes restrições de hardware, RAM e armazenamento.</li>
+                        <li>Transporte físico e instalação de múltiplos servidores pesados para locais designados, assegurando a configuração e implementação segura do equipamento.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Palacio de Congresos -->
+            <article class="item-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/palacio-congresos-granada.png" alt="Logótipo Palacio de Congresos de Granada" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <h3 class="item-title">Palacio de Exposiciones y Congresos de Granada SA</h3>
+                        <span class="item-period" data-i18n="exp5Period">maio de 2023</span>
+                    </div>
+                    <div class="item-subtitle"><span data-i18n="exp5Role">Stage Technician</span> &middot; Granada, Espanha</div>
+                    <ul class="item-bullet-list" data-i18n-list="exp5Bullets">
+                        <li>Gestão de iluminação de palco ao vivo, sistemas de som e equipamento de projeção durante eventos no Palacio de Congresos de Granada.</li>
+                        <li>Operação de consolas de mistura AV e iluminação em tempo real, assegurando a execução sonora e visual para audiências ao vivo.</li>
+                        <li>Configuração, testes e manutenção preventiva de tecnologia de palco para prevenir falhas durante eventos.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Vanguarda Soluções e Gestão -->
+            <article class="item-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/vanguarda.png" alt="Logótipo Vanguarda Soluções e Gestão" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <h3 class="item-title">Vanguarda Soluções e Gestão</h3>
+                        <span class="item-period" data-i18n="exp6Period">maio de 2022 - julho de 2022</span>
+                    </div>
+                    <div class="item-subtitle"><span data-i18n="exp6Role">Support Worker</span> &middot; Maia, Portugal</div>
+                    <div class="grade-tag" data-i18n="exp6Grade">Nota: 19/20</div>
+                    <ul class="item-bullet-list" data-i18n-list="exp6Bullets">
+                        <li>Gestão de tickets de suporte técnico L1/L2, diagnóstico de problemas e encaminhamento de bugs complexos para a equipa de desenvolvimento.</li>
+                        <li>Administração remota de servidores com AnyDesk e RDP para aceder com segurança a infraestruturas e recuperar dados críticos.</li>
+                        <li>Tratamento de transferências de dados confidenciais em estrito cumprimento de protocolos de privacidade e normas de segurança interna.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Shopping Brasília -->
+            <article class="item-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/shopping-brasilia.png" alt="Logótipo Shopping Brasília" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <h3 class="item-title">Shopping Brasília</h3>
+                        <span class="item-period" data-i18n="exp7Period">junho de 2011 - março de 2014</span>
+                    </div>
+                    <div class="item-subtitle"><span data-i18n="exp7Role">Store Associate</span> &middot; Porto, Portugal</div>
+                    <ul class="item-bullet-list" data-i18n-list="exp7Bullets">
+                        <li>Processamento de transações financeiras de clientes como operador de caixa.</li>
+                        <li>Gestão de preços de inventário e reposição contínua de stock.</li>
+                        <li>Atendimento e apoio ao cliente, assegurando uma experiência positiva e manutenção da organização do espaço comercial.</li>
+                    </ul>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+        <h2 class="section-title" data-i18n="educationTitle">Formação Académica</h2>
+        <div class="item-list">
+
+            <!-- ISTEC Licenciatura -->
+            <article class="item-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/istec.png" alt="Logótipo ISTEC Porto" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <h3 class="item-title">ISTEC - Instituto Superior de Tecnologias Avançadas do Porto</h3>
+                        <span class="item-period">setembro de 2025 - setembro de 2028</span>
+                    </div>
+                    <div class="item-subtitle" data-i18n="edu1Degree">Nível 6, Licenciatura em Engenharia Informática (Computer Software Engineering)</div>
+                </div>
+            </article>
+
+            <!-- ISTEC CTESP -->
+            <article class="item-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/istec.png" alt="Logótipo ISTEC Porto" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <h3 class="item-title">ISTEC - Instituto Superior de Tecnologias Avançadas do Porto</h3>
+                        <span class="item-period">outubro de 2023 - setembro de 2025</span>
+                    </div>
+                    <div class="item-subtitle" data-i18n="edu2Degree">Nível 5, CTESP em Desenvolvimento de Software</div>
+                </div>
+            </article>
+
+            <!-- Filipa de Vilhena -->
+            <article class="item-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/filipa-de-vilhena.png" alt="Logótipo Escola Secundária Filipa de Vilhena" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="item-content">
+                    <div class="item-header">
+                        <h3 class="item-title">Escola Secundária Filipa de Vilhena</h3>
+                        <span class="item-period">setembro de 2020 - julho de 2023</span>
+                    </div>
+                    <div class="item-subtitle" data-i18n="edu3Degree">Nível 4, Técnico de Gestão e Programação de Sistemas Informáticos</div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Honors & Awards -->
+    <section>
+        <h2 class="section-title" data-i18n="awardsTitle">Prémios e Distinções</h2>
+        <div class="cards-grid">
+            <div class="simple-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/natixis-hackathon.png" alt="Logótipo Natixis Hackathon" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="card-info">
+                    <div class="card-title" data-i18n="award1Title">3º Lugar - Natixis Hackathon 2024</div>
+                    <div class="card-issuer">Natixis &middot; 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section>
+        <h2 class="section-title" data-i18n="certificationsTitle">Certificações</h2>
+        <div class="cards-grid">
+
+            <div class="simple-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/cert-mcp.png" alt="Certificado Introduction to Model Context Protocol" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">Introduction to Model Context Protocol</div>
+                    <div class="card-issuer" data-i18n="cert1Issuer">Certificação de Competências</div>
+                </div>
+            </div>
+
+            <div class="simple-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/cert-aws.png" alt="Certificado AWS Technical Essentials" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">AWS Technical Essentials</div>
+                    <div class="card-issuer">Amazon Web Services (AWS)</div>
+                </div>
+            </div>
+
+            <div class="simple-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/cert-natixis.png" alt="Certificado Natixis Big Data Engineer" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">Natixis Certificate of Participation - Big Data Engineer</div>
+                    <div class="card-issuer">Natixis</div>
+                </div>
+            </div>
+
+            <div class="simple-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/cert-nodejs.png" alt="Certificado Node.js, Express, MongoDB & More Bootcamp" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">Node.js, Express, MongoDB & More: The Complete Bootcamp</div>
+                    <div class="card-issuer" data-i18n="cert4Issuer">Bootcamp de Desenvolvimento Web Backend</div>
+                </div>
+            </div>
+
+            <div class="simple-card">
+                <div class="logo-slot">
+                    <img src="assets/images/logos/cert-jornadas.png" alt="Certificado VII Jornadas de Engenharia de Sistemas" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">VII Jornadas de Engenharia de Sistemas</div>
+                    <div class="card-issuer" data-i18n="cert5Issuer">Engenharia de Sistemas</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills & Languages -->
+    <section>
+        <h2 class="section-title" data-i18n="skillsTitle">Competências & Tecnologias</h2>
+        <div class="skills-grid">
+            <span class="skill-tag">Software Infrastructure</span>
+            <span class="skill-tag">Web Development</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">C# / .NET</span>
+            <span class="skill-tag">Rust</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">Nuxt 3 / Vue</span>
+            <span class="skill-tag">Next.js / React</span>
+            <span class="skill-tag">React Native / Expo</span>
+            <span class="skill-tag">Laravel / Livewire</span>
+            <span class="skill-tag">Node.js & Express</span>
+            <span class="skill-tag">LangChain & LLMs</span>
+            <span class="skill-tag">Cloudflare Workers</span>
+            <span class="skill-tag">Drizzle ORM</span>
+            <span class="skill-tag">MySQL / SQLite</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">CI/CD (GitHub Actions)</span>
+            <span class="skill-tag">Linux</span>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title" data-i18n="languagesTitle">Idiomas</h2>
+        <div class="skills-grid">
+            <span class="skill-tag"><strong data-i18n="langPt">Português:</strong> <span data-i18n="langPtLevel">Nativo ou Bilingue</span></span>
+            <span class="skill-tag"><strong data-i18n="langEn">Inglês:</strong> <span data-i18n="langEnLevel">Nível Profissional / Trabalho</span></span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year"></span> Tanjil Khan &middot; <span data-i18n="footerText">Portfólio Pessoal</span></p>
+    </footer>
+</div>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const projectsData = [
+        {
+            id: "bvrgym",
+            name: "BVRGym - Personal Android App Lifting Recorder",
+            period: { pt: "julho de 2026 - agosto de 2026", en: "Jul 2026 – Aug 2026" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-bvrgym.png",
+            desc: {
+                pt: "Aplicação Android pessoal desenvolvida em Kotlin no Android Studio para gravar treinos no ginásio de forma focada e leve, sem anúncios nem distrações comuns de outras apps de gravação de vídeo.",
+                en: "Personal Android app built with Kotlin in Android Studio to record gym training sessions without the ads and distractions common in other video-recording apps."
+            },
+            skills: ["Kotlin", "Android Studio", "Mobile Development"],
+            github: "https://github.com/tskxz/"
+        },
+        {
+            id: "chefllama",
+            name: "Chefllama - Personal Chef AI Agent",
+            period: { pt: "agosto de 2026", en: "Aug 2026" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-chefllama.png",
+            desc: {
+                pt: "Agente de IA desenvolvido em Python, LangChain e llama3.2 que combina visão computacional multimodal e pesquisa web em tempo real (Tavily API e Ollama/LLaVA) para apoiar utilizadores na criação personalizada de receitas e planeamento de refeições.",
+                en: "AI agent built with Python, LangChain, and llama3.2 that combines computer vision and real-time web search via Tavily API and Ollama/LLaVA to assist users with personalized recipe creation."
+            },
+            skills: ["Python", "LangChain", "llama3.2", "LLaVA", "Ollama", "Tavily API"],
+            github: "https://github.com/tskxz/chefllama"
+        },
+        {
+            id: "hrbetting",
+            name: "HRBetting – Football Analytics",
+            period: { pt: "maio de 2026 - agosto de 2026", en: "May 2026 – Aug 2026" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-hrbetting.png",
+            desc: {
+                pt: "Plataforma de análise de futebol com modelos estatísticos de Poisson e Skellam em C#/.NET, expondo resultados através de uma API Next.js na Vercel para website público e bot de Telegram automatizado. Integração com Stripe para subscrições, Supabase e Resend.",
+                en: "Football analytics platform built with C#/.NET, Next.js, and Vercel. Statistical engine running Poisson & Skellam models exposed via Next.js API, with Stripe billing, Supabase, and Telegram Bot."
+            },
+            skills: ["C# / .NET", "Next.js", "Vercel", "Stripe", "Supabase", "Telegram Bot API"],
+            github: "https://github.com/tskxz/hrbetting-api"
+        },
+        {
+            id: "andantesys",
+            name: "AndanteSys - Ecosystem simulator for the Porto Metro",
+            period: { pt: "maio de 2026 - junho de 2026", en: "May 2026 – Jun 2026" },
+            association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
+            logo: "assets/images/logos/project-andantesys.png",
+            desc: {
+                pt: "Simulador do ecossistema de bilhética do Metro do Porto desenvolvido em C# e WPF. Separa a gestão Backoffice de cartões do validador Frontoffice, cobrindo regras dos passes Gold e Blue com padrões de desenho orientados a objetos e UML.",
+                en: "C# and WPF application simulating the Metro do Porto ticketing ecosystem. Separates Backoffice card management from a Frontoffice validator, implementing OOP and UML design patterns."
+            },
+            skills: ["C#", "WPF", "OOP", "UML", "Desktop Development"],
+            github: "https://github.com/tskxz/andante-sys"
+        },
+        {
+            id: "sonix",
+            name: "SoniX – Lightweight Terminal Audio Player",
+            period: { pt: "fevereiro de 2026", en: "Feb 2026" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-sonix.png",
+            desc: {
+                pt: "Leitor de áudio em linha de comandos (CLI) desenvolvido em Rust, utilizando a biblioteca crossterm para controlo por teclado e playback_rs para descodificação e reprodução de som com reposição de terminal limpa.",
+                en: "Terminal audio player written in Rust, using crossterm for keyboard-driven interaction and playback_rs for audio decoding and playback with clean terminal state restoration."
+            },
+            skills: ["Rust", "Crossterm", "CLI", "Audio Processing"],
+            github: "https://github.com/tskxz/sonix"
+        },
+        {
+            id: "matrix",
+            name: "Matrix - Linear Algebra & Encryption Engine",
+            period: { pt: "novembro de 2025 - dezembro de 2025", en: "Nov 2025 – Dec 2025" },
+            association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
+            logo: "assets/images/logos/project-matrix.png",
+            desc: {
+                pt: "Aplicação Flask para operações de álgebra linear e algoritmos de encriptação matricial através de interface web. Inclui cobertura de testes com Pytest e pipeline de CI contínuo com GitHub Actions.",
+                en: "Flask web application for matrix operations and linear-algebra-based encryption algorithms, with automated Pytest coverage and GitHub Actions CI pipeline."
+            },
+            skills: ["Python", "Flask", "Linear Algebra", "Pytest", "CI/CD"],
+            github: "https://github.com/tskxz/matrix"
+        },
+        {
+            id: "metalify",
+            name: "Metalify - Metal Music Curator and Band Collection App",
+            period: { pt: "abril de 2025 - maio de 2025", en: "Apr 2025 – May 2025" },
+            association: { pt: "Cogniwave", en: "Cogniwave" },
+            logo: "assets/images/logos/project-metalify.png",
+            desc: {
+                pt: "Aplicação full-stack em Nuxt.js e Vuetify para gestão e curadoria de bandas de metal por género. Autenticação JWT, persistência com SQLite e Cloudflare D1, monitorização com Sentry e deploy no NuxtHub.",
+                en: "Full-stack application built with Nuxt.js and Vuetify for metal band management by genre. Features JWT auth, SQLite, Cloudflare D1, Sentry error monitoring, and NuxtHub edge deployment."
+            },
+            skills: ["Nuxt.js", "Vuetify", "SQLite", "Cloudflare D1", "NuxtHub", "Sentry"],
+            github: "https://github.com/tskxz/metalify"
+        },
+        {
+            id: "electrocycle",
+            name: "ElectroCycle - MERN Full-Stack E-Commerce Platform",
+            period: { pt: "outubro de 2024 - março de 2025", en: "Oct 2024 – Mar 2025" },
+            association: { pt: "ISTEC Porto (Projeto Final)", en: "ISTEC Porto (Final Project)" },
+            logo: "assets/images/logos/project-electrocycle.png",
+            desc: {
+                pt: "Plataforma de e-commerce e agendamento para reparação e revenda de eletrodomésticos, apoiando modelos de economia circular. Desenvolvida com MongoDB, Express.js, React, Node.js e pagamentos PayPal.",
+                en: "E-commerce and service scheduling platform for appliance repair and resale supporting circular economy. Built on MongoDB, Express.js, React, Node.js, and PayPal payments."
+            },
+            skills: ["React.js", "Node.js", "Express.js", "MongoDB", "PayPal API"],
+            github: "https://github.com/tskxz/ElectroCycle"
+        },
+        {
+            id: "stockmaster",
+            name: "StockMaster – Warehouse & Inventory Platform",
+            period: { pt: "janeiro de 2025 - março de 2025", en: "Jan 2025 – Mar 2025" },
+            association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
+            logo: "assets/images/logos/project-stockmaster.png",
+            desc: {
+                pt: "Sistema de gestão de armazém e controlo de stock em tempo real na stack MERN. Inclui proteção com JWT, administração de produtos e categorias, registo de movimentos de entrada/saída e relatórios.",
+                en: "Warehouse management system on the MERN stack for real-time stock control, inventory tracking, category administration, and warehouse movement reporting."
+            },
+            skills: ["MERN Stack", "JWT", "Express.js", "Node.js", "MongoDB"],
+            github: "https://github.com/tskxz/stockmaster"
+        },
+        {
+            id: "vertex",
+            name: "Vertex - AI Chatbot for Programmers",
+            period: { pt: "novembro de 2024 - fevereiro de 2025", en: "Nov 2024 – Feb 2025" },
+            association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
+            logo: "assets/images/logos/project-vertex.png",
+            desc: {
+                pt: "Assistente de programação inteligente em React e Express.js para depuração de erros, geração de código e explicações técnicas com integração da API OpenAI em tempo real.",
+                en: "AI programming assistant built with React and Express.js for debugging, code generation, and technical explanations powered by OpenAI API."
+            },
+            skills: ["React.js", "Express.js", "OpenAI API", "Node.js"],
+            github: "https://github.com/VertexAI-pt/VertexAI"
+        },
+        {
+            id: "flavorcraft",
+            name: "FlavorCraft – Recipe Culinary Platform",
+            period: { pt: "dezembro de 2024 - janeiro de 2025", en: "Dec 2024 – Jan 2025" },
+            association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
+            logo: "assets/images/logos/project-flavorcraft.png",
+            desc: {
+                pt: "Aplicação móvel multiplataforma de receitas em React Native e Expo com backend REST API em Node.js e Express ligado a base de dados MongoDB e Mongoose.",
+                en: "Cross-platform mobile recipe app built with React Native and Expo, backed by a Node.js and Express REST API connected to MongoDB and Mongoose."
+            },
+            skills: ["React Native", "Expo", "Node.js", "Express.js", "MongoDB"],
+            github: "https://github.com/tskxz/flavor-craft"
+        },
+        {
+            id: "schetech",
+            name: "schetech - Tech Repair Scheduling REST API",
+            period: { pt: "novembro de 2024", en: "Nov 2024" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-schetech.png",
+            desc: {
+                pt: "API REST em Node.js, Express.js e MongoDB para agendamento de serviços de reparação técnica, marcações de visitas ao domicílio, autenticação JWT e encriptação bcrypt em arquitetura MVC.",
+                en: "REST API for tech repair workflows, appointments, technician scheduling, JWT authentication, and bcrypt password hashing using MVC structure."
+            },
+            skills: ["Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "REST API"],
+            github: "https://github.com/tskxz/schetech"
+        },
+        {
+            id: "metalshop",
+            name: "MetalShop – Heavy Metal Merchandise E-Commerce",
+            period: { pt: "junho de 2024 - outubro de 2024", en: "Jun 2024 – Oct 2024" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-metalshop.png",
+            desc: {
+                pt: "Plataforma de comércio eletrónico MERN para merchandise de heavy metal com gestão de estado global em Redux, pagamentos integrados com PayPal, encomendas e painel administrativo.",
+                en: "MERN e-commerce application for heavy metal merchandise, featuring Redux state management, PayPal payments, order handling, and administration."
+            },
+            skills: ["React.js", "Redux", "Node.js", "Express.js", "PayPal API", "MongoDB"],
+            github: "https://github.com/tskxz/MetalShop"
+        },
+        {
+            id: "macros4ever",
+            name: "Macros4Ever – Food & Nutrition Management API",
+            period: { pt: "setembro de 2024", en: "Sep 2024" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-macros4ever.png",
+            desc: {
+                pt: "API backend em Node.js e Express para gestão de base de dados nutricional, com middlewares de validação, processos de aprovação de alimentos e documentação Postman.",
+                en: "Node.js and Express API for maintaining a detailed food and nutrition database, with validation middlewares and Postman testing/documentation."
+            },
+            skills: ["Node.js", "Express.js", "Postman", "Backend Development"],
+            github: "https://github.com/tskxz/macros4ever"
+        },
+        {
+            id: "sixpackacademy",
+            name: "SixPackAcademy - Gym Platform & Appointment Management",
+            period: { pt: "maio de 2024 - julho de 2024", en: "May 2024 – Jul 2024" },
+            association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
+            logo: "assets/images/logos/project-sixpackacademy.png",
+            desc: {
+                pt: "Aplicação web em PHP e MySQL para gestão de ginásio, integração com Calendly para marcação de massagens e fisioterapia, notificações SMTP via PHPMailer e área administrativa.",
+                en: "PHP and MySQL web application for gym operations, with Calendly integration for appointments, custom SMTP via PHPMailer, and administration area."
+            },
+            skills: ["PHP", "MySQL", "Calendly API", "PHPMailer", "SMTP"],
+            github: "https://github.com/sixpackacademy/experimental_view6p"
+        },
+        {
+            id: "tablebook",
+            name: "TableBook – Restaurant Reservation System",
+            period: { pt: "junho de 2024 - julho de 2024", en: "Jun 2024 – Jul 2024" },
+            association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
+            logo: "assets/images/logos/project-tablebook.png",
+            desc: {
+                pt: "Sistema de reserva de mesas e pedidos para restaurantes em Python, Flask e MongoDB/PyMongo com seleção e personalização de pratos.",
+                en: "Restaurant table and meal reservation web application built with Python, Flask, MongoDB, and PyMongo."
+            },
+            skills: ["Python", "Flask", "MongoDB", "PyMongo"],
+            github: "https://github.com/tskxz/reservarmesa-bifes"
+        },
+        {
+            id: "browsemuscle",
+            name: "BrowseMuscle - Fitness Management Platform",
+            period: { pt: "agosto de 2022 - abril de 2023", en: "Aug 2022 – Apr 2023" },
+            association: { pt: "Escola Secundária Filipa de Vilhena", en: "Filipa de Vilhena" },
+            logo: "assets/images/logos/project-browsemuscle.png",
+            desc: {
+                pt: "Plataforma fitness full-stack desenvolvida em Node.js, Sequelize e MySQL em arquitetura MVC com planos de treino personalizados e alojamento em VPS Debian Linux.",
+                en: "Full-stack fitness platform built with Node.js, Sequelize, and MySQL in MVC architecture, deployed and self-hosted on a Debian Linux VPS."
+            },
+            skills: ["Node.js", "Sequelize", "MySQL", "MVC", "Debian Linux VPS"],
+            github: "https://github.com/tskxz/browsemuscle"
+        },
+        {
+            id: "weatherdata",
+            name: "WeatherData – Node.js Weather Forecast CLI",
+            period: { pt: "novembro de 2020", en: "Nov 2020" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-weatherdata.png",
+            desc: {
+                pt: "Ferramenta CLI em Node.js que consulta dados meteorológicos em tempo real através da OpenWeather API e formata previsões diretamente no terminal.",
+                en: "Node.js command-line application that retrieves real-time weather forecasts from the OpenWeather API and formats data for terminal output."
+            },
+            skills: ["Node.js", "CLI", "OpenWeather API", "REST API"],
+            github: "https://github.com/tskxz/"
+        },
+        {
+            id: "farmersteamcards",
+            name: "FarmerSteamCards - Automated Steam Card Farming Tool",
+            period: { pt: "março de 2020 - julho de 2020", en: "Mar 2020 – Jul 2020" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-farmersteamcards.png",
+            desc: {
+                pt: "Ferramenta em linha de comandos Node.js para automatizar o 'farming' de cartas Steam sem necessidade de instalar jogos, utilizando a biblioteca steam-user para emular sessões headless.",
+                en: "Node.js CLI tool automating Steam trading-card farming without game installations, using steam-user to emulate headless client sessions."
+            },
+            skills: ["Node.js", "steam-user", "CLI Automation"],
+            github: "https://github.com/tskxz/FarmerSteamCards"
+        },
+        {
+            id: "escolhaacertada",
+            name: "Escolha-Acertada – Real Estate Data Scraper & Analytics",
+            period: { pt: "junho de 2020", en: "Jun 2020" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-escolhaacertada.png",
+            desc: {
+                pt: "Projeto de recolha e tratamento de dados imobiliários na web com Python, BeautifulSoup, Requests, Pandas e Jupyter Notebook, transformando dados não-estruturados em datasets CSV.",
+                en: "Python real-estate web scraper and data processing tool built with BeautifulSoup, Requests, Pandas, and Jupyter Notebook to generate analytical CSV datasets."
+            },
+            skills: ["Python", "BeautifulSoup", "Pandas", "Web Scraping", "Jupyter"],
+            github: "https://github.com/tskxz/Escolha-Acertada"
+        },
+        {
+            id: "portometeorologia",
+            name: "Porto-Meteorologia-População – Weather & Choropleth Map Engine",
+            period: { pt: "maio de 2020", en: "May 2020" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-portometeorologia.png",
+            desc: {
+                pt: "Aplicação Python que combina web scraping de meteorologia do Porto com mapas coropléticos interativos em Folium baseados em dados demográficos populacionais globais.",
+                en: "Python application combining Porto weather scraping with interactive geospatial choropleth maps using Folium and global demographic data."
+            },
+            skills: ["Python", "Folium", "BeautifulSoup", "Geospatial", "Data Viz"],
+            github: "https://github.com/tskxz/Porto-Meteorologia-Populacao"
+        },
+        {
+            id: "supergeocoder",
+            name: "SuperGeocoder – Automated Address Geocoding Tool",
+            period: { pt: "abril de 2020", en: "Apr 2020" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-supergeocoder.png",
+            desc: {
+                pt: "Aplicação web em Flask para enriquecimento automático de ficheiros CSV com coordenadas de latitude e longitude através de GeoPy e geocodificação ArcGIS.",
+                en: "Flask web application that automatically enriches uploaded CSV files with latitude and longitude coordinates using Pandas, GeoPy, and ArcGIS geocoding."
+            },
+            skills: ["Python", "Flask", "Pandas", "GeoPy", "ArcGIS API"],
+            github: "https://github.com/tskxz/SuperGeocoder"
+        },
+        {
+            id: "motiondetection",
+            name: "Real-Time Object Motion Detection & Data Viz Engine",
+            period: { pt: "março de 2020", en: "Mar 2020" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-motiondetection.png",
+            desc: {
+                pt: "Sistema de deteção de movimento em tempo real com Python e OpenCV a partir de câmara de vídeo, registando intervalos de movimento em Pandas DataFrames e gerando gráficos temporais com Bokeh.",
+                en: "Real-time motion-detection system developed with Python and OpenCV on video feed, logging timestamps to Pandas DataFrames and rendering interactive time-series charts with Bokeh."
+            },
+            skills: ["Python", "OpenCV", "Pandas", "Bokeh", "Computer Vision"],
+            github: "https://github.com/tskxz/detect-objects-webcam"
+        }
+    ];
+
+    const translations = {
+        pt: {
+            role: "Software Engineer",
+            location: "Moreira da Maia, Porto, Portugal",
+            aboutTitle: "Sobre",
+            aboutText: "Engenheiro de Software com sólida experiência em desenvolvimento web moderno, arquiteturas serverless e infraestrutura. Experiência prática na construção de aplicações escaláveis com Nuxt 3, TypeScript, Laravel, Cloudflare Workers e gestão de bases de dados relacionais e edge.",
+            projectsTitle: "Projetos",
+            experienceTitle: "Experiência Profissional",
+            exp1Period: "março de 2025 - julho de 2025",
+            exp1Role: "Web Developer",
+            exp1Grade: "Nota: 20/20",
+            exp1Bullets: [
+                "Desenvolvimento de uma plataforma web para memoriais de animais utilizando Nuxt 3 e TypeScript.",
+                "Construção de arquitetura serverless implementada em Cloudflare Workers com NuxtHub para edge deployment e Drizzle ORM para operações de base de dados.",
+                "Integração com Brevo para envio de emails transacionais e configuração de GitHub Actions para automação de CI/CD."
+            ],
+            exp2Period: "junho de 2023 - julho de 2023",
+            exp2Role: "Web Developer",
+            exp2Grade: "Nota: 19/20",
+            exp2Bullets: [
+                "Criação de um sistema de gestão de conteúdos (CMS) administrativo para o projeto \"Eco-Escolas\" usando Laravel e Livewire.",
+                "Desenvolvimento de funcionalidades dinâmicas CRUD permitindo a professores autorizados criar e editar secções de páginas personalizadas com envio de texto e imagens.",
+                "Construção de interfaces de utilizador reativas com componentes Livewire e lógica estruturada de base de dados via Eloquent ORM / MySQL."
+            ],
+            exp3Period: "maio de 2023 - junho de 2023",
+            exp3Role: "Computer Technician",
+            exp3Bullets: [
+                "Atualização do website institucional em Wix, ajustando a estrutura de páginas e layouts para melhorar a experiência do utilizador (UI/UX).",
+                "Implementação do Reboot Restore Rx em postos de trabalho públicos para restaurar automaticamente alterações de sistema não autorizadas após reinicialização.",
+                "Otimização do desempenho do Windows através da edição de chaves de registo (Regedit), desativação de serviços de arranque não essenciais e limpeza de caches do sistema."
+            ],
+            exp4Period: "maio de 2023",
+            exp4Role: "IT Technician",
+            exp4Bullets: [
+                "Implementação de distribuições Linux ultra-leves (Tiny Core Linux e antiX) em portáteis de baixo desempenho, ajustando a escolha do SO a fortes restrições de hardware, RAM e armazenamento.",
+                "Transporte físico e instalação de múltiplos servidores pesados para locais designados, assegurando a configuração e implementação segura do equipamento."
+            ],
+            exp5Period: "maio de 2023",
+            exp5Role: "Stage Technician",
+            exp5Bullets: [
+                "Gestão de iluminação de palco ao vivo, sistemas de som e equipamento de projeção durante eventos no Palacio de Congresos de Granada.",
+                "Operação de consolas de mistura AV e iluminação em tempo real, assegurando a execução sonora e visual para audiências ao vivo.",
+                "Configuração, testes e manutenção preventiva de tecnologia de palco para prevenir falhas durante eventos."
+            ],
+            exp6Period: "maio de 2022 - julho de 2022",
+            exp6Role: "Support Worker",
+            exp6Grade: "Nota: 19/20",
+            exp6Bullets: [
+                "Gestão de tickets de suporte técnico L1/L2, diagnóstico de problemas e encaminhamento de bugs complexos para a equipa de desenvolvimento.",
+                "Administração remota de servidores com AnyDesk e RDP para aceder com segurança a infraestruturas e recuperar dados críticos.",
+                "Tratamento de transferências de dados confidenciais em estrito cumprimento de protocolos de privacidade e normas de segurança interna."
+            ],
+            exp7Period: "junho de 2011 - março de 2014",
+            exp7Role: "Store Associate",
+            exp7Bullets: [
+                "Processamento de transações financeiras de clientes como operador de caixa.",
+                "Gestão de preços de inventário e reposição contínua de stock.",
+                "Atendimento e apoio ao cliente, assegurando uma experiência positiva e manutenção da organização do espaço comercial."
+            ],
+            educationTitle: "Formação Académica",
+            edu1Degree: "Nível 6, Licenciatura em Engenharia Informática (Computer Software Engineering)",
+            edu2Degree: "Nível 5, CTESP em Desenvolvimento de Software",
+            edu3Degree: "Nível 4, Técnico de Gestão e Programação de Sistemas Informáticos",
+            awardsTitle: "Prémios e Distinções",
+            award1Title: "3º Lugar - Natixis Hackathon 2024",
+            certificationsTitle: "Certificações",
+            cert1Issuer: "Certificação de Competências",
+            cert4Issuer: "Bootcamp de Desenvolvimento Web Backend",
+            cert5Issuer: "Engenharia de Sistemas",
+            skillsTitle: "Competências & Tecnologias",
+            languagesTitle: "Idiomas",
+            langPt: "Português:",
+            langPtLevel: "Nativo ou Bilingue",
+            langEn: "Inglês:",
+            langEnLevel: "Nível Profissional / Trabalho",
+            footerText: "Portfólio Pessoal",
+            viewCode: "Ver no GitHub"
+        },
+        en: {
+            role: "Software Engineer",
+            location: "Moreira da Maia, Porto, Portugal",
+            aboutTitle: "About",
+            aboutText: "Software Engineer with solid experience in modern web development, serverless architectures, and infrastructure. Practical background building scalable web applications using Nuxt 3, TypeScript, Laravel, Cloudflare Workers, and managing relational & edge databases.",
+            projectsTitle: "Projects",
+            experienceTitle: "Professional Experience",
+            exp1Period: "March 2025 - July 2025",
+            exp1Role: "Web Developer",
+            exp1Grade: "Grade: 20/20",
+            exp1Bullets: [
+                "Developed a web platform for animal memorials using Nuxt 3 and TypeScript.",
+                "Built a serverless architecture deployed on Cloudflare Workers using NuxtHub for edge deployment and Drizzle ORM for database operations.",
+                "Integrated Brevo for transactional emails and set up GitHub Actions for CI/CD automation."
+            ],
+            exp2Period: "June 2023 - July 2023",
+            exp2Role: "Web Developer",
+            exp2Grade: "Grade: 19/20",
+            exp2Bullets: [
+                "Built an admin content management system (CMS) for the \"Eco-Escolas\" project using Laravel and Livewire.",
+                "Developed dynamic CRUD features allowing authorized teachers to create and edit custom page sections with text and image uploads.",
+                "Built reactive user interfaces using Livewire components and structured database logic via Eloquent ORM / MySQL."
+            ],
+            exp3Period: "May 2023 - June 2023",
+            exp3Role: "Computer Technician",
+            exp3Bullets: [
+                "Updated the institutional website on Wix, adjusting page structure and layouts to improve UI/UX.",
+                "Implemented Reboot Restore Rx on public workstations to automatically revert unauthorized system changes upon restart.",
+                "Optimized Windows performance by editing registry keys (Regedit), disabling non-essential startup services, and clearing system caches."
+            ],
+            exp4Period: "May 2023",
+            exp4Role: "IT Technician",
+            exp4Bullets: [
+                "Deployed ultra-lightweight Linux distributions such as Tiny Core Linux and antiX on low-spec laptops, tailoring OS selection to severe hardware, RAM, and storage constraints.",
+                "Handled the physical transport and installation of multiple heavy servers to designated workspace sites, ensuring safe equipment deployment and setup."
+            ],
+            exp5Period: "May 2023",
+            exp5Role: "Stage Technician",
+            exp5Bullets: [
+                "Managed live stage lighting, sound systems, and projection equipment during events at Palacio de Congresos de Granada.",
+                "Operated AV and lighting mixing consoles in real time, ensuring seamless audio and visual execution for live audiences.",
+                "Performed setup, testing, and preventive maintenance of stage technology to avoid equipment failure during events."
+            ],
+            exp6Period: "May 2022 - July 2022",
+            exp6Role: "Support Worker",
+            exp6Grade: "Grade: 19/20",
+            exp6Bullets: [
+                "Managed L1/L2 IT support tickets, diagnosing incoming issues and escalating complex bugs to the development team.",
+                "Provided remote server administration using AnyDesk and RDP to access infrastructure and retrieve sensitive data securely.",
+                "Handled confidential data transfers while adhering to privacy protocols and internal security standards."
+            ],
+            exp7Period: "June 2011 - March 2014",
+            exp7Role: "Store Associate",
+            exp7Bullets: [
+                "Processed customer transactions as a Cashier.",
+                "Managed inventory pricing and stock replenishment.",
+                "Provided customer support ensuring a positive shopping experience and maintaining shop organization."
+            ],
+            educationTitle: "Education",
+            edu1Degree: "Level 6, Bachelor in Computer Software Engineering",
+            edu2Degree: "Level 5, Higher Professional Technical Diploma (CTESP) in Software Development",
+            edu3Degree: "Level 4, IT Systems Management and Programming Technician",
+            awardsTitle: "Honors & Awards",
+            award1Title: "3rd Place - Natixis Hackathon 2024",
+            certificationsTitle: "Certifications",
+            cert1Issuer: "Skills Certification",
+            cert4Issuer: "Backend Web Development Bootcamp",
+            cert5Issuer: "Systems Engineering",
+            skillsTitle: "Skills & Technologies",
+            languagesTitle: "Languages",
+            langPt: "Portuguese:",
+            langPtLevel: "Native or Bilingual",
+            langEn: "English:",
+            langEnLevel: "Professional Working Proficiency",
+            footerText: "Personal Portfolio",
+            viewCode: "View on GitHub"
+        }
+    };
+
+    function renderProjects(lang) {
+        const container = document.getElementById('projects-container');
+        if (!container) return;
+
+        const githubIconSvg = `<svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>`;
+
+        container.innerHTML = projectsData.map(p => {
+            const period = p.period[lang] || p.period.pt;
+            const association = p.association[lang] || p.association.pt;
+            const desc = p.desc[lang] || p.desc.pt;
+            const btnLabel = translations[lang].viewCode;
+
+            const skillsHtml = p.skills.map(s => `<span class="project-skill-badge">${s}</span>`).join('');
+
+            return `
+                <article class="project-board-card">
+                    <div>
+                        <div class="project-board-top">
+                            <div class="logo-slot">
+                                <img src="${p.logo}" alt="Logótipo ${p.name}" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                            </div>
+                            <div class="project-board-header">
+                                <h3 class="project-name">${p.name}</h3>
+                                <div class="project-meta-line">
+                                    <span class="project-association">${association}</span>
+                                    <span>&middot;</span>
+                                    <span>${period}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="project-desc">${desc}</p>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-skills">${skillsHtml}</div>
+                        ${p.github ? `
+                        <div class="project-links">
+                            <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                                ${githubIconSvg}
+                                <span>${btnLabel}</span>
+                            </a>
+                        </div>` : ''}
+                    </div>
+                </article>
+            `;
+        }).join('');
+    }
+
+    function setLanguage(lang) {
+        if (!translations[lang]) return;
+
+        localStorage.setItem('preferred_lang', lang);
+        document.documentElement.lang = lang;
+
+        document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+        // Translate data-i18n elements
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key] !== undefined) {
+                el.textContent = translations[lang][key];
+            }
+        });
+
+        // Translate list elements
+        document.querySelectorAll('[data-i18n-list]').forEach(el => {
+            const key = el.getAttribute('data-i18n-list');
+            const items = translations[lang][key];
+            if (Array.isArray(items)) {
+                el.innerHTML = '';
+                items.forEach(text => {
+                    const li = document.createElement('li');
+                    li.textContent = text;
+                    el.appendChild(li);
+                });
+            }
+        });
+
+        // Render projects board in selected language
+        renderProjects(lang);
+    }
+
+    // Initialize with stored or browser language
+    (function initLang() {
+        const stored = localStorage.getItem('preferred_lang');
+        if (stored && (stored === 'pt' || stored === 'en')) {
+            setLanguage(stored);
+        } else {
+            setLanguage('pt');
+        }
+    })();
+</script>
+
 </body>
 </html>
