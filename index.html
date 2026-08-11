@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,46 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --slot-bg: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-body: #374151;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --border-subtle: #f3f4f6;
+            --tag-bg: #f4f4f5;
+            --tag-text: #3f3f46;
+            --tag-border: #e4e4e7;
+            --btn-border: #d1d5db;
+            --btn-hover-bg: #f9fafb;
+            --btn-active-bg: #111827;
+            --btn-active-text: #ffffff;
+            --code-bg: #f3f4f6;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --card-bg: #18181b;
+            --slot-bg: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-body: #d4d4d8;
+            --text-muted: #71717a;
+            --border-color: #27272a;
+            --border-subtle: #27272a;
+            --tag-bg: #27272a;
+            --tag-text: #e4e4e7;
+            --tag-border: #3f3f46;
+            --btn-border: #3f3f46;
+            --btn-hover-bg: #27272a;
+            --btn-active-bg: #f4f4f5;
+            --btn-active-text: #121212;
+            --code-bg: #27272a;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,21 +57,21 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            color: #111827;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
         a {
-            color: #111827;
+            color: var(--text-primary);
             text-decoration: underline;
             text-underline-offset: 3px;
         }
 
         a:hover {
-            color: #4b5563;
+            color: var(--text-secondary);
         }
 
         .container {
@@ -42,9 +82,9 @@
 
         /* Header */
         header {
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 32px;
-            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 24px;
+            margin-bottom: 36px;
         }
 
         .header-top {
@@ -59,43 +99,50 @@
             font-size: 2.25rem;
             font-weight: 700;
             letter-spacing: -0.03em;
-            color: #111827;
+            color: var(--text-primary);
             line-height: 1.1;
         }
 
         .header-titles .role {
             font-size: 1.25rem;
             font-weight: 500;
-            color: #4b5563;
+            color: var(--text-secondary);
             margin-top: 6px;
         }
 
-        /* Language Switcher */
-        .lang-switch {
+        .controls-group {
             display: flex;
             align-items: center;
-            border: 1px solid #d1d5db;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Switchers (Language & Theme) */
+        .toggle-switch {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid var(--btn-border);
             border-radius: 4px;
-            background-color: #ffffff;
+            background-color: var(--card-bg);
             overflow: hidden;
             font-size: 0.8125rem;
             font-weight: 600;
         }
 
-        .lang-btn {
+        .toggle-btn {
             background: none;
             border: none;
             padding: 6px 12px;
             cursor: pointer;
-            color: #6b7280;
+            color: var(--text-muted);
             font-family: inherit;
             font-size: inherit;
             font-weight: inherit;
         }
 
-        .lang-btn.active {
-            background-color: #111827;
-            color: #ffffff;
+        .toggle-btn.active {
+            background-color: var(--btn-active-bg);
+            color: var(--btn-active-text);
         }
 
         .header-contact-list {
@@ -103,7 +150,7 @@
             flex-wrap: wrap;
             gap: 16px 24px;
             font-size: 0.9375rem;
-            color: #4b5563;
+            color: var(--text-secondary);
             margin-top: 16px;
         }
 
@@ -120,17 +167,47 @@
             flex-shrink: 0;
         }
 
+        /* Navigation Bar */
+        .nav-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .nav-link {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-body);
+            text-decoration: none;
+            background-color: var(--slot-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 6px 14px;
+        }
+
+        .nav-link:hover {
+            background-color: var(--btn-hover-bg);
+            color: var(--text-primary);
+            border-color: var(--btn-border);
+            text-decoration: none;
+        }
+
         /* Sections */
         section {
             margin-bottom: 48px;
+            scroll-margin-top: 24px;
         }
 
         .section-title {
             font-size: 0.875rem;
             font-weight: 700;
             letter-spacing: 0.05em;
-            color: #111827;
-            border-bottom: 1px solid #e5e7eb;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 8px;
             margin-bottom: 24px;
             text-transform: uppercase;
@@ -139,7 +216,7 @@
         /* Summary */
         .summary-text {
             font-size: 1rem;
-            color: #374151;
+            color: var(--text-body);
             line-height: 1.7;
         }
 
@@ -159,9 +236,9 @@
         .logo-slot {
             width: 48px;
             height: 48px;
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--border-color);
             border-radius: 6px;
-            background-color: #f9fafb;
+            background-color: var(--slot-bg);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -180,7 +257,7 @@
         .logo-placeholder-text {
             font-size: 0.6875rem;
             font-weight: 600;
-            color: #9ca3af;
+            color: var(--text-muted);
             text-align: center;
             line-height: 1.1;
             padding: 2px;
@@ -203,19 +280,19 @@
         .item-title {
             font-size: 1.0625rem;
             font-weight: 600;
-            color: #111827;
+            color: var(--text-primary);
         }
 
         .item-period {
             font-size: 0.8125rem;
-            color: #6b7280;
+            color: var(--text-muted);
             font-weight: 500;
         }
 
         .item-subtitle {
             font-size: 0.9375rem;
             font-weight: 500;
-            color: #4b5563;
+            color: var(--text-secondary);
             margin-bottom: 8px;
         }
 
@@ -223,9 +300,9 @@
             display: inline-block;
             font-size: 0.75rem;
             font-weight: 600;
-            color: #111827;
-            background-color: #f3f4f6;
-            border: 1px solid #e5e7eb;
+            color: var(--text-primary);
+            background-color: var(--tag-bg);
+            border: 1px solid var(--tag-border);
             border-radius: 3px;
             padding: 2px 8px;
             margin-bottom: 8px;
@@ -235,7 +312,7 @@
             list-style-type: disc;
             padding-left: 20px;
             font-size: 0.9375rem;
-            color: #374151;
+            color: var(--text-body);
             display: flex;
             flex-direction: column;
             gap: 6px;
@@ -253,10 +330,10 @@
         }
 
         .project-board-card {
-            border: 1px solid #e5e7eb;
+            border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: var(--card-bg);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -276,7 +353,7 @@
         .project-name {
             font-size: 1.0625rem;
             font-weight: 600;
-            color: #111827;
+            color: var(--text-primary);
             line-height: 1.25;
             margin-bottom: 4px;
         }
@@ -286,18 +363,18 @@
             flex-wrap: wrap;
             gap: 6px 12px;
             font-size: 0.8125rem;
-            color: #6b7280;
+            color: var(--text-muted);
             font-weight: 500;
         }
 
         .project-association {
-            color: #374151;
+            color: var(--text-body);
             font-weight: 600;
         }
 
         .project-desc {
             font-size: 0.875rem;
-            color: #374151;
+            color: var(--text-body);
             line-height: 1.55;
             margin-bottom: 14px;
             flex: 1;
@@ -305,7 +382,7 @@
 
         .project-footer {
             margin-top: auto;
-            border-top: 1px solid #f3f4f6;
+            border-top: 1px solid var(--border-subtle);
             padding-top: 12px;
             display: flex;
             flex-direction: column;
@@ -321,9 +398,9 @@
         .project-skill-badge {
             font-size: 0.75rem;
             font-weight: 500;
-            background-color: #f4f4f5;
-            color: #3f3f46;
-            border: 1px solid #e4e4e7;
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            border: 1px solid var(--tag-border);
             padding: 2px 7px;
             border-radius: 3px;
         }
@@ -336,27 +413,96 @@
             font-weight: 500;
         }
 
-        .project-link-btn {
+        .project-link-btn, .action-btn {
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            color: #111827;
+            color: var(--text-primary);
             text-decoration: none;
-            border: 1px solid #d1d5db;
+            border: 1px solid var(--btn-border);
             border-radius: 4px;
-            padding: 4px 10px;
-            background-color: #ffffff;
+            padding: 5px 10px;
+            background-color: var(--card-bg);
+            font-size: 0.8125rem;
+            font-weight: 500;
         }
 
-        .project-link-btn:hover {
-            background-color: #f9fafb;
-            border-color: #9ca3af;
+        .project-link-btn:hover, .action-btn:hover {
+            background-color: var(--btn-hover-bg);
+            border-color: var(--btn-border);
+            text-decoration: none;
         }
 
-        .project-link-btn svg {
+        .project-link-btn svg, .action-btn svg {
             width: 14px;
             height: 14px;
             fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* Certificates Cards */
+        .cert-card {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 18px;
+            background-color: var(--card-bg);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cert-header {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .cert-title-block {
+            flex: 1;
+        }
+
+        .cert-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+
+        .cert-issuer {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .cert-cred-info {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 12px;
+            background-color: var(--slot-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 8px 12px;
+        }
+
+        .cred-code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.78125rem;
+            background-color: var(--code-bg);
+            padding: 1px 5px;
+            border-radius: 3px;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .cert-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 4px;
         }
 
         /* Tags and Skills */
@@ -369,9 +515,9 @@
         .skill-tag {
             font-size: 0.8125rem;
             font-weight: 500;
-            background-color: #f3f4f6;
-            color: #1f2937;
-            border: 1px solid #e5e7eb;
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            border: 1px solid var(--tag-border);
             padding: 4px 10px;
             border-radius: 4px;
         }
@@ -380,42 +526,16 @@
         .cards-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 14px;
-        }
-
-        .simple-card {
-            display: flex;
             gap: 16px;
-            align-items: flex-start;
-            padding: 14px;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            background-color: #ffffff;
-        }
-
-        .simple-card .card-info {
-            flex: 1;
-        }
-
-        .simple-card .card-title {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 2px;
-        }
-
-        .simple-card .card-issuer {
-            font-size: 0.8125rem;
-            color: #6b7280;
         }
 
         /* Footer */
         footer {
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid var(--border-color);
             padding-top: 24px;
             margin-top: 60px;
             font-size: 0.8125rem;
-            color: #6b7280;
+            color: var(--text-muted);
             text-align: center;
         }
 
@@ -450,6 +570,19 @@
                 flex-direction: column;
                 gap: 2px;
             }
+
+            .nav-bar {
+                gap: 6px;
+            }
+
+            .nav-link {
+                font-size: 0.8125rem;
+                padding: 5px 10px;
+            }
+
+            .cert-actions {
+                justify-content: flex-start;
+            }
         }
     </style>
 </head>
@@ -463,9 +596,17 @@
                 <h1>Tanjil Khan</h1>
                 <div class="role" data-i18n="role">Software Engineer</div>
             </div>
-            <div class="lang-switch" role="group" aria-label="Language Selector">
-                <button type="button" class="lang-btn active" id="btn-pt" onclick="setLanguage('pt')">PT</button>
-                <button type="button" class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+            <div class="controls-group">
+                <!-- Theme Switcher -->
+                <div class="toggle-switch" role="group" aria-label="Seletor de Tema">
+                    <button type="button" class="toggle-btn active" id="btn-theme-light" onclick="setTheme('light')" data-i18n="themeLight">Claro</button>
+                    <button type="button" class="toggle-btn" id="btn-theme-dark" onclick="setTheme('dark')" data-i18n="themeDark">Escuro</button>
+                </div>
+                <!-- Language Switcher -->
+                <div class="toggle-switch" role="group" aria-label="Language Selector">
+                    <button type="button" class="toggle-btn active" id="btn-pt" onclick="setLanguage('pt')">PT</button>
+                    <button type="button" class="toggle-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+                </div>
             </div>
         </div>
 
@@ -487,10 +628,20 @@
                 <a href="https://github.com/tskxz/" target="_blank" rel="noopener noreferrer">github.com/tskxz</a>
             </span>
         </div>
+
+        <!-- Navigation bar -->
+        <nav class="nav-bar" aria-label="Navegação rápida">
+            <a href="#about" class="nav-link" data-i18n="navAbout">Sobre</a>
+            <a href="#education" class="nav-link" data-i18n="navEducation">Educação</a>
+            <a href="#experience" class="nav-link" data-i18n="navExperience">Experiência</a>
+            <a href="#projects" class="nav-link" data-i18n="navProjects">Projetos</a>
+            <a href="#certifications" class="nav-link" data-i18n="navCertifications">Certificados & Prémios</a>
+            <a href="#languages" class="nav-link" data-i18n="navLanguages">Idiomas</a>
+        </nav>
     </header>
 
     <!-- About -->
-    <section>
+    <section id="about">
         <h2 class="section-title" data-i18n="aboutTitle">Sobre</h2>
         <p class="summary-text" data-i18n="aboutText">
             Engenheiro de Software com sólida experiência em desenvolvimento web moderno, arquiteturas serverless e infraestrutura. Experiência prática na construção de aplicações escaláveis com Nuxt 3, TypeScript, Laravel, Cloudflare Workers e gestão de bases de dados relacionais e edge.
@@ -498,7 +649,7 @@
     </section>
 
     <!-- 1. Education / Formação Académica -->
-    <section>
+    <section id="education">
         <h2 class="section-title" data-i18n="educationTitle">Formação Académica</h2>
         <div class="item-list">
 
@@ -551,7 +702,7 @@
     </section>
 
     <!-- 2. Experience / Experiência Profissional -->
-    <section>
+    <section id="experience">
         <h2 class="section-title" data-i18n="experienceTitle">Experiência Profissional</h2>
         <div class="item-list">
 
@@ -701,7 +852,7 @@
     </section>
 
     <!-- 3. Projects / Projetos (Board Layout) -->
-    <section>
+    <section id="projects">
         <h2 class="section-title" data-i18n="projectsTitle">Projetos</h2>
         <div class="projects-board" id="projects-container">
             <!-- Rendered by JS -->
@@ -709,82 +860,15 @@
     </section>
 
     <!-- 4. Certifications & Honors / Certificados e Distinções -->
-    <section>
+    <section id="certifications">
         <h2 class="section-title" data-i18n="certificationsTitle">Certificados & Prémios</h2>
-        <div class="cards-grid">
-
-            <!-- Prémio Hackathon Natixis -->
-            <div class="simple-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/natixis-hackathon.png" alt="Logótipo Natixis Hackathon" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-title" data-i18n="award1Title">3º Lugar - Natixis Hackathon 2024</div>
-                    <div class="card-issuer">Natixis &middot; 2024</div>
-                </div>
-            </div>
-
-            <div class="simple-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/cert-mcp.png" alt="Certificado Introduction to Model Context Protocol" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-title">Introduction to Model Context Protocol</div>
-                    <div class="card-issuer" data-i18n="cert1Issuer">Certificação de Competências</div>
-                </div>
-            </div>
-
-            <div class="simple-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/cert-aws.png" alt="Certificado AWS Technical Essentials" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-title">AWS Technical Essentials</div>
-                    <div class="card-issuer">Amazon Web Services (AWS)</div>
-                </div>
-            </div>
-
-            <div class="simple-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/cert-natixis.png" alt="Certificado Natixis Big Data Engineer" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-title">Natixis Certificate of Participation - Big Data Engineer</div>
-                    <div class="card-issuer">Natixis</div>
-                </div>
-            </div>
-
-            <div class="simple-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/cert-nodejs.png" alt="Certificado Node.js, Express, MongoDB & More Bootcamp" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-title">Node.js, Express, MongoDB & More: The Complete Bootcamp</div>
-                    <div class="card-issuer" data-i18n="cert4Issuer">Bootcamp de Desenvolvimento Web Backend</div>
-                </div>
-            </div>
-
-            <div class="simple-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/cert-jornadas.png" alt="Certificado VII Jornadas de Engenharia de Sistemas" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-title">VII Jornadas de Engenharia de Sistemas</div>
-                    <div class="card-issuer" data-i18n="cert5Issuer">Engenharia de Sistemas</div>
-                </div>
-            </div>
-
+        <div class="cards-grid" id="certificates-container">
+            <!-- Rendered by JS with download PDF, Credential ID and URL -->
         </div>
     </section>
 
-    <!-- Languages -->
-    <section>
+    <!-- 5. Languages / Idiomas -->
+    <section id="languages">
         <h2 class="section-title" data-i18n="languagesTitle">Idiomas</h2>
         <div class="skills-grid">
             <span class="skill-tag"><strong data-i18n="langPt">Português:</strong> <span data-i18n="langPtLevel">Nativo ou Bilingue</span></span>
@@ -1076,19 +1160,6 @@
             github: "https://github.com/tskxz/Porto-Meteorologia-Populacao"
         },
         {
-            id: "supergeocoder",
-            name: "SuperGeocoder – Automated Address Geocoding Tool",
-            period: { pt: "abril de 2020", en: "Apr 2020" },
-            association: { pt: "Projeto Pessoal", en: "Personal Project" },
-            logo: "assets/images/logos/project-supergeocoder.png",
-            desc: {
-                pt: "Aplicação web em Flask para enriquecimento automático de ficheiros CSV com coordenadas de latitude e longitude através de GeoPy e geocodificação ArcGIS.",
-                en: "Flask web application that automatically enriches uploaded CSV files with latitude and longitude coordinates using Pandas, GeoPy, and ArcGIS geocoding."
-            },
-            skills: ["Python", "Flask", "Pandas", "GeoPy", "ArcGIS API"],
-            github: "https://github.com/tskxz/SuperGeocoder"
-        },
-        {
             id: "motiondetection",
             name: "Real-Time Object Motion Detection & Data Viz Engine",
             period: { pt: "março de 2020", en: "Mar 2020" },
@@ -1103,10 +1174,81 @@
         }
     ];
 
+    const certificatesData = [
+        {
+            id: "hackathon",
+            title: { pt: "3º Lugar - Natixis Hackathon 2024", en: "3rd Place - Natixis Hackathon 2024" },
+            issuer: "Natixis",
+            date: "2024",
+            logo: "assets/images/logos/natixis-hackathon.png",
+            pdf: "assets/certificates/award-natixis-hackathon.pdf",
+            credentialId: "NATIXIS-HACK-2024",
+            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
+        },
+        {
+            id: "mcp",
+            title: { pt: "Introduction to Model Context Protocol", en: "Introduction to Model Context Protocol" },
+            issuer: "Anthropic / Model Context Protocol",
+            date: "2025",
+            logo: "assets/images/logos/cert-mcp.png",
+            pdf: "assets/certificates/cert-mcp.pdf",
+            credentialId: "MCP-2025-TK",
+            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
+        },
+        {
+            id: "aws",
+            title: { pt: "AWS Technical Essentials", en: "AWS Technical Essentials" },
+            issuer: "Amazon Web Services (AWS)",
+            date: "2024",
+            logo: "assets/images/logos/cert-aws.png",
+            pdf: "assets/certificates/cert-aws-technical-essentials.pdf",
+            credentialId: "AWS-TE-2024",
+            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
+        },
+        {
+            id: "natixis-bd",
+            title: { pt: "Natixis Certificate of Participation - Big Data Engineer", en: "Natixis Certificate of Participation - Big Data Engineer" },
+            issuer: "Natixis",
+            date: "2024",
+            logo: "assets/images/logos/cert-natixis.png",
+            pdf: "assets/certificates/cert-natixis-bigdata.pdf",
+            credentialId: "NATIXIS-BDE-2024",
+            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
+        },
+        {
+            id: "nodejs",
+            title: { pt: "Node.js, Express, MongoDB & More: The Complete Bootcamp", en: "Node.js, Express, MongoDB & More: The Complete Bootcamp" },
+            issuer: "Udemy",
+            date: "2024",
+            logo: "assets/images/logos/cert-nodejs.png",
+            pdf: "assets/certificates/cert-nodejs-bootcamp.pdf",
+            credentialId: "UC-NODE-EXP-MONGO",
+            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
+        },
+        {
+            id: "jornadas",
+            title: { pt: "VII Jornadas de Engenharia de Sistemas", en: "VII Jornadas de Engenharia de Sistemas" },
+            issuer: "ISTEC Porto",
+            date: "2023",
+            logo: "assets/images/logos/cert-jornadas.png",
+            pdf: "assets/certificates/cert-jornadas-sistemas.pdf",
+            credentialId: "ISTEC-VII-JES",
+            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
+        }
+    ];
+
     const translations = {
         pt: {
             role: "Software Engineer",
             location: "Moreira da Maia, Porto, Portugal",
+            themeLight: "Claro",
+            themeDark: "Escuro",
+            navAbout: "Sobre",
+            navEducation: "Educação",
+            navExperience: "Experiência",
+            navProjects: "Projetos",
+            navCertifications: "Certificados & Prémios",
+            navLanguages: "Idiomas",
             aboutTitle: "Sobre",
             aboutText: "Engenheiro de Software com sólida experiência em desenvolvimento web moderno, arquiteturas serverless e infraestrutura. Experiência prática na construção de aplicações escaláveis com Nuxt 3, TypeScript, Laravel, Cloudflare Workers e gestão de bases de dados relacionais e edge.",
             educationTitle: "Formação Académica",
@@ -1170,10 +1312,9 @@
             ],
             projectsTitle: "Projetos",
             certificationsTitle: "Certificados & Prémios",
-            award1Title: "3º Lugar - Natixis Hackathon 2024",
-            cert1Issuer: "Certificação de Competências",
-            cert4Issuer: "Bootcamp de Desenvolvimento Web Backend",
-            cert5Issuer: "Engenharia de Sistemas",
+            credIdLabel: "ID da Credencial:",
+            downloadPdfBtn: "Descarregar PDF",
+            verifyUrlBtn: "Ver Credencial",
             languagesTitle: "Idiomas",
             langPt: "Português:",
             langPtLevel: "Nativo ou Bilingue",
@@ -1185,6 +1326,14 @@
         en: {
             role: "Software Engineer",
             location: "Moreira da Maia, Porto, Portugal",
+            themeLight: "Light",
+            themeDark: "Dark",
+            navAbout: "About",
+            navEducation: "Education",
+            navExperience: "Experience",
+            navProjects: "Projects",
+            navCertifications: "Certifications & Awards",
+            navLanguages: "Languages",
             aboutTitle: "About",
             aboutText: "Software Engineer with solid experience in modern web development, serverless architectures, and infrastructure. Practical background building scalable web applications using Nuxt 3, TypeScript, Laravel, Cloudflare Workers, and managing relational & edge databases.",
             educationTitle: "Education",
@@ -1248,10 +1397,9 @@
             ],
             projectsTitle: "Projects",
             certificationsTitle: "Certifications & Awards",
-            award1Title: "3rd Place - Natixis Hackathon 2024",
-            cert1Issuer: "Skills Certification",
-            cert4Issuer: "Backend Web Development Bootcamp",
-            cert5Issuer: "Systems Engineering",
+            credIdLabel: "Credential ID:",
+            downloadPdfBtn: "Download PDF",
+            verifyUrlBtn: "Verify Credential",
             languagesTitle: "Languages",
             langPt: "Portuguese:",
             langPtLevel: "Native or Bilingual",
@@ -1310,6 +1458,60 @@
         }).join('');
     }
 
+    function renderCertificates(lang) {
+        const container = document.getElementById('certificates-container');
+        if (!container) return;
+
+        const downloadIconSvg = `<svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>`;
+        const verifyIconSvg = `<svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>`;
+
+        const t = translations[lang];
+
+        container.innerHTML = certificatesData.map(c => {
+            const title = c.title[lang] || c.title.pt;
+
+            return `
+                <article class="cert-card">
+                    <div class="cert-header">
+                        <div class="logo-slot">
+                            <img src="${c.logo}" alt="Logótipo ${title}" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                        </div>
+                        <div class="cert-title-block">
+                            <h3 class="cert-name">${title}</h3>
+                            <div class="cert-issuer">${c.issuer} &middot; ${c.date}</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-cred-info">
+                        <span><strong>${t.credIdLabel}</strong> <code class="cred-code">${c.credentialId}</code></span>
+                    </div>
+
+                    <div class="cert-actions">
+                        ${c.pdf ? `
+                        <a href="${c.pdf}" download class="action-btn" title="${t.downloadPdfBtn}">
+                            ${downloadIconSvg}
+                            <span>${t.downloadPdfBtn}</span>
+                        </a>` : ''}
+                        ${c.credentialUrl ? `
+                        <a href="${c.credentialUrl}" target="_blank" rel="noopener noreferrer" class="action-btn" title="${t.verifyUrlBtn}">
+                            ${verifyIconSvg}
+                            <span>${t.verifyUrlBtn}</span>
+                        </a>` : ''}
+                    </div>
+                </article>
+            `;
+        }).join('');
+    }
+
+    function setTheme(theme) {
+        if (theme !== 'light' && theme !== 'dark') return;
+        localStorage.setItem('preferred_theme', theme);
+        document.documentElement.setAttribute('data-theme', theme);
+        document.getElementById('btn-theme-light').classList.toggle('active', theme === 'light');
+        document.getElementById('btn-theme-dark').classList.toggle('active', theme === 'dark');
+    }
+
     function setLanguage(lang) {
         if (!translations[lang]) return;
 
@@ -1341,17 +1543,24 @@
             }
         });
 
-        // Render projects board in selected language
+        // Render projects and certificates in selected language
         renderProjects(lang);
+        renderCertificates(lang);
     }
 
-    // Initialize with stored or browser language
-    (function initLang() {
-        const stored = localStorage.getItem('preferred_lang');
-        if (stored && (stored === 'pt' || stored === 'en')) {
-            setLanguage(stored);
+    // Initialize with stored or browser preferences
+    (function init() {
+        const storedLang = localStorage.getItem('preferred_lang');
+        const defaultLang = (storedLang === 'pt' || storedLang === 'en') ? storedLang : 'pt';
+        setLanguage(defaultLang);
+
+        const storedTheme = localStorage.getItem('preferred_theme');
+        if (storedTheme === 'dark' || storedTheme === 'light') {
+            setTheme(storedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
         } else {
-            setLanguage('pt');
+            setTheme('light');
         }
     })();
 </script>

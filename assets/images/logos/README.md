@@ -1,7 +1,3 @@
-# Logótipos / Logos
-
-Coloque aqui as imagens/logótipos com os seguintes nomes para aparecerem automaticamente no portfólio:
-
 ### Empresas e Experiência:
 - `cogniwave.png` - Cogniwave
 - `filipa-de-vilhena.png` - Filipa de Vilhena
@@ -36,7 +32,6 @@ Coloque aqui as imagens/logótipos com os seguintes nomes para aparecerem automa
 - `project-farmersteamcards.png` - FarmerSteamCards
 - `project-escolhaacertada.png` - Escolha-Acertada
 - `project-portometeorologia.png` - Porto-Meteorologia-População
-- `project-supergeocoder.png` - SuperGeocoder
 - `project-motiondetection.png` - Real-Time Object Motion Detection
 
 ### Certificações e Prémios:
