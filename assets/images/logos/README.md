@@ -35,7 +35,10 @@
 - `project-motiondetection.png` - Real-Time Object Motion Detection
 
 ### Certificações e Prémios:
+- `cert-norai.png` - NORAI Academy
+- `cert-google.png` - Google
 - `cert-mcp.png` - Introduction to Model Context Protocol
+- `cert-langchain.png` - Foundation: Introduction to LangChain - Python
 - `cert-aws.png` - AWS Technical Essentials
 - `cert-natixis.png` - Natixis Certificate of Participation Big Data Engineer
 - `cert-nodejs.png` - Node.js Bootcamp

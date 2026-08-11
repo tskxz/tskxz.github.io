@@ -132,12 +132,44 @@
         .toggle-btn {
             background: none;
             border: none;
-            padding: 6px 12px;
+            padding: 6px 10px;
             cursor: pointer;
             color: var(--text-muted);
             font-family: inherit;
             font-size: inherit;
             font-weight: inherit;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle-btn svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        .theme-toggle-btn {
+            background-color: var(--card-bg);
+            border: 1px solid var(--btn-border);
+            border-radius: 4px;
+            padding: 6px;
+            cursor: pointer;
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }
+
+        .theme-toggle-btn:hover {
+            background-color: var(--btn-hover-bg);
+            border-color: var(--btn-border);
+        }
+
+        .theme-toggle-btn svg {
+            width: 16px;
+            height: 16px;
         }
 
         .toggle-btn.active {
@@ -167,33 +199,69 @@
             flex-shrink: 0;
         }
 
-        /* Navigation Bar */
-        .nav-bar {
+        /* Dot Side Navigation */
+        .dot-nav {
+            position: fixed;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 24px;
-            padding-top: 18px;
-            border-top: 1px solid var(--border-subtle);
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            z-index: 1000;
         }
 
-        .nav-link {
-            display: inline-block;
-            font-size: 0.875rem;
+        .dot-nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .dot-nav-item a {
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--border-color);
+            border: 1.5px solid var(--text-muted);
+            text-decoration: none;
+            transition: background-color 0.15s, transform 0.15s, border-color 0.15s;
+        }
+
+        .dot-nav-item a:hover {
+            background-color: var(--text-secondary);
+            border-color: var(--text-secondary);
+            transform: scale(1.3);
+        }
+
+        .dot-nav-item a.active {
+            background-color: var(--text-primary);
+            border-color: var(--text-primary);
+            width: 10px;
+            height: 10px;
+        }
+
+        /* Tooltip */
+        .dot-nav-item .dot-label {
+            position: absolute;
+            right: 20px;
+            white-space: nowrap;
+            font-size: 0.75rem;
             font-weight: 500;
             color: var(--text-body);
-            text-decoration: none;
-            background-color: var(--slot-bg);
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 4px;
-            padding: 6px 14px;
+            padding: 4px 8px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
         }
 
-        .nav-link:hover {
-            background-color: var(--btn-hover-bg);
-            color: var(--text-primary);
-            border-color: var(--btn-border);
-            text-decoration: none;
+        .dot-nav-item:hover .dot-label {
+            opacity: 1;
         }
 
         /* Sections */
@@ -469,6 +537,20 @@
             margin-bottom: 2px;
         }
 
+        .cert-image-preview {
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        .cert-preview-img {
+            max-width: 260px;
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            display: block;
+        }
+
         .cert-issuer {
             font-size: 0.8125rem;
             color: var(--text-muted);
@@ -539,6 +621,12 @@
             text-align: center;
         }
 
+        @media (max-width: 1100px) {
+            .dot-nav {
+                display: none;
+            }
+        }
+
         @media (max-width: 640px) {
             .container {
                 padding: 28px 16px 60px 16px;
@@ -571,15 +659,6 @@
                 gap: 2px;
             }
 
-            .nav-bar {
-                gap: 6px;
-            }
-
-            .nav-link {
-                font-size: 0.8125rem;
-                padding: 5px 10px;
-            }
-
             .cert-actions {
                 justify-content: flex-start;
             }
@@ -597,11 +676,10 @@
                 <div class="role" data-i18n="role">Software Engineer</div>
             </div>
             <div class="controls-group">
-                <!-- Theme Switcher -->
-                <div class="toggle-switch" role="group" aria-label="Seletor de Tema">
-                    <button type="button" class="toggle-btn active" id="btn-theme-light" onclick="setTheme('light')" data-i18n="themeLight">Claro</button>
-                    <button type="button" class="toggle-btn" id="btn-theme-dark" onclick="setTheme('dark')" data-i18n="themeDark">Escuro</button>
-                </div>
+                <!-- Single Theme Toggle Button (Sun / Moon) -->
+                <button type="button" class="theme-toggle-btn" id="btn-theme-toggle" onclick="toggleTheme()" title="Alternar Tema / Toggle Theme" aria-label="Alternar Tema">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
                 <!-- Language Switcher -->
                 <div class="toggle-switch" role="group" aria-label="Language Selector">
                     <button type="button" class="toggle-btn active" id="btn-pt" onclick="setLanguage('pt')">PT</button>
@@ -629,23 +707,42 @@
             </span>
         </div>
 
-        <!-- Navigation bar -->
-        <nav class="nav-bar" aria-label="Navegação rápida">
-            <a href="#about" class="nav-link" data-i18n="navAbout">Sobre</a>
-            <a href="#education" class="nav-link" data-i18n="navEducation">Educação</a>
-            <a href="#experience" class="nav-link" data-i18n="navExperience">Experiência</a>
-            <a href="#projects" class="nav-link" data-i18n="navProjects">Projetos</a>
-            <a href="#certifications" class="nav-link" data-i18n="navCertifications">Certificados & Prémios</a>
-            <a href="#languages" class="nav-link" data-i18n="navLanguages">Idiomas</a>
+        <!-- Dot Navigation (Side, desktop only) -->
+        <nav class="dot-nav" aria-label="Navegação rápida">
+            <div class="dot-nav-item">
+                <a href="#about" class="nav-dot" data-section="about" data-i18n-tooltip="navAbout"></a>
+                <span class="dot-label" data-i18n="navAbout">Sobre</span>
+            </div>
+            <div class="dot-nav-item">
+                <a href="#education" class="nav-dot" data-section="education" data-i18n-tooltip="navEducation"></a>
+                <span class="dot-label" data-i18n="navEducation">Educação</span>
+            </div>
+            <div class="dot-nav-item">
+                <a href="#experience" class="nav-dot" data-section="experience" data-i18n-tooltip="navExperience"></a>
+                <span class="dot-label" data-i18n="navExperience">Experiência</span>
+            </div>
+            <div class="dot-nav-item">
+                <a href="#projects" class="nav-dot" data-section="projects" data-i18n-tooltip="navProjects"></a>
+                <span class="dot-label" data-i18n="navProjects">Projetos</span>
+            </div>
+            <div class="dot-nav-item">
+                <a href="#certifications" class="nav-dot" data-section="certifications" data-i18n-tooltip="navCertifications"></a>
+                <span class="dot-label" data-i18n="navCertifications">Certificados &amp; Prémios</span>
+            </div>
+            <div class="dot-nav-item">
+                <a href="#languages" class="nav-dot" data-section="languages" data-i18n-tooltip="navLanguages"></a>
+                <span class="dot-label" data-i18n="navLanguages">Idiomas</span>
+            </div>
         </nav>
     </header>
 
     <!-- About -->
     <section id="about">
         <h2 class="section-title" data-i18n="aboutTitle">Sobre</h2>
-        <p class="summary-text" data-i18n="aboutText">
-            Engenheiro de Software com sólida experiência em desenvolvimento web moderno, arquiteturas serverless e infraestrutura. Experiência prática na construção de aplicações escaláveis com Nuxt 3, TypeScript, Laravel, Cloudflare Workers e gestão de bases de dados relacionais e edge.
-        </p>
+        <div class="summary-text" data-i18n-html="aboutHtml">
+            <p>Estudante de Engenharia Informática no ISTEC, com foco em Backend Engineering e APIs.</p>
+            <p style="margin-top: 10px;">Desenvolvo soluções backend e REST APIs utilizando Node.js, Python e bases de dados SQL/NoSQL. Tenho também experiência Full-Stack a construir aplicações com Next.js, Nuxt, MERN e Laravel, e atualmente estou a explorar a integração de IA com LangChain.</p>
+        </div>
     </section>
 
     <!-- 1. Education / Formação Académica -->
@@ -919,7 +1016,7 @@
             association: { pt: "Projeto Pessoal", en: "Personal Project" },
             logo: "assets/images/logos/project-hrbetting.png",
             desc: {
-                pt: "Plataforma de análise de futebol com modelos estatísticos de Poisson e Skellam em C#/.NET, expondo resultados através de uma API Next.js na Vercel para website público e bot de Telegram automatizado. Integração com Stripe para subscrições, Supabase e Resend.",
+                pt: "Plataforma de análise de futebol com modelos estatísticos de Poisson e Skellam em C#/WPF, expondo resultados através de uma API Next.js na Vercel para website público e bot de Telegram automatizado. Integração com Stripe para subscrições, Supabase e Resend.",
                 en: "Football analytics platform built with C#/.NET, Next.js, and Vercel. Statistical engine running Poisson & Skellam models exposed via Next.js API, with Stripe billing, Supabase, and Telegram Bot."
             },
             skills: ["C# / .NET", "Next.js", "Vercel", "Stripe", "Supabase", "Telegram Bot API"],
@@ -1148,10 +1245,10 @@
         },
         {
             id: "portometeorologia",
-            name: "Porto-Meteorologia-População – Weather & Choropleth Map Engine",
+            name: "Porto-Meteorologia-População – Weather & Map Engine",
             period: { pt: "maio de 2020", en: "May 2020" },
             association: { pt: "Projeto Pessoal", en: "Personal Project" },
-            logo: "assets/images/logos/project-portometeorologia.png",
+            logo: "assets/images/logos/project-weatherdata.png",
             desc: {
                 pt: "Aplicação Python que combina web scraping de meteorologia do Porto com mapas coropléticos interativos em Folium baseados em dados demográficos populacionais globais.",
                 en: "Python application combining Porto weather scraping with interactive geospatial choropleth maps using Folium and global demographic data."
@@ -1176,64 +1273,90 @@
 
     const certificatesData = [
         {
-            id: "hackathon",
-            title: { pt: "3º Lugar - Natixis Hackathon 2024", en: "3rd Place - Natixis Hackathon 2024" },
-            issuer: "Natixis",
-            date: "2024",
-            logo: "assets/images/logos/natixis-hackathon.png",
-            pdf: "assets/certificates/award-natixis-hackathon.pdf",
-            credentialId: "NATIXIS-HACK-2024",
-            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
+            id: "what-is-rag",
+            title: { pt: "What is RAG? - NORAI Academy", en: "What is RAG? - NORAI Academy" },
+            issuer: "NORAI Academy",
+            date: { pt: "julho de 2026", en: "Jul 2026" },
+            logo: "assets/images/logos/norai.png",
+            pdf: "assets/certificates/cert-norai-what-is-rag.pdf",
+            credentialId: "c820ec9de62c24d6"
+        },
+        {
+            id: "gemini-multimodal-rag",
+            title: { pt: "Inspect Rich Documents with Gemini Multimodality and Multimodal RAG", en: "Inspect Rich Documents with Gemini Multimodality and Multimodal RAG" },
+            issuer: "Google",
+            date: { pt: "julho de 2026", en: "Jul 2026" },
+            logo: "assets/images/logos/google.png",
+            pdf: "assets/certificates/cert-google-gemini-multimodal-rag.pdf",
+            credentialId: "26121084"
+        },
+        {
+            id: "prompt-engineering-mastery",
+            title: { pt: "Prompt Engineering Mastery: From Foundations to Future", en: "Prompt Engineering Mastery: From Foundations to Future" },
+            issuer: "NORAI Academy",
+            date: { pt: "julho de 2026", en: "Jul 2026" },
+            logo: "assets/images/logos/norai.png",
+            pdf: "assets/certificates/cert-norai-prompt-engineering.pdf",
+            credentialId: "dc5f4ccbcd3be140"
+        },
+        {
+            id: "langchain-foundation",
+            title: { pt: "Foundation: Introduction to LangChain - Python", en: "Foundation: Introduction to LangChain - Python" },
+            issuer: "LangChain Academy",
+            date: "2026",
+            logo: "assets/images/logos/langchain.png",
+            pdf: "assets/certificates/cert-langchain-foundation.pdf",
+            credentialId: "qxjdy9xqsg"
         },
         {
             id: "mcp",
             title: { pt: "Introduction to Model Context Protocol", en: "Introduction to Model Context Protocol" },
             issuer: "Anthropic / Model Context Protocol",
-            date: "2025",
-            logo: "assets/images/logos/cert-mcp.png",
+            date: "2026",
+            logo: "assets/images/logos/anthropic.png",
             pdf: "assets/certificates/cert-mcp.pdf",
-            credentialId: "MCP-2025-TK",
-            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
+            credentialId: "pg569sbzob9i"
         },
         {
             id: "aws",
             title: { pt: "AWS Technical Essentials", en: "AWS Technical Essentials" },
             issuer: "Amazon Web Services (AWS)",
-            date: "2024",
-            logo: "assets/images/logos/cert-aws.png",
+            date: "2026",
+            logo: "assets/images/logos/aws.png",
             pdf: "assets/certificates/cert-aws-technical-essentials.pdf",
-            credentialId: "AWS-TE-2024",
-            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
-        },
-        {
-            id: "natixis-bd",
-            title: { pt: "Natixis Certificate of Participation - Big Data Engineer", en: "Natixis Certificate of Participation - Big Data Engineer" },
-            issuer: "Natixis",
-            date: "2024",
-            logo: "assets/images/logos/cert-natixis.png",
-            pdf: "assets/certificates/cert-natixis-bigdata.pdf",
-            credentialId: "NATIXIS-BDE-2024",
-            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
         },
         {
             id: "nodejs",
             title: { pt: "Node.js, Express, MongoDB & More: The Complete Bootcamp", en: "Node.js, Express, MongoDB & More: The Complete Bootcamp" },
             issuer: "Udemy",
             date: "2024",
-            logo: "assets/images/logos/cert-nodejs.png",
+            logo: "assets/images/logos/udemy.png",
             pdf: "assets/certificates/cert-nodejs-bootcamp.pdf",
-            credentialId: "UC-NODE-EXP-MONGO",
-            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
+            credentialId: "UC-5a1696cd-cfde-4906-a556-498c6682f9f2"
+        },
+        {
+            id: "hackathon",
+            title: { pt: "3º Lugar - Natixis Hackathon 2024", en: "3rd Place - Natixis Hackathon 2024" },
+            issuer: "Natixis",
+            date: "2024",
+            logo: "assets/images/logos/natixis.png",
+            pdf: "assets/certificates/award-natixis-hackathon.pdf",
+        },
+        {
+            id: "natixis-bd",
+            title: { pt: "Natixis Certificate of Participation - Big Data Engineer", en: "Natixis Certificate of Participation - Big Data Engineer" },
+            issuer: "Natixis",
+            date: "2024",
+            logo: "assets/images/logos/natixis.png",
+            pdf: "assets/certificates/cert-natixis-bigdata.pdf",
         },
         {
             id: "jornadas",
             title: { pt: "VII Jornadas de Engenharia de Sistemas", en: "VII Jornadas de Engenharia de Sistemas" },
             issuer: "ISTEC Porto",
             date: "2023",
-            logo: "assets/images/logos/cert-jornadas.png",
+            logo: "assets/images/logos/isep.png",
             pdf: "assets/certificates/cert-jornadas-sistemas.pdf",
-            credentialId: "ISTEC-VII-JES",
-            credentialUrl: "https://www.linkedin.com/in/tanjil-khan"
         }
     ];
 
@@ -1250,10 +1373,10 @@
             navCertifications: "Certificados & Prémios",
             navLanguages: "Idiomas",
             aboutTitle: "Sobre",
-            aboutText: "Engenheiro de Software com sólida experiência em desenvolvimento web moderno, arquiteturas serverless e infraestrutura. Experiência prática na construção de aplicações escaláveis com Nuxt 3, TypeScript, Laravel, Cloudflare Workers e gestão de bases de dados relacionais e edge.",
+            aboutHtml: `<p>Estudante de Engenharia Informática no ISTEC, com foco em Backend Engineering e APIs.</p><p style="margin-top: 10px;">Desenvolvo soluções backend e REST APIs utilizando Node.js, Python e bases de dados SQL/NoSQL. Tenho também experiência Full-Stack a construir aplicações com Next.js, Nuxt, MERN e Laravel, e atualmente estou a explorar a integração de IA com LangChain.</p>`,
             educationTitle: "Formação Académica",
             edu1Period: "setembro de 2025 - setembro de 2028",
-            edu1Degree: "Nível 6, Licenciatura em Engenharia Informática (Computer Software Engineering)",
+            edu1Degree: "Nível 6, Licenciatura em Engenharia Informática",
             edu2Period: "outubro de 2023 - setembro de 2025",
             edu2Degree: "Nível 5, CTESP em Desenvolvimento de Software",
             edu3Period: "setembro de 2020 - julho de 2023",
@@ -1313,13 +1436,13 @@
             projectsTitle: "Projetos",
             certificationsTitle: "Certificados & Prémios",
             credIdLabel: "ID da Credencial:",
-            downloadPdfBtn: "Descarregar PDF",
+            viewCertBtn: "Ver Certificado",
             verifyUrlBtn: "Ver Credencial",
             languagesTitle: "Idiomas",
             langPt: "Português:",
             langPtLevel: "Nativo ou Bilingue",
             langEn: "Inglês:",
-            langEnLevel: "Nível Profissional / Trabalho",
+            langEnLevel: "Nível Limitado / Trabalho (Limited working proficiency)",
             footerText: "Portfólio Pessoal",
             viewCode: "Ver no GitHub"
         },
@@ -1335,7 +1458,7 @@
             navCertifications: "Certifications & Awards",
             navLanguages: "Languages",
             aboutTitle: "About",
-            aboutText: "Software Engineer with solid experience in modern web development, serverless architectures, and infrastructure. Practical background building scalable web applications using Nuxt 3, TypeScript, Laravel, Cloudflare Workers, and managing relational & edge databases.",
+            aboutHtml: `<p>Computer Software Engineering student at ISTEC, focused on Backend Engineering and APIs.</p><p style="margin-top: 10px;">I develop backend solutions and REST APIs using Node.js, Python, and SQL/NoSQL databases. I also have Full-Stack experience building applications with Next.js, Nuxt, MERN, and Laravel, and I am currently exploring AI integration with LangChain.</p>`,
             educationTitle: "Education",
             edu1Period: "September 2025 - September 2028",
             edu1Degree: "Level 6, Bachelor in Computer Software Engineering",
@@ -1398,13 +1521,13 @@
             projectsTitle: "Projects",
             certificationsTitle: "Certifications & Awards",
             credIdLabel: "Credential ID:",
-            downloadPdfBtn: "Download PDF",
+            viewCertBtn: "View Certificate",
             verifyUrlBtn: "Verify Credential",
             languagesTitle: "Languages",
             langPt: "Portuguese:",
             langPtLevel: "Native or Bilingual",
             langEn: "English:",
-            langEnLevel: "Professional Working Proficiency",
+            langEnLevel: "Limited working proficiency",
             footerText: "Personal Portfolio",
             viewCode: "View on GitHub"
         }
@@ -1462,13 +1585,14 @@
         const container = document.getElementById('certificates-container');
         if (!container) return;
 
-        const downloadIconSvg = `<svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>`;
+        const certIconSvg = `<svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>`;
         const verifyIconSvg = `<svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>`;
 
         const t = translations[lang];
 
         container.innerHTML = certificatesData.map(c => {
             const title = c.title[lang] || c.title.pt;
+            const date = (typeof c.date === 'object') ? (c.date[lang] || c.date.pt) : c.date;
 
             return `
                 <article class="cert-card">
@@ -1479,24 +1603,25 @@
                         </div>
                         <div class="cert-title-block">
                             <h3 class="cert-name">${title}</h3>
-                            <div class="cert-issuer">${c.issuer} &middot; ${c.date}</div>
+                            <div class="cert-issuer">${c.issuer} &middot; ${date}</div>
                         </div>
                     </div>
 
+                    ${c.image ? `
+                    <div class="cert-image-preview">
+                        <img src="${c.image}" alt="${(typeof c.imageAlt === 'object' ? (c.imageAlt[lang] || c.imageAlt.pt) : c.imageAlt) || title}" class="cert-preview-img" onerror="this.parentElement.style.display='none';">
+                    </div>` : ''}
+
+                    ${c.credentialId ? `
                     <div class="cert-cred-info">
                         <span><strong>${t.credIdLabel}</strong> <code class="cred-code">${c.credentialId}</code></span>
-                    </div>
+                    </div>` : ''}
 
                     <div class="cert-actions">
                         ${c.pdf ? `
-                        <a href="${c.pdf}" download class="action-btn" title="${t.downloadPdfBtn}">
-                            ${downloadIconSvg}
-                            <span>${t.downloadPdfBtn}</span>
-                        </a>` : ''}
-                        ${c.credentialUrl ? `
-                        <a href="${c.credentialUrl}" target="_blank" rel="noopener noreferrer" class="action-btn" title="${t.verifyUrlBtn}">
-                            ${verifyIconSvg}
-                            <span>${t.verifyUrlBtn}</span>
+                        <a href="${c.pdf}" target="_blank" rel="noopener noreferrer" class="action-btn" title="${t.viewCertBtn}">
+                            ${certIconSvg}
+                            <span>${t.viewCertBtn}</span>
                         </a>` : ''}
                     </div>
                 </article>
@@ -1504,12 +1629,28 @@
         }).join('');
     }
 
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        setTheme(currentTheme === 'light' ? 'dark' : 'light');
+    }
+
     function setTheme(theme) {
         if (theme !== 'light' && theme !== 'dark') return;
         localStorage.setItem('preferred_theme', theme);
         document.documentElement.setAttribute('data-theme', theme);
-        document.getElementById('btn-theme-light').classList.toggle('active', theme === 'light');
-        document.getElementById('btn-theme-dark').classList.toggle('active', theme === 'dark');
+        
+        const btn = document.getElementById('btn-theme-toggle');
+        if (btn) {
+            if (theme === 'dark') {
+                btn.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+                btn.setAttribute('title', 'Modo Escuro / Dark Mode');
+                btn.setAttribute('aria-label', 'Modo Escuro');
+            } else {
+                btn.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+                btn.setAttribute('title', 'Modo Claro / Light Mode');
+                btn.setAttribute('aria-label', 'Modo Claro');
+            }
+        }
     }
 
     function setLanguage(lang) {
@@ -1526,6 +1667,14 @@
             const key = el.getAttribute('data-i18n');
             if (translations[lang][key] !== undefined) {
                 el.textContent = translations[lang][key];
+            }
+        });
+
+        // Translate data-i18n-html elements
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            const key = el.getAttribute('data-i18n-html');
+            if (translations[lang][key] !== undefined) {
+                el.innerHTML = translations[lang][key];
             }
         });
 
@@ -1562,6 +1711,33 @@
         } else {
             setTheme('light');
         }
+
+        // Active section tracking for dot navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navDots = document.querySelectorAll('.dot-nav .nav-dot');
+
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + 140;
+            let currentId = '';
+
+            sections.forEach(sec => {
+                const top = sec.offsetTop;
+                const height = sec.offsetHeight;
+                if (scrollPos >= top && scrollPos < top + height) {
+                    currentId = sec.getAttribute('id');
+                }
+            });
+
+            if (currentId) {
+                navDots.forEach(dot => {
+                    const section = dot.getAttribute('data-section');
+                    dot.classList.toggle('active', section === currentId);
+                });
+            }
+        }
+
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+        updateActiveNav();
     })();
 </script>
 
