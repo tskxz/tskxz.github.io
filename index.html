@@ -3,50 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tanjil Khan - Software Engineer Portfolio. Education, experience, projects and certifications.">
+    <meta name="description" content="Tanjil Khan - Software Engineer Portfolio. Backend APIs, Distributed Systems, AI Integration, and High-Performance Software.">
     <title>Tanjil Khan | Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --card-bg: #ffffff;
-            --slot-bg: #f9fafb;
-            --text-primary: #111827;
-            --text-secondary: #4b5563;
-            --text-body: #374151;
-            --text-muted: #6b7280;
-            --border-color: #e5e7eb;
-            --border-subtle: #f3f4f6;
+            --bg-color: #fafafa;
+            --surface-bg: #ffffff;
+            --surface-elevated: #ffffff;
+            --slot-bg: #f4f4f5;
+            --slot-border: #e4e4e7;
+            
+            --text-primary: #09090b;
+            --text-secondary: #52525b;
+            --text-body: #3f3f46;
+            --text-muted: #71717a;
+            
+            --border-color: #e4e4e7;
+            --border-subtle: #f4f4f5;
+            --border-strong: #d4d4d8;
+            
             --tag-bg: #f4f4f5;
-            --tag-text: #3f3f46;
+            --tag-text: #27272a;
             --tag-border: #e4e4e7;
-            --btn-border: #d1d5db;
-            --btn-hover-bg: #f9fafb;
-            --btn-active-bg: #111827;
+            
+            --btn-border: #d4d4d8;
+            --btn-bg: #ffffff;
+            --btn-hover-bg: #f4f4f5;
+            --btn-active-bg: #09090b;
             --btn-active-text: #ffffff;
-            --code-bg: #f3f4f6;
+            
+            --code-bg: #f4f4f5;
+            --code-text: #09090b;
+            
+            --accent-emerald: #10b981;
+            --accent-emerald-bg: #ecfdf5;
+            --accent-emerald-border: #a7f3d0;
+            --accent-emerald-text: #047857;
+            
+            --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+            --shadow-diffusion: 0 12px 32px -12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 16px 36px -10px rgba(0, 0, 0, 0.12);
+            
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+            
+            --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         [data-theme="dark"] {
-            --bg-color: #121212;
-            --card-bg: #18181b;
-            --slot-bg: #27272a;
+            --bg-color: #09090b;
+            --surface-bg: #121214;
+            --surface-elevated: #18181b;
+            --slot-bg: #18181b;
+            --slot-border: #27272a;
+            
             --text-primary: #f4f4f5;
             --text-secondary: #a1a1aa;
             --text-body: #d4d4d8;
             --text-muted: #71717a;
+            
             --border-color: #27272a;
-            --border-subtle: #27272a;
-            --tag-bg: #27272a;
+            --border-subtle: #18181b;
+            --border-strong: #3f3f46;
+            
+            --tag-bg: #18181b;
             --tag-text: #e4e4e7;
-            --tag-border: #3f3f46;
-            --btn-border: #3f3f46;
-            --btn-hover-bg: #27272a;
+            --tag-border: #27272a;
+            
+            --btn-border: #27272a;
+            --btn-bg: #121214;
+            --btn-hover-bg: #1e1e22;
             --btn-active-bg: #f4f4f5;
-            --btn-active-text: #121212;
-            --code-bg: #27272a;
+            --btn-active-text: #09090b;
+            
+            --code-bg: #18181b;
+            --code-text: #f4f4f5;
+            
+            --accent-emerald: #10b981;
+            --accent-emerald-bg: #064e3b33;
+            --accent-emerald-border: #065f46;
+            --accent-emerald-text: #34d399;
+            
+            --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+            --shadow-diffusion: 0 16px 36px -12px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
         }
 
         * {
@@ -55,161 +100,188 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.25s var(--ease-spring), color 0.25s var(--ease-spring);
         }
 
         a {
-            color: var(--text-primary);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        a:hover {
-            color: var(--text-secondary);
+            color: inherit;
+            text-decoration: none;
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1040px;
             margin: 0 auto;
-            padding: 48px 24px 80px 24px;
+            padding: 56px 24px 100px 24px;
         }
 
-        /* Header */
+        /* ---------------------------------------------------- */
+        /* HEADER & HERO ARCHITECTURE (Asymmetric & Live Status) */
+        /* ---------------------------------------------------- */
         header {
+            margin-bottom: 56px;
+            padding-bottom: 32px;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 24px;
-            margin-bottom: 36px;
         }
 
-        .header-top {
+        .header-top-bar {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 16px;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .header-titles h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--text-primary);
-            line-height: 1.1;
-        }
-
-        .header-titles .role {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            margin-top: 6px;
-        }
-
-        .controls-group {
+        /* Controls: Language & Theme */
+        .controls-cluster {
             display: flex;
             align-items: center;
             gap: 8px;
-            flex-wrap: wrap;
         }
 
-        /* Switchers (Language & Theme) */
-        .toggle-switch {
+        .segmented-control {
             display: inline-flex;
             align-items: center;
+            background-color: var(--surface-bg);
             border: 1px solid var(--btn-border);
-            border-radius: 4px;
-            background-color: var(--card-bg);
-            overflow: hidden;
-            font-size: 0.8125rem;
-            font-weight: 600;
+            border-radius: var(--radius-md);
+            padding: 2px;
+            box-shadow: var(--shadow-subtle);
         }
 
-        .toggle-btn {
+        .segment-btn {
             background: none;
             border: none;
-            padding: 6px 10px;
-            cursor: pointer;
+            padding: 5px 10px;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
             color: var(--text-muted);
-            font-family: inherit;
-            font-size: inherit;
-            font-weight: inherit;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .toggle-btn svg {
-            width: 15px;
-            height: 15px;
-        }
-
-        .theme-toggle-btn {
-            background-color: var(--card-bg);
-            border: 1px solid var(--btn-border);
-            border-radius: 4px;
-            padding: 6px;
             cursor: pointer;
-            color: var(--text-primary);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s var(--ease-spring);
         }
 
-        .theme-toggle-btn:hover {
-            background-color: var(--btn-hover-bg);
-            border-color: var(--btn-border);
+        .segment-btn:active {
+            transform: scale(0.96);
         }
 
-        .theme-toggle-btn svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        .toggle-btn.active {
+        .segment-btn.active {
             background-color: var(--btn-active-bg);
             color: var(--btn-active-text);
         }
 
-        .header-contact-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px 24px;
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            margin-top: 16px;
-        }
-
-        .contact-item {
+        .theme-btn {
+            background-color: var(--surface-bg);
+            border: 1px solid var(--btn-border);
+            border-radius: var(--radius-md);
+            width: 32px;
+            height: 32px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-primary);
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.2s var(--ease-spring);
         }
 
-        .contact-item svg {
-            width: 16px;
-            height: 16px;
+        .theme-btn:hover {
+            background-color: var(--btn-hover-bg);
+            border-color: var(--border-strong);
+        }
+
+        .theme-btn:active {
+            transform: scale(0.94);
+        }
+
+        .theme-btn svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        /* Hero Main Presentation */
+        .hero-main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .hero-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.045em;
+            line-height: 1.05;
+            color: var(--text-primary);
+        }
+
+        .hero-role {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .contact-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 12px;
+            background-color: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.2s var(--ease-spring);
+        }
+
+        .contact-pill:hover {
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+            background-color: var(--btn-hover-bg);
+            transform: translateY(-1px);
+        }
+
+        .contact-pill:active {
+            transform: scale(0.97);
+        }
+
+        .contact-pill svg {
+            width: 14px;
+            height: 14px;
             fill: currentColor;
             flex-shrink: 0;
         }
 
-        /* Dot Side Navigation */
+        /* Dot Side Navigation (Desktop Fixed) */
         .dot-nav {
             position: fixed;
-            right: 24px;
+            right: 28px;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 14px;
-            z-index: 1000;
+            z-index: 900;
         }
 
         .dot-nav-item {
@@ -226,13 +298,12 @@
             border-radius: 50%;
             background-color: var(--border-color);
             border: 1.5px solid var(--text-muted);
-            text-decoration: none;
-            transition: background-color 0.15s, transform 0.15s, border-color 0.15s;
+            transition: all 0.2s var(--ease-spring);
         }
 
         .dot-nav-item a:hover {
-            background-color: var(--text-secondary);
-            border-color: var(--text-secondary);
+            border-color: var(--text-primary);
+            background-color: var(--text-primary);
             transform: scale(1.3);
         }
 
@@ -243,185 +314,334 @@
             height: 10px;
         }
 
-        /* Tooltip */
         .dot-nav-item .dot-label {
             position: absolute;
-            right: 20px;
+            right: 22px;
             white-space: nowrap;
-            font-size: 0.75rem;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.6875rem;
             font-weight: 500;
             color: var(--text-body);
-            background-color: var(--card-bg);
+            background-color: var(--surface-bg);
             border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 4px 8px;
+            border-radius: var(--radius-sm);
+            padding: 3px 8px;
             pointer-events: none;
             opacity: 0;
-            transition: opacity 0.15s;
+            transform: translateX(4px);
+            transition: all 0.15s var(--ease-spring);
+            box-shadow: var(--shadow-subtle);
         }
 
         .dot-nav-item:hover .dot-label {
             opacity: 1;
+            transform: translateX(0);
         }
 
-        /* Sections */
+        /* ---------------------------------------------------- */
+        /* SECTION TITLES & HEADINGS (Tight Precision)           */
+        /* ---------------------------------------------------- */
         section {
-            margin-bottom: 48px;
-            scroll-margin-top: 24px;
+            margin-bottom: 60px;
+            scroll-margin-top: 36px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .section-title {
-            font-size: 0.875rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            color: var(--text-primary);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-bottom: 24px;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Summary */
-        .summary-text {
-            font-size: 1rem;
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: var(--text-primary);
+            border-radius: 1px;
+        }
+
+        /* ---------------------------------------------------- */
+        /* ABOUT SECTION                                        */
+        /* ---------------------------------------------------- */
+        .about-text {
+            font-size: 1.0625rem;
             color: var(--text-body);
-            line-height: 1.7;
+            line-height: 1.75;
+            max-width: 78ch;
         }
 
-        /* Item Cards */
-        .item-list {
+        .about-text p + p {
+            margin-top: 14px;
+        }
+
+        /* ---------------------------------------------------- */
+        /* TIMELINE ARCHITECTURE (Education & Experience)       */
+        /* Removes Card Overkill in favor of a clean stream     */
+        /* ---------------------------------------------------- */
+        .timeline-stream {
             display: flex;
             flex-direction: column;
             gap: 28px;
         }
 
-        .item-card {
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-content-wrap {
             display: flex;
-            gap: 18px;
+            gap: 16px;
             align-items: flex-start;
         }
 
-        .logo-slot {
-            width: 48px;
-            height: 48px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
+        .timeline-logo-slot {
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--slot-border);
+            border-radius: var(--radius-md);
             background-color: var(--slot-bg);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
             overflow: hidden;
-            position: relative;
         }
 
-        .entity-logo {
+        .timeline-logo-slot img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            display: block;
         }
 
-        .logo-placeholder-text {
-            font-size: 0.6875rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-align: center;
-            line-height: 1.1;
-            padding: 2px;
-            user-select: none;
-        }
-
-        .item-content {
+        .timeline-body {
             flex: 1;
         }
 
-        .item-header {
+        .timeline-header-row {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             flex-wrap: wrap;
-            gap: 6px 12px;
-            margin-bottom: 4px;
+            gap: 4px 12px;
+            margin-bottom: 2px;
         }
 
-        .item-title {
+        .timeline-title {
             font-size: 1.0625rem;
             font-weight: 600;
             color: var(--text-primary);
+            letter-spacing: -0.015em;
         }
 
-        .item-period {
-            font-size: 0.8125rem;
-            color: var(--text-muted);
+        .timeline-period {
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.75rem;
             font-weight: 500;
+            color: var(--text-muted);
+            background-color: var(--slot-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 1px 6px;
         }
 
-        .item-subtitle {
+        .timeline-sub {
             font-size: 0.9375rem;
             font-weight: 500;
             color: var(--text-secondary);
             margin-bottom: 8px;
         }
 
-        .grade-tag {
-            display: inline-block;
-            font-size: 0.75rem;
+        .timeline-grade {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.6875rem;
             font-weight: 600;
-            color: var(--text-primary);
-            background-color: var(--tag-bg);
-            border: 1px solid var(--tag-border);
-            border-radius: 3px;
-            padding: 2px 8px;
-            margin-bottom: 8px;
+            color: var(--accent-emerald-text);
+            background-color: var(--accent-emerald-bg);
+            border: 1px solid var(--accent-emerald-border);
+            border-radius: var(--radius-sm);
+            padding: 2px 7px;
+            margin-bottom: 10px;
         }
 
-        .item-bullet-list {
-            list-style-type: disc;
-            padding-left: 20px;
-            font-size: 0.9375rem;
-            color: var(--text-body);
+        .timeline-bullets {
+            list-style: none;
+            padding: 0;
             display: flex;
             flex-direction: column;
             gap: 6px;
+            font-size: 0.90625rem;
+            color: var(--text-body);
+            line-height: 1.55;
         }
 
-        .item-bullet-list li {
-            line-height: 1.5;
+        .timeline-bullets li {
+            position: relative;
+            padding-left: 14px;
         }
 
-        /* Board Style Project Cards */
-        .projects-board {
+        .timeline-bullets li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--text-muted);
+        }
+
+        /* ---------------------------------------------------- */
+        /* BENTO GRID 2.0 FOR PROJECTS                          */
+        /* ---------------------------------------------------- */
+        .project-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            background-color: var(--surface-bg);
+            border: 1px solid var(--btn-border);
+            border-radius: var(--radius-md);
+            padding: 5px 12px;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s var(--ease-spring);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .filter-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+            background-color: var(--btn-hover-bg);
+        }
+
+        .filter-btn:active {
+            transform: scale(0.96);
+        }
+
+        .filter-btn.active {
+            background-color: var(--btn-active-bg);
+            color: var(--btn-active-text);
+            border-color: var(--btn-active-bg);
+        }
+
+        .featured-badge {
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            background-color: var(--slot-bg);
+            border: 1px solid var(--border-color);
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            flex-shrink: 0;
+        }
+
+        .project-card.featured-card {
+            border-color: var(--border-strong);
+        }
+
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            grid-template-columns: repeat(12, 1fr);
             gap: 16px;
         }
 
-        .project-board-card {
+        .project-card {
+            background-color: var(--surface-bg);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 20px;
-            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            box-shadow: var(--shadow-subtle);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: all 0.25s var(--ease-spring);
         }
 
-        .project-board-top {
+        .project-card:hover {
+            border-color: var(--border-strong);
+            box-shadow: var(--shadow-diffusion);
+            transform: translateY(-2px);
+        }
+
+        /* Grid Spans: Asymmetric Bento Architecture */
+        .project-card.span-12 {
+            grid-column: span 12;
+        }
+
+        .project-card.span-7 {
+            grid-column: span 7;
+        }
+
+        .project-card.span-5 {
+            grid-column: span 5;
+        }
+
+        .project-card.span-6 {
+            grid-column: span 6;
+        }
+
+        .project-card.span-4 {
+            grid-column: span 4;
+        }
+
+        .project-top-row {
             display: flex;
             gap: 14px;
             align-items: flex-start;
             margin-bottom: 12px;
         }
 
-        .project-board-header {
+        .project-logo-slot {
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--slot-border);
+            border-radius: var(--radius-md);
+            background-color: var(--slot-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .project-logo-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .project-header-info {
             flex: 1;
         }
 
         .project-name {
             font-size: 1.0625rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-primary);
+            letter-spacing: -0.02em;
             line-height: 1.25;
             margin-bottom: 4px;
         }
@@ -429,238 +649,336 @@
         .project-meta-line {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px 12px;
-            font-size: 0.8125rem;
+            gap: 6px 10px;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.6875rem;
             color: var(--text-muted);
             font-weight: 500;
         }
 
-        .project-association {
-            color: var(--text-body);
+        .project-meta-assoc {
+            color: var(--text-secondary);
             font-weight: 600;
         }
 
         .project-desc {
             font-size: 0.875rem;
             color: var(--text-body);
-            line-height: 1.55;
-            margin-bottom: 14px;
+            line-height: 1.6;
+            margin-bottom: 18px;
             flex: 1;
         }
 
         .project-footer {
             margin-top: auto;
+            padding-top: 14px;
             border-top: 1px solid var(--border-subtle);
-            padding-top: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .project-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .project-skill-badge {
-            font-size: 0.75rem;
-            font-weight: 500;
-            background-color: var(--tag-bg);
-            color: var(--tag-text);
-            border: 1px solid var(--tag-border);
-            padding: 2px 7px;
-            border-radius: 3px;
-        }
-
-        .project-links {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            font-size: 0.8125rem;
-            font-weight: 500;
-        }
-
-        .project-link-btn, .action-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            color: var(--text-primary);
-            text-decoration: none;
-            border: 1px solid var(--btn-border);
-            border-radius: 4px;
-            padding: 5px 10px;
-            background-color: var(--card-bg);
-            font-size: 0.8125rem;
-            font-weight: 500;
-        }
-
-        .project-link-btn:hover, .action-btn:hover {
-            background-color: var(--btn-hover-bg);
-            border-color: var(--btn-border);
-            text-decoration: none;
-        }
-
-        .project-link-btn svg, .action-btn svg {
-            width: 14px;
-            height: 14px;
-            fill: currentColor;
-            flex-shrink: 0;
-        }
-
-        /* Certificates Cards */
-        .cert-card {
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 18px;
-            background-color: var(--card-bg);
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .cert-header {
+        .project-skill-cluster {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-chip {
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            border: 1px solid var(--tag-border);
+            padding: 2px 7px;
+            border-radius: var(--radius-sm);
+        }
+
+        .project-action-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .btn-code {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            background-color: var(--surface-bg);
+            border: 1px solid var(--btn-border);
+            padding: 5px 12px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.2s var(--ease-spring);
+        }
+
+        .btn-code:hover {
+            background-color: var(--btn-hover-bg);
+            border-color: var(--border-strong);
+            transform: translateY(-1px);
+        }
+
+        .btn-code:active {
+            transform: scale(0.96);
+        }
+
+        .btn-code svg {
+            width: 13px;
+            height: 13px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* ---------------------------------------------------- */
+        /* CERTIFICATIONS (Precision Gallery Grid)              */
+        /* ---------------------------------------------------- */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .cert-card {
+            background-color: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-subtle);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 14px;
+            transition: all 0.25s var(--ease-spring);
+        }
+
+        .cert-card:hover {
+            border-color: var(--border-strong);
+            box-shadow: var(--shadow-diffusion);
+            transform: translateY(-2px);
+        }
+
+        .cert-top {
             display: flex;
             gap: 14px;
             align-items: flex-start;
         }
 
-        .cert-title-block {
+        .cert-logo-slot {
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--slot-border);
+            border-radius: var(--radius-md);
+            background-color: var(--slot-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .cert-logo-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .cert-info {
             flex: 1;
         }
 
-        .cert-name {
-            font-size: 1rem;
-            font-weight: 600;
+        .cert-title {
+            font-size: 0.9375rem;
+            font-weight: 700;
             color: var(--text-primary);
             line-height: 1.3;
-            margin-bottom: 2px;
-        }
-
-        .cert-image-preview {
-            margin-top: 8px;
+            letter-spacing: -0.015em;
             margin-bottom: 4px;
         }
 
-        .cert-preview-img {
-            max-width: 260px;
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            display: block;
-        }
-
-        .cert-issuer {
-            font-size: 0.8125rem;
+        .cert-meta {
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.6875rem;
             color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .cert-cred-info {
-            font-size: 0.8125rem;
+        .cert-cred-row {
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.6875rem;
             color: var(--text-secondary);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 6px 12px;
             background-color: var(--slot-bg);
             border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 8px 12px;
+            border-radius: var(--radius-md);
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
         }
 
-        .cred-code {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            font-size: 0.78125rem;
+        .cert-cred-code {
+            font-weight: 600;
+            color: var(--text-primary);
             background-color: var(--code-bg);
             padding: 1px 5px;
-            border-radius: 3px;
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
         }
 
         .cert-actions {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            align-items: center;
             justify-content: flex-end;
-            margin-top: 4px;
+            gap: 8px;
         }
 
-        /* Tags and Skills */
-        .skills-grid {
+        .btn-cert {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            background-color: var(--surface-bg);
+            border: 1px solid var(--btn-border);
+            padding: 5px 12px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.2s var(--ease-spring);
+        }
+
+        .btn-cert:hover {
+            background-color: var(--btn-hover-bg);
+            border-color: var(--border-strong);
+            transform: translateY(-1px);
+        }
+
+        .btn-cert:active {
+            transform: scale(0.96);
+        }
+
+        .btn-cert svg {
+            width: 13px;
+            height: 13px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* ---------------------------------------------------- */
+        /* LANGUAGES SECTION                                    */
+        /* ---------------------------------------------------- */
+        .lang-cluster {
             display: flex;
             flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .lang-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background-color: var(--surface-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .lang-level-badge {
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background-color: var(--slot-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 2px 6px;
+        }
+
+        /* ---------------------------------------------------- */
+        /* FOOTER                                               */
+        /* ---------------------------------------------------- */
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
             gap: 8px;
         }
 
-        .skill-tag {
-            font-size: 0.8125rem;
-            font-weight: 500;
-            background-color: var(--tag-bg);
-            color: var(--tag-text);
-            border: 1px solid var(--tag-border);
-            padding: 4px 10px;
-            border-radius: 4px;
-        }
-
-        /* Simple 1-column grid for certifications and awards */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding-top: 24px;
-            margin-top: 60px;
-            font-size: 0.8125rem;
-            color: var(--text-muted);
-            text-align: center;
-        }
-
+        /* Responsive Breakpoints */
         @media (max-width: 1100px) {
             .dot-nav {
                 display: none;
             }
         }
 
+        @media (max-width: 860px) {
+            .project-card.span-7,
+            .project-card.span-5,
+            .project-card.span-6,
+            .project-card.span-4 {
+                grid-column: span 12;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+        }
+
         @media (max-width: 640px) {
             .container {
-                padding: 28px 16px 60px 16px;
+                padding: 32px 16px 64px 16px;
             }
 
-            .header-top {
+            .header-top-bar {
                 flex-direction: column;
                 align-items: flex-start;
-            }
-
-            .header-titles h1 {
-                font-size: 1.875rem;
-            }
-
-            .projects-board {
-                grid-template-columns: 1fr;
-            }
-
-            .item-card {
                 gap: 12px;
             }
 
-            .logo-slot {
-                width: 40px;
-                height: 40px;
+            .hero-title {
+                font-size: 1.875rem;
             }
 
-            .item-header {
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-content-wrap {
+                gap: 12px;
+            }
+
+            .timeline-logo-slot {
+                width: 36px;
+                height: 36px;
+            }
+
+            footer {
                 flex-direction: column;
-                gap: 2px;
-            }
-
-            .cert-actions {
-                justify-content: flex-start;
+                align-items: flex-start;
             }
         }
     </style>
@@ -670,67 +988,69 @@
 <div class="container">
     <!-- Header -->
     <header>
-        <div class="header-top">
-            <div class="header-titles">
-                <h1>Tanjil Khan</h1>
-                <div class="role" data-i18n="role">Software Engineer</div>
-            </div>
-            <div class="controls-group">
-                <!-- Single Theme Toggle Button (Sun / Moon) -->
-                <button type="button" class="theme-toggle-btn" id="btn-theme-toggle" onclick="toggleTheme()" title="Alternar Tema / Toggle Theme" aria-label="Alternar Tema">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <div class="header-top-bar">
+            <!-- Language & Theme Controls -->
+            <div class="controls-cluster">
+                <!-- Theme Switcher -->
+                <button type="button" class="theme-btn" id="btn-theme-toggle" onclick="toggleTheme()" title="Alternar Tema / Toggle Theme" aria-label="Alternar Tema">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
                 </button>
-                <!-- Language Switcher -->
-                <div class="toggle-switch" role="group" aria-label="Language Selector">
-                    <button type="button" class="toggle-btn active" id="btn-pt" onclick="setLanguage('pt')">PT</button>
-                    <button type="button" class="toggle-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+                <!-- Language Selector -->
+                <div class="segmented-control" role="group" aria-label="Language Selector">
+                    <button type="button" class="segment-btn active" id="btn-pt" onclick="setLanguage('pt')">PT</button>
+                    <button type="button" class="segment-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
                 </div>
             </div>
         </div>
 
-        <div class="header-contact-list">
-            <span class="contact-item">
+        <div class="hero-main">
+            <h1 class="hero-title">Tanjil Khan</h1>
+            <div class="hero-role" data-i18n="role">Software Engineer</div>
+        </div>
+
+        <div class="hero-links">
+            <span class="contact-pill">
                 <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                 <span data-i18n="location">Moreira da Maia, Porto, Portugal</span>
             </span>
-            <span class="contact-item">
+            <a href="mailto:tanjilkh@gmail.com" class="contact-pill">
                 <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                <a href="mailto:tanjilkh@gmail.com">tanjilkh@gmail.com</a>
-            </span>
-            <span class="contact-item">
+                <span>tanjilkh@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/tanjil-khan" target="_blank" rel="noopener noreferrer" class="contact-pill">
                 <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.9 0-1.63.73-1.63 1.64s.73 1.63 1.63 1.63c.9 0 1.63-.73 1.63-1.63s-.73-1.64-1.63-1.64z"/></svg>
-                <a href="https://www.linkedin.com/in/tanjil-khan" target="_blank" rel="noopener noreferrer">linkedin.com/in/tanjil-khan</a>
-            </span>
-            <span class="contact-item">
+                <span>linkedin.com/in/tanjil-khan</span>
+            </a>
+            <a href="https://github.com/tskxz/" target="_blank" rel="noopener noreferrer" class="contact-pill">
                 <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                <a href="https://github.com/tskxz/" target="_blank" rel="noopener noreferrer">github.com/tskxz</a>
-            </span>
+                <span>github.com/tskxz</span>
+            </a>
         </div>
 
-        <!-- Dot Navigation (Side, desktop only) -->
+        <!-- Dot Navigation (Side, Desktop) -->
         <nav class="dot-nav" aria-label="Navegação rápida">
             <div class="dot-nav-item">
-                <a href="#about" class="nav-dot" data-section="about" data-i18n-tooltip="navAbout"></a>
+                <a href="#about" class="nav-dot" data-section="about"></a>
                 <span class="dot-label" data-i18n="navAbout">Sobre</span>
             </div>
             <div class="dot-nav-item">
-                <a href="#education" class="nav-dot" data-section="education" data-i18n-tooltip="navEducation"></a>
+                <a href="#education" class="nav-dot" data-section="education"></a>
                 <span class="dot-label" data-i18n="navEducation">Educação</span>
             </div>
             <div class="dot-nav-item">
-                <a href="#experience" class="nav-dot" data-section="experience" data-i18n-tooltip="navExperience"></a>
+                <a href="#experience" class="nav-dot" data-section="experience"></a>
                 <span class="dot-label" data-i18n="navExperience">Experiência</span>
             </div>
             <div class="dot-nav-item">
-                <a href="#projects" class="nav-dot" data-section="projects" data-i18n-tooltip="navProjects"></a>
+                <a href="#projects" class="nav-dot" data-section="projects"></a>
                 <span class="dot-label" data-i18n="navProjects">Projetos</span>
             </div>
             <div class="dot-nav-item">
-                <a href="#certifications" class="nav-dot" data-section="certifications" data-i18n-tooltip="navCertifications"></a>
-                <span class="dot-label" data-i18n="navCertifications">Certificados &amp; Prémios</span>
+                <a href="#certifications" class="nav-dot" data-section="certifications"></a>
+                <span class="dot-label" data-i18n="navCertifications">Certificados</span>
             </div>
             <div class="dot-nav-item">
-                <a href="#languages" class="nav-dot" data-section="languages" data-i18n-tooltip="navLanguages"></a>
+                <a href="#languages" class="nav-dot" data-section="languages"></a>
                 <span class="dot-label" data-i18n="navLanguages">Idiomas</span>
             </div>
         </nav>
@@ -738,244 +1058,278 @@
 
     <!-- About -->
     <section id="about">
-        <h2 class="section-title" data-i18n="aboutTitle">Sobre</h2>
-        <div class="summary-text" data-i18n-html="aboutHtml">
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="aboutTitle">Sobre</h2>
+        </div>
+        <div class="about-text" data-i18n-html="aboutHtml">
             <p>Estudante de Engenharia Informática no ISTEC, com foco em Backend Engineering e APIs.</p>
-            <p style="margin-top: 10px;">Desenvolvo soluções backend e REST APIs utilizando Node.js, Python e bases de dados SQL/NoSQL. Tenho também experiência Full-Stack a construir aplicações com Next.js, Nuxt, MERN e Laravel, e atualmente estou a explorar a integração de IA com LangChain.</p>
+            <p>Desenvolvo soluções backend e REST APIs utilizando Node.js, Python e bases de dados SQL/NoSQL. Tenho também experiência Full-Stack a construir aplicações com Next.js, Nuxt, MERN e Laravel, e atualmente estou a explorar a integração de IA com LangChain.</p>
         </div>
     </section>
 
-    <!-- 1. Education / Formação Académica -->
+    <!-- 1. Education -->
     <section id="education">
-        <h2 class="section-title" data-i18n="educationTitle">Formação Académica</h2>
-        <div class="item-list">
-
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="educationTitle">Formação Académica</h2>
+        </div>
+        <div class="timeline-stream">
             <!-- ISTEC Licenciatura -->
-            <article class="item-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/istec.png" alt="Logótipo ISTEC Porto" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h3 class="item-title">ISTEC - Instituto Superior de Tecnologias Avançadas do Porto</h3>
-                        <span class="item-period" data-i18n="edu1Period">setembro de 2025 - setembro de 2028</span>
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/istec.png" alt="ISTEC Porto" onerror="this.style.display='none'">
                     </div>
-                    <div class="item-subtitle" data-i18n="edu1Degree">Nível 6, Licenciatura em Engenharia Informática (Computer Software Engineering)</div>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">ISTEC - Instituto Superior de Tecnologias Avançadas do Porto</h3>
+                            <span class="timeline-period" data-i18n="edu1Period">setembro de 2025 - setembro de 2028</span>
+                        </div>
+                        <div class="timeline-sub" data-i18n="edu1Degree">Nível 6, Licenciatura em Engenharia Informática (Computer Software Engineering)</div>
+                    </div>
                 </div>
-            </article>
+            </div>
 
             <!-- ISTEC CTESP -->
-            <article class="item-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/istec.png" alt="Logótipo ISTEC Porto" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h3 class="item-title">ISTEC - Instituto Superior de Tecnologias Avançadas do Porto</h3>
-                        <span class="item-period" data-i18n="edu2Period">outubro de 2023 - setembro de 2025</span>
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/istec.png" alt="ISTEC Porto" onerror="this.style.display='none'">
                     </div>
-                    <div class="item-subtitle" data-i18n="edu2Degree">Nível 5, CTESP em Desenvolvimento de Software</div>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">ISTEC - Instituto Superior de Tecnologias Avançadas do Porto</h3>
+                            <span class="timeline-period" data-i18n="edu2Period">outubro de 2023 - setembro de 2025</span>
+                        </div>
+                        <div class="timeline-sub" data-i18n="edu2Degree">Nível 5, CTESP em Desenvolvimento de Software</div>
+                    </div>
                 </div>
-            </article>
+            </div>
 
             <!-- Filipa de Vilhena -->
-            <article class="item-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/filipa-de-vilhena.png" alt="Logótipo Escola Secundária Filipa de Vilhena" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h3 class="item-title">Escola Secundária Filipa de Vilhena</h3>
-                        <span class="item-period" data-i18n="edu3Period">setembro de 2020 - julho de 2023</span>
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/filipa-de-vilhena.png" alt="Escola Secundária Filipa de Vilhena" onerror="this.style.display='none'">
                     </div>
-                    <div class="item-subtitle" data-i18n="edu3Degree">Nível 4, Técnico de Gestão e Programação de Sistemas Informáticos</div>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">Escola Secundária Filipa de Vilhena</h3>
+                            <span class="timeline-period" data-i18n="edu3Period">setembro de 2020 - julho de 2023</span>
+                        </div>
+                        <div class="timeline-sub" data-i18n="edu3Degree">Nível 4, Técnico de Gestão e Programação de Sistemas Informáticos</div>
+                    </div>
                 </div>
-            </article>
-
+            </div>
         </div>
     </section>
 
-    <!-- 2. Experience / Experiência Profissional -->
+    <!-- 2. Experience -->
     <section id="experience">
-        <h2 class="section-title" data-i18n="experienceTitle">Experiência Profissional</h2>
-        <div class="item-list">
-
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="experienceTitle">Experiência Profissional</h2>
+        </div>
+        <div class="timeline-stream">
             <!-- Cogniwave -->
-            <article class="item-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/cogniwave.png" alt="Logótipo Cogniwave" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h3 class="item-title">Cogniwave</h3>
-                        <span class="item-period" data-i18n="exp1Period">março de 2025 - julho de 2025</span>
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/cogniwave.png" alt="Cogniwave" onerror="this.style.display='none'">
                     </div>
-                    <div class="item-subtitle"><span data-i18n="exp1Role">Web Developer</span> &middot; Portugal</div>
-                    <div class="grade-tag" data-i18n="exp1Grade">Nota: 20/20</div>
-                    <ul class="item-bullet-list" data-i18n-list="exp1Bullets">
-                        <li>Desenvolvimento de uma plataforma web para memoriais de animais utilizando Nuxt 3 e TypeScript.</li>
-                        <li>Construção de arquitetura serverless implementada em Cloudflare Workers com NuxtHub para edge deployment e Drizzle ORM para operações de base de dados.</li>
-                        <li>Integração com Brevo para envio de emails transacionais e configuração de GitHub Actions para automação de CI/CD.</li>
-                    </ul>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">Cogniwave</h3>
+                            <span class="timeline-period" data-i18n="exp1Period">março de 2025 - julho de 2025</span>
+                        </div>
+                        <div class="timeline-sub"><span data-i18n="exp1Role">Web Developer</span> &middot; Portugal</div>
+                        <div class="timeline-grade" data-i18n="exp1Grade">Nota: 20/20</div>
+                        <ul class="timeline-bullets" data-i18n-list="exp1Bullets">
+                            <li>Desenvolvimento de uma plataforma web para memoriais de animais utilizando Nuxt 3 e TypeScript.</li>
+                            <li>Construção de arquitetura serverless implementada em Cloudflare Workers com NuxtHub para edge deployment e Drizzle ORM para operações de base de dados.</li>
+                            <li>Integração com Brevo para envio de emails transacionais e configuração de GitHub Actions para automação de CI/CD.</li>
+                        </ul>
+                    </div>
                 </div>
-            </article>
+            </div>
 
             <!-- Filipa de Vilhena -->
-            <article class="item-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/filipa-de-vilhena.png" alt="Logótipo Filipa de Vilhena" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h3 class="item-title">Filipa de Vilhena</h3>
-                        <span class="item-period" data-i18n="exp2Period">junho de 2023 - julho de 2023</span>
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/filipa-de-vilhena.png" alt="Filipa de Vilhena" onerror="this.style.display='none'">
                     </div>
-                    <div class="item-subtitle"><span data-i18n="exp2Role">Web Developer</span> &middot; Porto, Portugal</div>
-                    <div class="grade-tag" data-i18n="exp2Grade">Nota: 19/20</div>
-                    <ul class="item-bullet-list" data-i18n-list="exp2Bullets">
-                        <li>Criação de um sistema de gestão de conteúdos (CMS) administrativo para o projeto "Eco-Escolas" usando Laravel e Livewire.</li>
-                        <li>Desenvolvimento de funcionalidades dinâmicas CRUD permitindo a professores autorizados criar e editar secções de páginas personalizadas com envio de texto e imagens.</li>
-                        <li>Construção de interfaces de utilizador reativas com componentes Livewire e lógica estruturada de base de dados via Eloquent ORM / MySQL.</li>
-                    </ul>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">Filipa de Vilhena</h3>
+                            <span class="timeline-period" data-i18n="exp2Period">junho de 2023 - julho de 2023</span>
+                        </div>
+                        <div class="timeline-sub"><span data-i18n="exp2Role">Web Developer</span> &middot; Porto, Portugal</div>
+                        <div class="timeline-grade" data-i18n="exp2Grade">Nota: 19/20</div>
+                        <ul class="timeline-bullets" data-i18n-list="exp2Bullets">
+                            <li>Criação de um sistema de gestão de conteúdos (CMS) administrativo para o projeto "Eco-Escolas" usando Laravel e Livewire.</li>
+                            <li>Desenvolvimento de funcionalidades dinâmicas CRUD permitindo a professores autorizados criar e editar secções de páginas personalizadas com envio de texto e imagens.</li>
+                            <li>Construção de interfaces de utilizador reativas com componentes Livewire e lógica estruturada de base de dados via Eloquent ORM / MySQL.</li>
+                        </ul>
+                    </div>
                 </div>
-            </article>
+            </div>
 
             <!-- Colegio Caja General de Ahorros de Granada -->
-            <article class="item-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/colegio-caja-granada.png" alt="Logótipo Colegio Caja General de Ahorros de Granada" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h3 class="item-title">Colegio Caja General de Ahorros de Granada</h3>
-                        <span class="item-period" data-i18n="exp3Period">maio de 2023 - junho de 2023</span>
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/colegio-caja-granada.png" alt="Colegio Caja General de Ahorros de Granada" onerror="this.style.display='none'">
                     </div>
-                    <div class="item-subtitle"><span data-i18n="exp3Role">Computer Technician</span> &middot; Granada, Espanha</div>
-                    <ul class="item-bullet-list" data-i18n-list="exp3Bullets">
-                        <li>Atualização do website institucional em Wix, ajustando a estrutura de páginas e layouts para melhorar a experiência do utilizador (UI/UX).</li>
-                        <li>Implementação do Reboot Restore Rx em postos de trabalho públicos para restaurar automaticamente alterações de sistema não autorizadas após reinicialização.</li>
-                        <li>Otimização do desempenho do Windows através da edição de chaves de registo (Regedit), desativação de serviços de arranque não essenciais e limpeza de caches do sistema.</li>
-                    </ul>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">Colegio Caja General de Ahorros de Granada</h3>
+                            <span class="timeline-period" data-i18n="exp3Period">maio de 2023 - junho de 2023</span>
+                        </div>
+                        <div class="timeline-sub"><span data-i18n="exp3Role">Computer Technician</span> &middot; Granada, Espanha</div>
+                        <ul class="timeline-bullets" data-i18n-list="exp3Bullets">
+                            <li>Atualização do website institucional em Wix, ajustando a estrutura de páginas e layouts para melhorar a experiência do utilizador (UI/UX).</li>
+                            <li>Implementação do Reboot Restore Rx em postos de trabalho públicos para restaurar automaticamente alterações de sistema não autorizadas após reinicialização.</li>
+                            <li>Otimização do desempenho do Windows através da edição de chaves de registo (Regedit), desativação de serviços de arranque não essenciais e limpeza de caches do sistema.</li>
+                        </ul>
+                    </div>
                 </div>
-            </article>
+            </div>
 
             <!-- AGIFODENT -->
-            <article class="item-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/agifodent.png" alt="Logótipo AGIFODENT" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h3 class="item-title">AGIFODENT</h3>
-                        <span class="item-period" data-i18n="exp4Period">maio de 2023</span>
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/agifodent.png" alt="AGIFODENT" onerror="this.style.display='none'">
                     </div>
-                    <div class="item-subtitle"><span data-i18n="exp4Role">IT Technician</span> &middot; Granada, Espanha</div>
-                    <ul class="item-bullet-list" data-i18n-list="exp4Bullets">
-                        <li>Implementação de distribuições Linux ultra-leves (Tiny Core Linux e antiX) em portáteis de baixo desempenho, ajustando a escolha do SO a fortes restrições de hardware, RAM e armazenamento.</li>
-                        <li>Transporte físico e instalação de múltiplos servidores pesados para locais designados, assegurando a configuração e implementação segura do equipamento.</li>
-                    </ul>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">AGIFODENT</h3>
+                            <span class="timeline-period" data-i18n="exp4Period">maio de 2023</span>
+                        </div>
+                        <div class="timeline-sub"><span data-i18n="exp4Role">IT Technician</span> &middot; Granada, Espanha</div>
+                        <ul class="timeline-bullets" data-i18n-list="exp4Bullets">
+                            <li>Implementação de distribuições Linux ultra-leves (Tiny Core Linux e antiX) em portáteis de baixo desempenho, ajustando a escolha do SO a fortes restrições de hardware, RAM e armazenamento.</li>
+                            <li>Transporte físico e instalação de múltiplos servidores pesados para locais designados, assegurando a configuração e implementação segura do equipamento.</li>
+                        </ul>
+                    </div>
                 </div>
-            </article>
+            </div>
 
             <!-- Palacio de Congresos -->
-            <article class="item-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/palacio-congresos-granada.png" alt="Logótipo Palacio de Congresos de Granada" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h3 class="item-title">Palacio de Exposiciones y Congresos de Granada SA</h3>
-                        <span class="item-period" data-i18n="exp5Period">maio de 2023</span>
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/palacio-congresos-granada.png" alt="Palacio de Congresos de Granada" onerror="this.style.display='none'">
                     </div>
-                    <div class="item-subtitle"><span data-i18n="exp5Role">Stage Technician</span> &middot; Granada, Espanha</div>
-                    <ul class="item-bullet-list" data-i18n-list="exp5Bullets">
-                        <li>Gestão de iluminação de palco ao vivo, sistemas de som e equipamento de projeção durante eventos no Palacio de Congresos de Granada.</li>
-                        <li>Operação de consolas de mistura AV e iluminação em tempo real, assegurando a execução sonora e visual para audiências ao vivo.</li>
-                        <li>Configuração, testes e manutenção preventiva de tecnologia de palco para prevenir falhas durante eventos.</li>
-                    </ul>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">Palacio de Exposiciones y Congresos de Granada SA</h3>
+                            <span class="timeline-period" data-i18n="exp5Period">maio de 2023</span>
+                        </div>
+                        <div class="timeline-sub"><span data-i18n="exp5Role">Stage Technician</span> &middot; Granada, Espanha</div>
+                        <ul class="timeline-bullets" data-i18n-list="exp5Bullets">
+                            <li>Gestão de iluminação de palco ao vivo, sistemas de som e equipamento de projeção durante eventos no Palacio de Congresos de Granada.</li>
+                            <li>Operação de consolas de mistura AV e iluminação em tempo real, assegurando a execução sonora e visual para audiências ao vivo.</li>
+                            <li>Configuração, testes e manutenção preventiva de tecnologia de palco para prevenir falhas durante eventos.</li>
+                        </ul>
+                    </div>
                 </div>
-            </article>
+            </div>
 
             <!-- Vanguarda Soluções e Gestão -->
-            <article class="item-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/vanguarda.png" alt="Logótipo Vanguarda Soluções e Gestão" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h3 class="item-title">Vanguarda Soluções e Gestão</h3>
-                        <span class="item-period" data-i18n="exp6Period">maio de 2022 - julho de 2022</span>
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/vanguarda.png" alt="Vanguarda Soluções e Gestão" onerror="this.style.display='none'">
                     </div>
-                    <div class="item-subtitle"><span data-i18n="exp6Role">Support Worker</span> &middot; Maia, Portugal</div>
-                    <div class="grade-tag" data-i18n="exp6Grade">Nota: 19/20</div>
-                    <ul class="item-bullet-list" data-i18n-list="exp6Bullets">
-                        <li>Gestão de tickets de suporte técnico L1/L2, diagnóstico de problemas e encaminhamento de bugs complexos para a equipa de desenvolvimento.</li>
-                        <li>Administração remota de servidores com AnyDesk e RDP para aceder com segurança a infraestruturas e recuperar dados críticos.</li>
-                        <li>Tratamento de transferências de dados confidenciais em estrito cumprimento de protocolos de privacidade e normas de segurança interna.</li>
-                    </ul>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">Vanguarda Soluções e Gestão</h3>
+                            <span class="timeline-period" data-i18n="exp6Period">maio de 2022 - julho de 2022</span>
+                        </div>
+                        <div class="timeline-sub"><span data-i18n="exp6Role">Support Worker</span> &middot; Maia, Portugal</div>
+                        <div class="timeline-grade" data-i18n="exp6Grade">Nota: 19/20</div>
+                        <ul class="timeline-bullets" data-i18n-list="exp6Bullets">
+                            <li>Gestão de tickets de suporte técnico L1/L2, diagnóstico de problemas e encaminhamento de bugs complexos para a equipa de desenvolvimento.</li>
+                            <li>Administração remota de servidores com AnyDesk e RDP para aceder com segurança a infraestruturas e recuperar dados críticos.</li>
+                            <li>Tratamento de transferências de dados confidenciais em estrito cumprimento de protocolos de privacidade e normas de segurança interna.</li>
+                        </ul>
+                    </div>
                 </div>
-            </article>
+            </div>
 
             <!-- Shopping Brasília -->
-            <article class="item-card">
-                <div class="logo-slot">
-                    <img src="assets/images/logos/shopping-brasilia.png" alt="Logótipo Shopping Brasília" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="logo-placeholder-text" style="display:none;">LOGO</span>
-                </div>
-                <div class="item-content">
-                    <div class="item-header">
-                        <h3 class="item-title">Shopping Brasília</h3>
-                        <span class="item-period" data-i18n="exp7Period">junho de 2011 - março de 2014</span>
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/shopping-brasilia.png" alt="Shopping Brasília" onerror="this.style.display='none'">
                     </div>
-                    <div class="item-subtitle"><span data-i18n="exp7Role">Store Associate</span> &middot; Porto, Portugal</div>
-                    <ul class="item-bullet-list" data-i18n-list="exp7Bullets">
-                        <li>Processamento de transações financeiras de clientes como operador de caixa.</li>
-                        <li>Gestão de preços de inventário e reposição contínua de stock.</li>
-                        <li>Atendimento e apoio ao cliente, assegurando uma experiência positiva e manutenção da organização do espaço comercial.</li>
-                    </ul>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">Shopping Brasília</h3>
+                            <span class="timeline-period" data-i18n="exp7Period">junho de 2011 - março de 2014</span>
+                        </div>
+                        <div class="timeline-sub"><span data-i18n="exp7Role">Store Associate</span> &middot; Porto, Portugal</div>
+                        <ul class="timeline-bullets" data-i18n-list="exp7Bullets">
+                            <li>Processamento de transações financeiras de clientes como operador de caixa.</li>
+                            <li>Gestão de preços de inventário e reposição contínua de stock.</li>
+                            <li>Atendimento e apoio ao cliente, assegurando uma experiência positiva e manutenção da organização do espaço comercial.</li>
+                        </ul>
+                    </div>
                 </div>
-            </article>
-
+            </div>
         </div>
     </section>
 
-    <!-- 3. Projects / Projetos (Board Layout) -->
+    <!-- 3. Projects (Bento 2.0 Layout) -->
     <section id="projects">
-        <h2 class="section-title" data-i18n="projectsTitle">Projetos</h2>
-        <div class="projects-board" id="projects-container">
-            <!-- Rendered by JS -->
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="projectsTitle">Projetos</h2>
+        </div>
+        <div class="project-filters" id="project-filters">
+            <!-- Rendered dynamically by JS -->
+        </div>
+        <div class="projects-grid" id="projects-container">
+            <!-- Rendered dynamically by JS -->
         </div>
     </section>
 
-    <!-- 4. Certifications & Honors / Certificados e Distinções -->
+    <!-- 4. Certifications & Awards -->
     <section id="certifications">
-        <h2 class="section-title" data-i18n="certificationsTitle">Certificados & Prémios</h2>
-        <div class="cards-grid" id="certificates-container">
-            <!-- Rendered by JS with download PDF, Credential ID and URL -->
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="certificationsTitle">Certificados & Prémios</h2>
+        </div>
+        <div class="cert-grid" id="certificates-container">
+            <!-- Rendered dynamically by JS -->
         </div>
     </section>
 
-    <!-- 5. Languages / Idiomas -->
+    <!-- 5. Languages -->
     <section id="languages">
-        <h2 class="section-title" data-i18n="languagesTitle">Idiomas</h2>
-        <div class="skills-grid">
-            <span class="skill-tag"><strong data-i18n="langPt">Português:</strong> <span data-i18n="langPtLevel">Nativo ou Bilingue</span></span>
-            <span class="skill-tag"><strong data-i18n="langEn">Inglês:</strong> <span data-i18n="langEnLevel">Nível Profissional / Trabalho</span></span>
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="languagesTitle">Idiomas</h2>
+        </div>
+        <div class="lang-cluster">
+            <div class="lang-pill">
+                <span data-i18n="langPt">Português</span>
+                <span class="lang-level-badge" data-i18n="langPtLevel">Nativo ou Bilingue</span>
+            </div>
+            <div class="lang-pill">
+                <span data-i18n="langEn">Inglês</span>
+                <span class="lang-level-badge" data-i18n="langEnLevel">Nível Profissional / Trabalho</span>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; <span id="year"></span> Tanjil Khan &middot; <span data-i18n="footerText">Portfólio Pessoal</span></p>
+        <div class="footer-left">
+            <span>&copy; <span id="year"></span> Tanjil Khan</span>
+            <span>&middot;</span>
+            <span data-i18n="footerRole">Software Engineer</span>
+        </div>
+        <div class="footer-right">
+            <span data-i18n="footerText">Portfólio Pessoal</span>
+        </div>
     </footer>
 </div>
 
@@ -984,17 +1338,20 @@
 
     const projectsData = [
         {
-            id: "bvrgym",
-            name: "BVRGym - Personal Android App Lifting Recorder",
-            period: { pt: "julho de 2026 - agosto de 2026", en: "Jul 2026 – Aug 2026" },
+            id: "hrbetting",
+            name: "HRBetting – Football Analytics Platform",
+            period: { pt: "maio de 2026 - agosto de 2026", en: "May 2026 – Aug 2026" },
             association: { pt: "Projeto Pessoal", en: "Personal Project" },
-            logo: "assets/images/logos/project-bvrgym.png",
+            logo: "assets/images/logos/project-hrbetting.png",
             desc: {
-                pt: "Aplicação Android pessoal desenvolvida em Kotlin no Android Studio para gravar treinos no ginásio de forma focada e leve, sem anúncios nem distrações comuns de outras apps de gravação de vídeo.",
-                en: "Personal Android app built with Kotlin in Android Studio to record gym training sessions without the ads and distractions common in other video-recording apps."
+                pt: "Plataforma de análise de futebol com modelos estatísticos de Poisson e Skellam em C#/WPF, expondo resultados através de uma API Next.js na Vercel para website público e bot de Telegram automatizado. Integração com Stripe para subscrições, Supabase e Resend.",
+                en: "Football analytics platform built with C#/.NET, Next.js, and Vercel. Statistical engine running Poisson & Skellam models exposed via Next.js API, with Stripe billing, Supabase, and Telegram Bot."
             },
-            skills: ["Kotlin", "Android Studio", "Mobile Development"],
-            github: "https://github.com/tskxz/"
+            skills: ["C# / .NET", "Next.js", "Vercel", "Stripe", "Supabase", "Telegram Bot"],
+            github: "https://github.com/tskxz/hrbetting-api",
+            gridSpan: "span-6",
+            featured: true,
+            categories: ["systems", "fullstack", "data"]
         },
         {
             id: "chefllama",
@@ -1007,33 +1364,10 @@
                 en: "AI agent built with Python, LangChain, and llama3.2 that combines computer vision and real-time web search via Tavily API and Ollama/LLaVA to assist users with personalized recipe creation."
             },
             skills: ["Python", "LangChain", "llama3.2", "LLaVA", "Ollama", "Tavily API"],
-            github: "https://github.com/tskxz/chefllama"
-        },
-        {
-            id: "hrbetting",
-            name: "HRBetting – Football Analytics",
-            period: { pt: "maio de 2026 - agosto de 2026", en: "May 2026 – Aug 2026" },
-            association: { pt: "Projeto Pessoal", en: "Personal Project" },
-            logo: "assets/images/logos/project-hrbetting.png",
-            desc: {
-                pt: "Plataforma de análise de futebol com modelos estatísticos de Poisson e Skellam em C#/WPF, expondo resultados através de uma API Next.js na Vercel para website público e bot de Telegram automatizado. Integração com Stripe para subscrições, Supabase e Resend.",
-                en: "Football analytics platform built with C#/.NET, Next.js, and Vercel. Statistical engine running Poisson & Skellam models exposed via Next.js API, with Stripe billing, Supabase, and Telegram Bot."
-            },
-            skills: ["C# / .NET", "Next.js", "Vercel", "Stripe", "Supabase", "Telegram Bot API"],
-            github: "https://github.com/tskxz/hrbetting-api"
-        },
-        {
-            id: "andantesys",
-            name: "AndanteSys - Ecosystem simulator for the Porto Metro",
-            period: { pt: "maio de 2026 - junho de 2026", en: "May 2026 – Jun 2026" },
-            association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
-            logo: "assets/images/logos/project-andantesys.png",
-            desc: {
-                pt: "Simulador do ecossistema de bilhética do Metro do Porto desenvolvido em C# e WPF. Separa a gestão Backoffice de cartões do validador Frontoffice, cobrindo regras dos passes Gold e Blue com padrões de desenho orientados a objetos e UML.",
-                en: "C# and WPF application simulating the Metro do Porto ticketing ecosystem. Separates Backoffice card management from a Frontoffice validator, implementing OOP and UML design patterns."
-            },
-            skills: ["C#", "WPF", "OOP", "UML", "Desktop Development"],
-            github: "https://github.com/tskxz/andante-sys"
+            github: "https://github.com/tskxz/chefllama",
+            gridSpan: "span-6",
+            featured: true,
+            categories: ["ai"]
         },
         {
             id: "sonix",
@@ -1046,7 +1380,90 @@
                 en: "Terminal audio player written in Rust, using crossterm for keyboard-driven interaction and playback_rs for audio decoding and playback with clean terminal state restoration."
             },
             skills: ["Rust", "Crossterm", "CLI", "Audio Processing"],
-            github: "https://github.com/tskxz/sonix"
+            github: "https://github.com/tskxz/sonix",
+            gridSpan: "span-6",
+            featured: true,
+            categories: ["systems"]
+        },
+        {
+            id: "bvrgym",
+            name: "BVRGym - Personal Android App Lifting Recorder",
+            period: { pt: "julho de 2026 - agosto de 2026", en: "Jul 2026 – Aug 2026" },
+            association: { pt: "Projeto Pessoal", en: "Personal Project" },
+            logo: "assets/images/logos/project-bvrgym.png",
+            desc: {
+                pt: "Aplicação Android pessoal desenvolvida em Kotlin no Android Studio para gravar treinos no ginásio de forma focada e leve, sem anúncios nem distrações comuns de outras apps de gravação de vídeo.",
+                en: "Personal Android app built with Kotlin in Android Studio to record gym training sessions without the ads and distractions common in other video-recording apps."
+            },
+            skills: ["Kotlin", "Android Studio", "Mobile Dev"],
+            github: "https://github.com/tskxz/",
+            gridSpan: "span-6",
+            featured: true,
+            categories: ["mobile", "systems"]
+        },
+        {
+            id: "andantesys",
+            name: "AndanteSys - Porto Metro Ecosystem Simulator",
+            period: { pt: "maio de 2026 - junho de 2026", en: "May 2026 – Jun 2026" },
+            association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
+            logo: "assets/images/logos/project-andantesys.png",
+            desc: {
+                pt: "Simulador do ecossistema de bilhética do Metro do Porto desenvolvido em C# e WPF. Separa a gestão Backoffice de cartões do validador Frontoffice, cobrindo regras dos passes Gold e Blue com padrões de desenho orientados a objetos e UML.",
+                en: "C# and WPF application simulating the Metro do Porto ticketing ecosystem. Separates Backoffice card management from a Frontoffice validator, implementing OOP and UML design patterns."
+            },
+            skills: ["C#", "WPF", "OOP", "UML", "Desktop Dev"],
+            github: "https://github.com/tskxz/andante-sys",
+            gridSpan: "span-6",
+            featured: true,
+            categories: ["systems"]
+        },
+        {
+            id: "metalify",
+            name: "Metalify - Metal Band Curator & Collection",
+            period: { pt: "abril de 2025 - maio de 2025", en: "Apr 2025 – May 2025" },
+            association: { pt: "Cogniwave", en: "Cogniwave" },
+            logo: "assets/images/logos/project-metalify.png",
+            desc: {
+                pt: "Aplicação full-stack em Nuxt.js e Vuetify para gestão e curadoria de bandas de metal por género. Autenticação JWT, persistência com SQLite e Cloudflare D1, monitorização com Sentry e deploy no NuxtHub.",
+                en: "Full-stack application built with Nuxt.js and Vuetify for metal band management by genre. Features JWT auth, SQLite, Cloudflare D1, Sentry error monitoring, and NuxtHub edge deployment."
+            },
+            skills: ["Nuxt.js", "Vuetify", "SQLite", "Cloudflare D1", "NuxtHub"],
+            github: "https://github.com/tskxz/metalify",
+            gridSpan: "span-6",
+            featured: true,
+            categories: ["fullstack"]
+        },
+        {
+            id: "electrocycle",
+            name: "ElectroCycle - MERN E-Commerce Platform",
+            period: { pt: "outubro de 2024 - março de 2025", en: "Oct 2024 – Mar 2025" },
+            association: { pt: "ISTEC Porto (Projeto Final)", en: "ISTEC Porto (Final Project)" },
+            logo: "assets/images/logos/project-electrocycle.png",
+            desc: {
+                pt: "Plataforma de e-commerce e agendamento para reparação e revenda de eletrodomésticos, apoiando modelos de economia circular. Desenvolvida com MongoDB, Express.js, React, Node.js e pagamentos PayPal.",
+                en: "E-commerce and service scheduling platform for appliance repair and resale supporting circular economy. Built on MongoDB, Express.js, React, Node.js, and PayPal payments."
+            },
+            skills: ["React.js", "Node.js", "Express.js", "MongoDB", "PayPal API"],
+            github: "https://github.com/tskxz/ElectroCycle",
+            gridSpan: "span-6",
+            featured: true,
+            categories: ["fullstack"]
+        },
+        {
+            id: "browsemuscle",
+            name: "BrowseMuscle - Fitness Management Platform",
+            period: { pt: "agosto de 2022 - abril de 2023", en: "Aug 2022 – Apr 2023" },
+            association: { pt: "Escola Secundária Filipa de Vilhena", en: "Filipa de Vilhena" },
+            logo: "assets/images/logos/project-browsemuscle.png",
+            desc: {
+                pt: "Plataforma fitness full-stack desenvolvida em Node.js, Sequelize e MySQL em arquitetura MVC com planos de treino personalizados e alojamento em VPS Debian Linux.",
+                en: "Full-stack fitness platform built with Node.js, Sequelize, and MySQL in MVC architecture, deployed and self-hosted on a Debian Linux VPS."
+            },
+            skills: ["Node.js", "Sequelize", "MySQL", "MVC", "Debian Linux"],
+            github: "https://github.com/tskxz/browsemuscle",
+            gridSpan: "span-6",
+            featured: true,
+            categories: ["fullstack"]
         },
         {
             id: "matrix",
@@ -1059,37 +1476,14 @@
                 en: "Flask web application for matrix operations and linear-algebra-based encryption algorithms, with automated Pytest coverage and GitHub Actions CI pipeline."
             },
             skills: ["Python", "Flask", "Linear Algebra", "Pytest", "CI/CD"],
-            github: "https://github.com/tskxz/matrix"
-        },
-        {
-            id: "metalify",
-            name: "Metalify - Metal Music Curator and Band Collection App",
-            period: { pt: "abril de 2025 - maio de 2025", en: "Apr 2025 – May 2025" },
-            association: { pt: "Cogniwave", en: "Cogniwave" },
-            logo: "assets/images/logos/project-metalify.png",
-            desc: {
-                pt: "Aplicação full-stack em Nuxt.js e Vuetify para gestão e curadoria de bandas de metal por género. Autenticação JWT, persistência com SQLite e Cloudflare D1, monitorização com Sentry e deploy no NuxtHub.",
-                en: "Full-stack application built with Nuxt.js and Vuetify for metal band management by genre. Features JWT auth, SQLite, Cloudflare D1, Sentry error monitoring, and NuxtHub edge deployment."
-            },
-            skills: ["Nuxt.js", "Vuetify", "SQLite", "Cloudflare D1", "NuxtHub", "Sentry"],
-            github: "https://github.com/tskxz/metalify"
-        },
-        {
-            id: "electrocycle",
-            name: "ElectroCycle - MERN Full-Stack E-Commerce Platform",
-            period: { pt: "outubro de 2024 - março de 2025", en: "Oct 2024 – Mar 2025" },
-            association: { pt: "ISTEC Porto (Projeto Final)", en: "ISTEC Porto (Final Project)" },
-            logo: "assets/images/logos/project-electrocycle.png",
-            desc: {
-                pt: "Plataforma de e-commerce e agendamento para reparação e revenda de eletrodomésticos, apoiando modelos de economia circular. Desenvolvida com MongoDB, Express.js, React, Node.js e pagamentos PayPal.",
-                en: "E-commerce and service scheduling platform for appliance repair and resale supporting circular economy. Built on MongoDB, Express.js, React, Node.js, and PayPal payments."
-            },
-            skills: ["React.js", "Node.js", "Express.js", "MongoDB", "PayPal API"],
-            github: "https://github.com/tskxz/ElectroCycle"
+            github: "https://github.com/tskxz/matrix",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["fullstack", "data"]
         },
         {
             id: "stockmaster",
-            name: "StockMaster – Warehouse & Inventory Platform",
+            name: "StockMaster – Warehouse & Inventory System",
             period: { pt: "janeiro de 2025 - março de 2025", en: "Jan 2025 – Mar 2025" },
             association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
             logo: "assets/images/logos/project-stockmaster.png",
@@ -1098,7 +1492,10 @@
                 en: "Warehouse management system on the MERN stack for real-time stock control, inventory tracking, category administration, and warehouse movement reporting."
             },
             skills: ["MERN Stack", "JWT", "Express.js", "Node.js", "MongoDB"],
-            github: "https://github.com/tskxz/stockmaster"
+            github: "https://github.com/tskxz/stockmaster",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["fullstack"]
         },
         {
             id: "vertex",
@@ -1111,11 +1508,14 @@
                 en: "AI programming assistant built with React and Express.js for debugging, code generation, and technical explanations powered by OpenAI API."
             },
             skills: ["React.js", "Express.js", "OpenAI API", "Node.js"],
-            github: "https://github.com/VertexAI-pt/VertexAI"
+            github: "https://github.com/VertexAI-pt/VertexAI",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["ai", "fullstack"]
         },
         {
             id: "flavorcraft",
-            name: "FlavorCraft – Recipe Culinary Platform",
+            name: "FlavorCraft – Mobile Culinary Platform",
             period: { pt: "dezembro de 2024 - janeiro de 2025", en: "Dec 2024 – Jan 2025" },
             association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
             logo: "assets/images/logos/project-flavorcraft.png",
@@ -1124,11 +1524,14 @@
                 en: "Cross-platform mobile recipe app built with React Native and Expo, backed by a Node.js and Express REST API connected to MongoDB and Mongoose."
             },
             skills: ["React Native", "Expo", "Node.js", "Express.js", "MongoDB"],
-            github: "https://github.com/tskxz/flavor-craft"
+            github: "https://github.com/tskxz/flavor-craft",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["mobile", "fullstack"]
         },
         {
             id: "schetech",
-            name: "schetech - Tech Repair Scheduling REST API",
+            name: "schetech - Tech Repair Scheduling API",
             period: { pt: "novembro de 2024", en: "Nov 2024" },
             association: { pt: "Projeto Pessoal", en: "Personal Project" },
             logo: "assets/images/logos/project-schetech.png",
@@ -1136,8 +1539,11 @@
                 pt: "API REST em Node.js, Express.js e MongoDB para agendamento de serviços de reparação técnica, marcações de visitas ao domicílio, autenticação JWT e encriptação bcrypt em arquitetura MVC.",
                 en: "REST API for tech repair workflows, appointments, technician scheduling, JWT authentication, and bcrypt password hashing using MVC structure."
             },
-            skills: ["Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "REST API"],
-            github: "https://github.com/tskxz/schetech"
+            skills: ["Node.js", "Express.js", "MongoDB", "Mongoose", "JWT"],
+            github: "https://github.com/tskxz/schetech",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["fullstack"]
         },
         {
             id: "metalshop",
@@ -1149,12 +1555,15 @@
                 pt: "Plataforma de comércio eletrónico MERN para merchandise de heavy metal com gestão de estado global em Redux, pagamentos integrados com PayPal, encomendas e painel administrativo.",
                 en: "MERN e-commerce application for heavy metal merchandise, featuring Redux state management, PayPal payments, order handling, and administration."
             },
-            skills: ["React.js", "Redux", "Node.js", "Express.js", "PayPal API", "MongoDB"],
-            github: "https://github.com/tskxz/MetalShop"
+            skills: ["React.js", "Redux", "Node.js", "Express.js", "PayPal API"],
+            github: "https://github.com/tskxz/MetalShop",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["fullstack"]
         },
         {
             id: "macros4ever",
-            name: "Macros4Ever – Food & Nutrition Management API",
+            name: "Macros4Ever – Nutrition Database API",
             period: { pt: "setembro de 2024", en: "Sep 2024" },
             association: { pt: "Projeto Pessoal", en: "Personal Project" },
             logo: "assets/images/logos/project-macros4ever.png",
@@ -1162,12 +1571,15 @@
                 pt: "API backend em Node.js e Express para gestão de base de dados nutricional, com middlewares de validação, processos de aprovação de alimentos e documentação Postman.",
                 en: "Node.js and Express API for maintaining a detailed food and nutrition database, with validation middlewares and Postman testing/documentation."
             },
-            skills: ["Node.js", "Express.js", "Postman", "Backend Development"],
-            github: "https://github.com/tskxz/macros4ever"
+            skills: ["Node.js", "Express.js", "Postman", "Backend Dev"],
+            github: "https://github.com/tskxz/macros4ever",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["fullstack"]
         },
         {
             id: "sixpackacademy",
-            name: "SixPackAcademy - Gym Platform & Appointment Management",
+            name: "SixPackAcademy - Gym Booking Platform",
             period: { pt: "maio de 2024 - julho de 2024", en: "May 2024 – Jul 2024" },
             association: { pt: "ISTEC Porto", en: "ISTEC Porto" },
             logo: "assets/images/logos/project-sixpackacademy.png",
@@ -1176,7 +1588,10 @@
                 en: "PHP and MySQL web application for gym operations, with Calendly integration for appointments, custom SMTP via PHPMailer, and administration area."
             },
             skills: ["PHP", "MySQL", "Calendly API", "PHPMailer", "SMTP"],
-            github: "https://github.com/sixpackacademy/experimental_view6p"
+            github: "https://github.com/sixpackacademy/experimental_view6p",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["fullstack"]
         },
         {
             id: "tablebook",
@@ -1189,24 +1604,14 @@
                 en: "Restaurant table and meal reservation web application built with Python, Flask, MongoDB, and PyMongo."
             },
             skills: ["Python", "Flask", "MongoDB", "PyMongo"],
-            github: "https://github.com/tskxz/reservarmesa-bifes"
-        },
-        {
-            id: "browsemuscle",
-            name: "BrowseMuscle - Fitness Management Platform",
-            period: { pt: "agosto de 2022 - abril de 2023", en: "Aug 2022 – Apr 2023" },
-            association: { pt: "Escola Secundária Filipa de Vilhena", en: "Filipa de Vilhena" },
-            logo: "assets/images/logos/project-browsemuscle.png",
-            desc: {
-                pt: "Plataforma fitness full-stack desenvolvida em Node.js, Sequelize e MySQL em arquitetura MVC com planos de treino personalizados e alojamento em VPS Debian Linux.",
-                en: "Full-stack fitness platform built with Node.js, Sequelize, and MySQL in MVC architecture, deployed and self-hosted on a Debian Linux VPS."
-            },
-            skills: ["Node.js", "Sequelize", "MySQL", "MVC", "Debian Linux VPS"],
-            github: "https://github.com/tskxz/browsemuscle"
+            github: "https://github.com/tskxz/reservarmesa-bifes",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["fullstack"]
         },
         {
             id: "weatherdata",
-            name: "WeatherData – Node.js Weather Forecast CLI",
+            name: "WeatherData – Node.js Forecast CLI",
             period: { pt: "novembro de 2020", en: "Nov 2020" },
             association: { pt: "Projeto Pessoal", en: "Personal Project" },
             logo: "assets/images/logos/project-weatherdata.png",
@@ -1215,11 +1620,14 @@
                 en: "Node.js command-line application that retrieves real-time weather forecasts from the OpenWeather API and formats data for terminal output."
             },
             skills: ["Node.js", "CLI", "OpenWeather API", "REST API"],
-            github: "https://github.com/tskxz/"
+            github: "https://github.com/tskxz/",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["systems", "fullstack"]
         },
         {
             id: "farmersteamcards",
-            name: "FarmerSteamCards - Automated Steam Card Farming Tool",
+            name: "FarmerSteamCards - Headless Steam Farming",
             period: { pt: "março de 2020 - julho de 2020", en: "Mar 2020 – Jul 2020" },
             association: { pt: "Projeto Pessoal", en: "Personal Project" },
             logo: "assets/images/logos/project-farmersteamcards.png",
@@ -1228,11 +1636,14 @@
                 en: "Node.js CLI tool automating Steam trading-card farming without game installations, using steam-user to emulate headless client sessions."
             },
             skills: ["Node.js", "steam-user", "CLI Automation"],
-            github: "https://github.com/tskxz/FarmerSteamCards"
+            github: "https://github.com/tskxz/FarmerSteamCards",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["systems"]
         },
         {
             id: "escolhaacertada",
-            name: "Escolha-Acertada – Real Estate Data Scraper & Analytics",
+            name: "Escolha-Acertada – Real Estate Data Analytics",
             period: { pt: "junho de 2020", en: "Jun 2020" },
             association: { pt: "Projeto Pessoal", en: "Personal Project" },
             logo: "assets/images/logos/project-escolhaacertada.png",
@@ -1240,25 +1651,15 @@
                 pt: "Projeto de recolha e tratamento de dados imobiliários na web com Python, BeautifulSoup, Requests, Pandas e Jupyter Notebook, transformando dados não-estruturados em datasets CSV.",
                 en: "Python real-estate web scraper and data processing tool built with BeautifulSoup, Requests, Pandas, and Jupyter Notebook to generate analytical CSV datasets."
             },
-            skills: ["Python", "BeautifulSoup", "Pandas", "Web Scraping", "Jupyter"],
-            github: "https://github.com/tskxz/Escolha-Acertada"
-        },
-        {
-            id: "portometeorologia",
-            name: "Porto-Meteorologia-População – Weather & Map Engine",
-            period: { pt: "maio de 2020", en: "May 2020" },
-            association: { pt: "Projeto Pessoal", en: "Personal Project" },
-            logo: "assets/images/logos/project-weatherdata.png",
-            desc: {
-                pt: "Aplicação Python que combina web scraping de meteorologia do Porto com mapas coropléticos interativos em Folium baseados em dados demográficos populacionais globais.",
-                en: "Python application combining Porto weather scraping with interactive geospatial choropleth maps using Folium and global demographic data."
-            },
-            skills: ["Python", "Folium", "BeautifulSoup", "Geospatial", "Data Viz"],
-            github: "https://github.com/tskxz/Porto-Meteorologia-Populacao"
+            skills: ["Python", "BeautifulSoup", "Pandas", "Web Scraping"],
+            github: "https://github.com/tskxz/Escolha-Acertada",
+            gridSpan: "span-6",
+            featured: false,
+            categories: ["data"]
         },
         {
             id: "motiondetection",
-            name: "Real-Time Object Motion Detection & Data Viz Engine",
+            name: "Real-Time Object Motion Detection & Data Viz",
             period: { pt: "março de 2020", en: "Mar 2020" },
             association: { pt: "Projeto Pessoal", en: "Personal Project" },
             logo: "assets/images/logos/project-motiondetection.png",
@@ -1267,11 +1668,40 @@
                 en: "Real-time motion-detection system developed with Python and OpenCV on video feed, logging timestamps to Pandas DataFrames and rendering interactive time-series charts with Bokeh."
             },
             skills: ["Python", "OpenCV", "Pandas", "Bokeh", "Computer Vision"],
-            github: "https://github.com/tskxz/detect-objects-webcam"
+            github: "https://github.com/tskxz/detect-objects-webcam",
+            gridSpan: "span-12",
+            featured: false,
+            categories: ["data", "systems"]
         }
     ];
 
     const certificatesData = [
+        {
+            id: "langchain-foundation",
+            title: { pt: "Foundation: Introduction to LangChain - Python", en: "Foundation: Introduction to LangChain - Python" },
+            issuer: "LangChain Academy",
+            date: { pt: "agosto de 2026", en: "Aug 2026" },
+            logo: "assets/images/logos/langchain.png",
+            pdf: "assets/certificates/cert-langchain-foundation.pdf",
+            credentialId: "qxjdy9xqsg"
+        },
+        {
+            id: "mcp",
+            title: { pt: "Introduction to Model Context Protocol", en: "Introduction to Model Context Protocol" },
+            issuer: "Anthropic / Model Context Protocol",
+            date: { pt: "agosto de 2026", en: "Aug 2026" },
+            logo: "assets/images/logos/anthropic.png",
+            pdf: "assets/certificates/cert-mcp.pdf",
+            credentialId: "pg569sbzob9i"
+        },
+        {
+            id: "aws",
+            title: { pt: "AWS Technical Essentials", en: "AWS Technical Essentials" },
+            issuer: "Amazon Web Services (AWS)",
+            date: { pt: "julho de 2026", en: "Jul 2026" },
+            logo: "assets/images/logos/aws.png",
+            pdf: "assets/certificates/cert-aws-technical-essentials.pdf",
+        },
         {
             id: "what-is-rag",
             title: { pt: "What is RAG? - NORAI Academy", en: "What is RAG? - NORAI Academy" },
@@ -1287,7 +1717,6 @@
             issuer: "Google",
             date: { pt: "julho de 2026", en: "Jul 2026" },
             logo: "assets/images/logos/google.png",
-            pdf: "assets/certificates/cert-google-gemini-multimodal-rag.pdf",
             credentialId: "26121084"
         },
         {
@@ -1298,32 +1727,6 @@
             logo: "assets/images/logos/norai.png",
             pdf: "assets/certificates/cert-norai-prompt-engineering.pdf",
             credentialId: "dc5f4ccbcd3be140"
-        },
-        {
-            id: "langchain-foundation",
-            title: { pt: "Foundation: Introduction to LangChain - Python", en: "Foundation: Introduction to LangChain - Python" },
-            issuer: "LangChain Academy",
-            date: "2026",
-            logo: "assets/images/logos/langchain.png",
-            pdf: "assets/certificates/cert-langchain-foundation.pdf",
-            credentialId: "qxjdy9xqsg"
-        },
-        {
-            id: "mcp",
-            title: { pt: "Introduction to Model Context Protocol", en: "Introduction to Model Context Protocol" },
-            issuer: "Anthropic / Model Context Protocol",
-            date: "2026",
-            logo: "assets/images/logos/anthropic.png",
-            pdf: "assets/certificates/cert-mcp.pdf",
-            credentialId: "pg569sbzob9i"
-        },
-        {
-            id: "aws",
-            title: { pt: "AWS Technical Essentials", en: "AWS Technical Essentials" },
-            issuer: "Amazon Web Services (AWS)",
-            date: "2026",
-            logo: "assets/images/logos/aws.png",
-            pdf: "assets/certificates/cert-aws-technical-essentials.pdf",
         },
         {
             id: "nodejs",
@@ -1339,16 +1742,14 @@
             title: { pt: "3º Lugar - Natixis Hackathon 2024", en: "3rd Place - Natixis Hackathon 2024" },
             issuer: "Natixis",
             date: "2024",
-            logo: "assets/images/logos/natixis.png",
-            pdf: "assets/certificates/award-natixis-hackathon.pdf",
+            logo: "assets/images/logos/natixis.png"
         },
         {
             id: "natixis-bd",
             title: { pt: "Natixis Certificate of Participation - Big Data Engineer", en: "Natixis Certificate of Participation - Big Data Engineer" },
             issuer: "Natixis",
             date: "2024",
-            logo: "assets/images/logos/natixis.png",
-            pdf: "assets/certificates/cert-natixis-bigdata.pdf",
+            logo: "assets/images/logos/natixis.png"
         },
         {
             id: "jornadas",
@@ -1364,19 +1765,20 @@
         pt: {
             role: "Software Engineer",
             location: "Moreira da Maia, Porto, Portugal",
+            statusLabel: "ISTEC &middot; Disponível para projetos & funções de engenharia",
             themeLight: "Claro",
             themeDark: "Escuro",
             navAbout: "Sobre",
             navEducation: "Educação",
             navExperience: "Experiência",
             navProjects: "Projetos",
-            navCertifications: "Certificados & Prémios",
+            navCertifications: "Certificados",
             navLanguages: "Idiomas",
             aboutTitle: "Sobre",
-            aboutHtml: `<p>Estudante de Engenharia Informática no ISTEC, com foco em Backend Engineering e APIs.</p><p style="margin-top: 10px;">Desenvolvo soluções backend e REST APIs utilizando Node.js, Python e bases de dados SQL/NoSQL. Tenho também experiência Full-Stack a construir aplicações com Next.js, Nuxt, MERN e Laravel, e atualmente estou a explorar a integração de IA com LangChain.</p>`,
+            aboutHtml: `<p>Estudante de Engenharia Informática no ISTEC, com foco em Backend Engineering e APIs.</p><p>Desenvolvo soluções backend e REST APIs utilizando Node.js, Python e bases de dados SQL/NoSQL. Tenho também experiência Full-Stack a construir aplicações com Next.js, Nuxt, MERN e Laravel, e atualmente estou a explorar a integração de IA com LangChain.</p>`,
             educationTitle: "Formação Académica",
             edu1Period: "setembro de 2025 - setembro de 2028",
-            edu1Degree: "Nível 6, Licenciatura em Engenharia Informática",
+            edu1Degree: "Nível 6, Licenciatura em Engenharia Informática (Computer Software Engineering)",
             edu2Period: "outubro de 2023 - setembro de 2025",
             edu2Degree: "Nível 5, CTESP em Desenvolvimento de Software",
             edu3Period: "setembro de 2020 - julho de 2023",
@@ -1434,31 +1836,40 @@
                 "Atendimento e apoio ao cliente, assegurando uma experiência positiva e manutenção da organização do espaço comercial."
             ],
             projectsTitle: "Projetos",
+            filterFeatured: "Destaques (8)",
+            filterAi: "IA & LLMs",
+            filterSystems: "Sistemas & CLI",
+            filterMobile: "Mobile Development",
+            filterFullstack: "Full-Stack & APIs",
+            filterData: "Dados & Visão Computacional",
+            filterAll: "Todos (20)",
+            featuredBadge: "Destaque",
             certificationsTitle: "Certificados & Prémios",
-            credIdLabel: "ID da Credencial:",
+            credIdLabel: "ID Credencial:",
             viewCertBtn: "Ver Certificado",
-            verifyUrlBtn: "Ver Credencial",
             languagesTitle: "Idiomas",
-            langPt: "Português:",
+            langPt: "Português",
             langPtLevel: "Nativo ou Bilingue",
-            langEn: "Inglês:",
-            langEnLevel: "Nível Limitado / Trabalho (Limited working proficiency)",
+            langEn: "Inglês",
+            langEnLevel: "Nível Profissional / Trabalho",
+            footerRole: "Software Engineer",
             footerText: "Portfólio Pessoal",
             viewCode: "Ver no GitHub"
         },
         en: {
             role: "Software Engineer",
             location: "Moreira da Maia, Porto, Portugal",
+            statusLabel: "ISTEC &middot; Open to engineering opportunities & projects",
             themeLight: "Light",
             themeDark: "Dark",
             navAbout: "About",
             navEducation: "Education",
             navExperience: "Experience",
             navProjects: "Projects",
-            navCertifications: "Certifications & Awards",
+            navCertifications: "Certifications",
             navLanguages: "Languages",
             aboutTitle: "About",
-            aboutHtml: `<p>Computer Software Engineering student at ISTEC, focused on Backend Engineering and APIs.</p><p style="margin-top: 10px;">I develop backend solutions and REST APIs using Node.js, Python, and SQL/NoSQL databases. I also have Full-Stack experience building applications with Next.js, Nuxt, MERN, and Laravel, and I am currently exploring AI integration with LangChain.</p>`,
+            aboutHtml: `<p>Computer Software Engineering student at ISTEC, focused on Backend Engineering and APIs.</p><p>I develop backend solutions and REST APIs using Node.js, Python, and SQL/NoSQL databases. I also have Full-Stack experience building applications with Next.js, Nuxt, MERN, and Laravel, and I am currently exploring AI integration with LangChain.</p>`,
             educationTitle: "Education",
             edu1Period: "September 2025 - September 2028",
             edu1Degree: "Level 6, Bachelor in Computer Software Engineering",
@@ -1519,46 +1930,99 @@
                 "Provided customer support ensuring a positive shopping experience and maintaining shop organization."
             ],
             projectsTitle: "Projects",
+            filterFeatured: "Featured (8)",
+            filterAi: "AI & LLMs",
+            filterSystems: "Systems & CLI",
+            filterMobile: "Mobile Development",
+            filterFullstack: "Full-Stack & APIs",
+            filterData: "Data & Computer Vision",
+            filterAll: "All (20)",
+            featuredBadge: "Featured",
             certificationsTitle: "Certifications & Awards",
             credIdLabel: "Credential ID:",
             viewCertBtn: "View Certificate",
-            verifyUrlBtn: "Verify Credential",
             languagesTitle: "Languages",
-            langPt: "Portuguese:",
+            langPt: "Portuguese",
             langPtLevel: "Native or Bilingual",
-            langEn: "English:",
-            langEnLevel: "Limited working proficiency",
+            langEn: "English",
+            langEnLevel: "Professional Working Proficiency",
+            footerRole: "Software Engineer",
             footerText: "Personal Portfolio",
             viewCode: "View on GitHub"
         }
     };
+
+    let currentFilter = 'featured';
+
+    function renderProjectFilters(lang) {
+        const filterContainer = document.getElementById('project-filters');
+        if (!filterContainer) return;
+        const t = translations[lang];
+
+        const filters = [
+            { key: 'featured', label: t.filterFeatured },
+            { key: 'all', label: t.filterAll },
+            { key: 'fullstack', label: t.filterFullstack },
+            { key: 'ai', label: t.filterAi },
+            { key: 'systems', label: t.filterSystems },
+            { key: 'mobile', label: t.filterMobile },
+            { key: 'data', label: t.filterData }
+        ];
+
+        filterContainer.innerHTML = filters.map(f => `
+            <button type="button" class="filter-btn ${currentFilter === f.key ? 'active' : ''}" onclick="setProjectFilter('${f.key}')">
+                ${f.label}
+            </button>
+        `).join('');
+    }
+
+    function setProjectFilter(filter) {
+        currentFilter = filter;
+        const currentLang = localStorage.getItem('preferred_lang') || 'pt';
+        renderProjectFilters(currentLang);
+        renderProjects(currentLang);
+    }
 
     function renderProjects(lang) {
         const container = document.getElementById('projects-container');
         if (!container) return;
 
         const githubIconSvg = `<svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>`;
+        const t = translations[lang];
 
-        container.innerHTML = projectsData.map(p => {
+        const filteredProjects = projectsData.filter(p => {
+            if (currentFilter === 'all') return true;
+            if (currentFilter === 'featured') return p.featured;
+            if (Array.isArray(p.categories)) {
+                return p.categories.includes(currentFilter);
+            }
+            return p.category === currentFilter;
+        });
+
+        container.innerHTML = filteredProjects.map(p => {
             const period = p.period[lang] || p.period.pt;
             const association = p.association[lang] || p.association.pt;
             const desc = p.desc[lang] || p.desc.pt;
-            const btnLabel = translations[lang].viewCode;
+            const btnLabel = t.viewCode;
+            const spanClass = p.gridSpan || "span-6";
+            const featuredCardClass = p.featured ? "featured-card" : "";
 
-            const skillsHtml = p.skills.map(s => `<span class="project-skill-badge">${s}</span>`).join('');
+            const skillsHtml = p.skills.map(s => `<span class="skill-chip">${s}</span>`).join('');
 
             return `
-                <article class="project-board-card">
+                <article class="project-card ${spanClass} ${featuredCardClass}">
                     <div>
-                        <div class="project-board-top">
-                            <div class="logo-slot">
-                                <img src="${p.logo}" alt="Logótipo ${p.name}" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                        <div class="project-top-row">
+                            <div class="project-logo-slot">
+                                <img src="${p.logo}" alt="Logótipo ${p.name}" onerror="this.style.display='none'">
                             </div>
-                            <div class="project-board-header">
-                                <h3 class="project-name">${p.name}</h3>
+                            <div class="project-header-info">
+                                <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
+                                    <h3 class="project-name" style="margin-bottom: 0;">${p.name}</h3>
+                                    ${p.featured ? `<span class="featured-badge">${t.featuredBadge}</span>` : ''}
+                                </div>
                                 <div class="project-meta-line">
-                                    <span class="project-association">${association}</span>
+                                    <span class="project-meta-assoc">${association}</span>
                                     <span>&middot;</span>
                                     <span>${period}</span>
                                 </div>
@@ -1567,10 +2031,10 @@
                         <p class="project-desc">${desc}</p>
                     </div>
                     <div class="project-footer">
-                        <div class="project-skills">${skillsHtml}</div>
+                        <div class="project-skill-cluster">${skillsHtml}</div>
                         ${p.github ? `
-                        <div class="project-links">
-                            <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                        <div class="project-action-row">
+                            <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn-code">
                                 ${githubIconSvg}
                                 <span>${btnLabel}</span>
                             </a>
@@ -1586,8 +2050,6 @@
         if (!container) return;
 
         const certIconSvg = `<svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>`;
-        const verifyIconSvg = `<svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>`;
-
         const t = translations[lang];
 
         container.innerHTML = certificatesData.map(c => {
@@ -1596,34 +2058,33 @@
 
             return `
                 <article class="cert-card">
-                    <div class="cert-header">
-                        <div class="logo-slot">
-                            <img src="${c.logo}" alt="Logótipo ${title}" class="entity-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                            <span class="logo-placeholder-text" style="display:none;">LOGO</span>
+                    <div class="cert-top">
+                        <div class="cert-logo-slot">
+                            <img src="${c.logo}" alt="Logótipo ${title}" onerror="this.style.display='none'">
                         </div>
-                        <div class="cert-title-block">
-                            <h3 class="cert-name">${title}</h3>
-                            <div class="cert-issuer">${c.issuer} &middot; ${date}</div>
+                        <div class="cert-info">
+                            <h3 class="cert-title">${title}</h3>
+                            <div class="cert-meta">
+                                <span>${c.issuer}</span>
+                                <span>&middot;</span>
+                                <span>${date}</span>
+                            </div>
                         </div>
                     </div>
-
-                    ${c.image ? `
-                    <div class="cert-image-preview">
-                        <img src="${c.image}" alt="${(typeof c.imageAlt === 'object' ? (c.imageAlt[lang] || c.imageAlt.pt) : c.imageAlt) || title}" class="cert-preview-img" onerror="this.parentElement.style.display='none';">
-                    </div>` : ''}
 
                     ${c.credentialId ? `
-                    <div class="cert-cred-info">
-                        <span><strong>${t.credIdLabel}</strong> <code class="cred-code">${c.credentialId}</code></span>
+                    <div class="cert-cred-row">
+                        <span>${t.credIdLabel}</span>
+                        <code class="cert-cred-code">${c.credentialId}</code>
                     </div>` : ''}
 
+                    ${c.pdf ? `
                     <div class="cert-actions">
-                        ${c.pdf ? `
-                        <a href="${c.pdf}" target="_blank" rel="noopener noreferrer" class="action-btn" title="${t.viewCertBtn}">
+                        <a href="${c.pdf}" target="_blank" rel="noopener noreferrer" class="btn-cert" title="${t.viewCertBtn}">
                             ${certIconSvg}
                             <span>${t.viewCertBtn}</span>
-                        </a>` : ''}
-                    </div>
+                        </a>
+                    </div>` : ''}
                 </article>
             `;
         }).join('');
@@ -1642,11 +2103,11 @@
         const btn = document.getElementById('btn-theme-toggle');
         if (btn) {
             if (theme === 'dark') {
-                btn.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+                btn.innerHTML = `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
                 btn.setAttribute('title', 'Modo Escuro / Dark Mode');
                 btn.setAttribute('aria-label', 'Modo Escuro');
             } else {
-                btn.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+                btn.innerHTML = `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
                 btn.setAttribute('title', 'Modo Claro / Light Mode');
                 btn.setAttribute('aria-label', 'Modo Claro');
             }
@@ -1666,7 +2127,7 @@
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang][key] !== undefined) {
-                el.textContent = translations[lang][key];
+                el.innerHTML = translations[lang][key];
             }
         });
 
@@ -1692,7 +2153,8 @@
             }
         });
 
-        // Render projects and certificates in selected language
+        // Render projects, filters, and certificates in selected language
+        renderProjectFilters(lang);
         renderProjects(lang);
         renderCertificates(lang);
     }
