@@ -504,6 +504,37 @@
             color: var(--text-muted);
         }
 
+        .experience-group {
+            margin-bottom: 32px;
+        }
+
+        .experience-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-stream-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .experience-stream-title {
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .experience-stream-line {
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
         /* ---------------------------------------------------- */
         /* BENTO GRID 2.0 FOR PROJECTS                          */
         /* ---------------------------------------------------- */
@@ -1128,152 +1159,148 @@
         <div class="section-header">
             <h2 class="section-title" data-i18n="experienceTitle">Experiência Profissional</h2>
         </div>
-        <div class="timeline-stream">
-            <!-- Cogniwave -->
-            <div class="timeline-item">
-                <div class="timeline-content-wrap">
-                    <div class="timeline-logo-slot">
-                        <img src="assets/images/logos/cogniwave.png" alt="Cogniwave" onerror="this.style.display='none'">
-                    </div>
-                    <div class="timeline-body">
-                        <div class="timeline-header-row">
-                            <h3 class="timeline-title">Cogniwave</h3>
-                            <span class="timeline-period" data-i18n="exp1Period">março de 2025 - julho de 2025</span>
+        
+        <!-- Stream 1: Core Software Engineering -->
+        <div class="experience-group">
+            <div class="experience-stream-header">
+                <h3 class="experience-stream-title" data-i18n="expGroupSoftware">Desenvolvimento de Software</h3>
+                <div class="experience-stream-line"></div>
+            </div>
+            <div class="timeline-stream">
+                <!-- Cogniwave -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/cogniwave.png" alt="Cogniwave" onerror="this.style.display='none'">
                         </div>
-                        <div class="timeline-sub"><span data-i18n="exp1Role">Web Developer</span> &middot; Portugal</div>
-                        <div class="timeline-grade" data-i18n="exp1Grade">Nota: 20/20</div>
-                        <ul class="timeline-bullets" data-i18n-list="exp1Bullets">
-                            <li>Desenvolvimento de uma plataforma web para memoriais de animais utilizando Nuxt 3 e TypeScript.</li>
-                            <li>Construção de arquitetura serverless implementada em Cloudflare Workers com NuxtHub para edge deployment e Drizzle ORM para operações de base de dados.</li>
-                            <li>Integração com Brevo para envio de emails transacionais e configuração de GitHub Actions para automação de CI/CD.</li>
-                        </ul>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">Cogniwave</h3>
+                                <span class="timeline-period" data-i18n="exp1Period">março de 2025 - julho de 2025</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp1Role">Web Developer</span> &middot; Portugal</div>
+                            <div class="timeline-grade" data-i18n="exp1Grade">Nota: 20/20</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp1Bullets">
+                                <li>Arquitetura e implementação de backend serverless e plataforma web com Nuxt 3 e TypeScript em Cloudflare Workers com NuxtHub.</li>
+                                <li>Modelação relacional de dados type-safe com Drizzle ORM sobre base de dados SQLite / Cloudflare D1 distribuída.</li>
+                                <li>Integração de serviços transacionais via Brevo e automação contínua de pipelines CI/CD com GitHub Actions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filipa de Vilhena -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/filipa-de-vilhena.png" alt="Filipa de Vilhena" onerror="this.style.display='none'">
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">Filipa de Vilhena</h3>
+                                <span class="timeline-period" data-i18n="exp2Period">junho de 2023 - julho de 2023</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp2Role">Web Developer</span> &middot; Porto, Portugal</div>
+                            <div class="timeline-grade" data-i18n="exp2Grade">Nota: 19/20</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp2Bullets">
+                                <li>Desenvolvimento full-stack de sistema de gestão de conteúdos (CMS) para o projeto "Eco-Escolas" com Laravel e Livewire.</li>
+                                <li>Implementação de módulos CRUD dinâmicos com autenticação, controlo de permissões de professores e upload de ficheiros.</li>
+                                <li>Modelação e otimização de queries relacionais com Eloquent ORM sobre base de dados MySQL.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Filipa de Vilhena -->
-            <div class="timeline-item">
-                <div class="timeline-content-wrap">
-                    <div class="timeline-logo-slot">
-                        <img src="assets/images/logos/filipa-de-vilhena.png" alt="Filipa de Vilhena" onerror="this.style.display='none'">
-                    </div>
-                    <div class="timeline-body">
-                        <div class="timeline-header-row">
-                            <h3 class="timeline-title">Filipa de Vilhena</h3>
-                            <span class="timeline-period" data-i18n="exp2Period">junho de 2023 - julho de 2023</span>
+        <!-- Stream 2: Systems & Technical Infrastructure -->
+        <div class="experience-group">
+            <div class="experience-stream-header">
+                <h3 class="experience-stream-title" data-i18n="expGroupSystems">Sistemas & Infraestrutura Técnica</h3>
+                <div class="experience-stream-line"></div>
+            </div>
+            <div class="timeline-stream">
+                <!-- Vanguarda Soluções e Gestão -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/vanguarda.png" alt="Vanguarda Soluções e Gestão" onerror="this.style.display='none'">
                         </div>
-                        <div class="timeline-sub"><span data-i18n="exp2Role">Web Developer</span> &middot; Porto, Portugal</div>
-                        <div class="timeline-grade" data-i18n="exp2Grade">Nota: 19/20</div>
-                        <ul class="timeline-bullets" data-i18n-list="exp2Bullets">
-                            <li>Criação de um sistema de gestão de conteúdos (CMS) administrativo para o projeto "Eco-Escolas" usando Laravel e Livewire.</li>
-                            <li>Desenvolvimento de funcionalidades dinâmicas CRUD permitindo a professores autorizados criar e editar secções de páginas personalizadas com envio de texto e imagens.</li>
-                            <li>Construção de interfaces de utilizador reativas com componentes Livewire e lógica estruturada de base de dados via Eloquent ORM / MySQL.</li>
-                        </ul>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">Vanguarda Soluções e Gestão</h3>
+                                <span class="timeline-period" data-i18n="exp6Period">maio de 2022 - julho de 2022</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp6Role">Support Worker</span> &middot; Maia, Portugal</div>
+                            <div class="timeline-grade" data-i18n="exp6Grade">Nota: 19/20</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp6Bullets">
+                                <li>Gestão de tickets de suporte técnico L1/L2, diagnóstico de problemas e encaminhamento de bugs complexos para a equipa de desenvolvimento.</li>
+                                <li>Administração remota de servidores com AnyDesk e RDP para aceder com segurança a infraestruturas e recuperar dados críticos.</li>
+                                <li>Tratamento de transferências de dados confidenciais em estrito cumprimento de protocolos de privacidade e normas de segurança interna.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Colegio Caja General de Ahorros de Granada -->
-            <div class="timeline-item">
-                <div class="timeline-content-wrap">
-                    <div class="timeline-logo-slot">
-                        <img src="assets/images/logos/colegio-caja-granada.png" alt="Colegio Caja General de Ahorros de Granada" onerror="this.style.display='none'">
-                    </div>
-                    <div class="timeline-body">
-                        <div class="timeline-header-row">
-                            <h3 class="timeline-title">Colegio Caja General de Ahorros de Granada</h3>
-                            <span class="timeline-period" data-i18n="exp3Period">maio de 2023 - junho de 2023</span>
+                <!-- AGIFODENT -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/agifodent.png" alt="AGIFODENT" onerror="this.style.display='none'">
                         </div>
-                        <div class="timeline-sub"><span data-i18n="exp3Role">Computer Technician</span> &middot; Granada, Espanha</div>
-                        <ul class="timeline-bullets" data-i18n-list="exp3Bullets">
-                            <li>Atualização do website institucional em Wix, ajustando a estrutura de páginas e layouts para melhorar a experiência do utilizador (UI/UX).</li>
-                            <li>Implementação do Reboot Restore Rx em postos de trabalho públicos para restaurar automaticamente alterações de sistema não autorizadas após reinicialização.</li>
-                            <li>Otimização do desempenho do Windows através da edição de chaves de registo (Regedit), desativação de serviços de arranque não essenciais e limpeza de caches do sistema.</li>
-                        </ul>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">AGIFODENT</h3>
+                                <span class="timeline-period" data-i18n="exp4Period">maio de 2023</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp4Role">IT Technician</span> &middot; Granada, Espanha</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp4Bullets">
+                                <li>Implementação de distribuições Linux ultra-leves (Tiny Core Linux e antiX) em portáteis de baixo desempenho, ajustando a escolha do SO a fortes restrições de hardware, RAM e armazenamento.</li>
+                                <li>Transporte físico e instalação de múltiplos servidores pesados para locais designados, assegurando a configuração e implementação segura do equipamento.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- AGIFODENT -->
-            <div class="timeline-item">
-                <div class="timeline-content-wrap">
-                    <div class="timeline-logo-slot">
-                        <img src="assets/images/logos/agifodent.png" alt="AGIFODENT" onerror="this.style.display='none'">
-                    </div>
-                    <div class="timeline-body">
-                        <div class="timeline-header-row">
-                            <h3 class="timeline-title">AGIFODENT</h3>
-                            <span class="timeline-period" data-i18n="exp4Period">maio de 2023</span>
+                <!-- Colegio Caja General de Ahorros de Granada -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/colegio-caja-granada.png" alt="Colegio Caja General de Ahorros de Granada" onerror="this.style.display='none'">
                         </div>
-                        <div class="timeline-sub"><span data-i18n="exp4Role">IT Technician</span> &middot; Granada, Espanha</div>
-                        <ul class="timeline-bullets" data-i18n-list="exp4Bullets">
-                            <li>Implementação de distribuições Linux ultra-leves (Tiny Core Linux e antiX) em portáteis de baixo desempenho, ajustando a escolha do SO a fortes restrições de hardware, RAM e armazenamento.</li>
-                            <li>Transporte físico e instalação de múltiplos servidores pesados para locais designados, assegurando a configuração e implementação segura do equipamento.</li>
-                        </ul>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">Colegio Caja General de Ahorros de Granada</h3>
+                                <span class="timeline-period" data-i18n="exp3Period">maio de 2023 - junho de 2023</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp3Role">Computer Technician</span> &middot; Granada, Espanha</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp3Bullets">
+                                <li>Atualização do website institucional em Wix, ajustando a estrutura de páginas e layouts para melhorar a experiência do utilizador (UI/UX).</li>
+                                <li>Implementação do Reboot Restore Rx em postos de trabalho públicos para restaurar automaticamente alterações de sistema não autorizadas após reinicialização.</li>
+                                <li>Otimização do desempenho do Windows através da edição de chaves de registo (Regedit), desativação de serviços de arranque não essenciais e limpeza de caches do sistema.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Palacio de Congresos -->
-            <div class="timeline-item">
-                <div class="timeline-content-wrap">
-                    <div class="timeline-logo-slot">
-                        <img src="assets/images/logos/palacio-congresos-granada.png" alt="Palacio de Congresos de Granada" onerror="this.style.display='none'">
-                    </div>
-                    <div class="timeline-body">
-                        <div class="timeline-header-row">
-                            <h3 class="timeline-title">Palacio de Exposiciones y Congresos de Granada SA</h3>
-                            <span class="timeline-period" data-i18n="exp5Period">maio de 2023</span>
+                <!-- Palacio de Congresos -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/palacio-congresos-granada.png" alt="Palacio de Congresos de Granada" onerror="this.style.display='none'">
                         </div>
-                        <div class="timeline-sub"><span data-i18n="exp5Role">Stage Technician</span> &middot; Granada, Espanha</div>
-                        <ul class="timeline-bullets" data-i18n-list="exp5Bullets">
-                            <li>Gestão de iluminação de palco ao vivo, sistemas de som e equipamento de projeção durante eventos no Palacio de Congresos de Granada.</li>
-                            <li>Operação de consolas de mistura AV e iluminação em tempo real, assegurando a execução sonora e visual para audiências ao vivo.</li>
-                            <li>Configuração, testes e manutenção preventiva de tecnologia de palco para prevenir falhas durante eventos.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vanguarda Soluções e Gestão -->
-            <div class="timeline-item">
-                <div class="timeline-content-wrap">
-                    <div class="timeline-logo-slot">
-                        <img src="assets/images/logos/vanguarda.png" alt="Vanguarda Soluções e Gestão" onerror="this.style.display='none'">
-                    </div>
-                    <div class="timeline-body">
-                        <div class="timeline-header-row">
-                            <h3 class="timeline-title">Vanguarda Soluções e Gestão</h3>
-                            <span class="timeline-period" data-i18n="exp6Period">maio de 2022 - julho de 2022</span>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">Palacio de Exposiciones y Congresos de Granada SA</h3>
+                                <span class="timeline-period" data-i18n="exp5Period">maio de 2023</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp5Role">Stage Technician</span> &middot; Granada, Espanha</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp5Bullets">
+                                <li>Gestão de iluminação de palco ao vivo, sistemas de som e equipamento de projeção durante eventos no Palacio de Congresos de Granada.</li>
+                                <li>Operação de consolas de mistura AV e iluminação em tempo real, assegurando a execução sonora e visual para audiências ao vivo.</li>
+                                <li>Configuração, testes e manutenção preventiva de tecnologia de palco para prevenir falhas durante eventos.</li>
+                            </ul>
                         </div>
-                        <div class="timeline-sub"><span data-i18n="exp6Role">Support Worker</span> &middot; Maia, Portugal</div>
-                        <div class="timeline-grade" data-i18n="exp6Grade">Nota: 19/20</div>
-                        <ul class="timeline-bullets" data-i18n-list="exp6Bullets">
-                            <li>Gestão de tickets de suporte técnico L1/L2, diagnóstico de problemas e encaminhamento de bugs complexos para a equipa de desenvolvimento.</li>
-                            <li>Administração remota de servidores com AnyDesk e RDP para aceder com segurança a infraestruturas e recuperar dados críticos.</li>
-                            <li>Tratamento de transferências de dados confidenciais em estrito cumprimento de protocolos de privacidade e normas de segurança interna.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Shopping Brasília -->
-            <div class="timeline-item">
-                <div class="timeline-content-wrap">
-                    <div class="timeline-logo-slot">
-                        <img src="assets/images/logos/shopping-brasilia.png" alt="Shopping Brasília" onerror="this.style.display='none'">
-                    </div>
-                    <div class="timeline-body">
-                        <div class="timeline-header-row">
-                            <h3 class="timeline-title">Shopping Brasília</h3>
-                            <span class="timeline-period" data-i18n="exp7Period">junho de 2011 - março de 2014</span>
-                        </div>
-                        <div class="timeline-sub"><span data-i18n="exp7Role">Store Associate</span> &middot; Porto, Portugal</div>
-                        <ul class="timeline-bullets" data-i18n-list="exp7Bullets">
-                            <li>Processamento de transações financeiras de clientes como operador de caixa.</li>
-                            <li>Gestão de preços de inventário e reposição contínua de stock.</li>
-                            <li>Atendimento e apoio ao cliente, assegurando uma experiência positiva e manutenção da organização do espaço comercial.</li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -1784,21 +1811,23 @@
             edu3Period: "setembro de 2020 - julho de 2023",
             edu3Degree: "Nível 4, Técnico de Gestão e Programação de Sistemas Informáticos",
             experienceTitle: "Experiência Profissional",
+            expGroupSoftware: "Desenvolvimento de Software",
+            expGroupSystems: "Sistemas & Infraestrutura Técnica",
             exp1Period: "março de 2025 - julho de 2025",
             exp1Role: "Web Developer",
             exp1Grade: "Nota: 20/20",
             exp1Bullets: [
-                "Desenvolvimento de uma plataforma web para memoriais de animais utilizando Nuxt 3 e TypeScript.",
-                "Construção de arquitetura serverless implementada em Cloudflare Workers com NuxtHub para edge deployment e Drizzle ORM para operações de base de dados.",
-                "Integração com Brevo para envio de emails transacionais e configuração de GitHub Actions para automação de CI/CD."
+                "Arquitetura e implementação de backend serverless e plataforma web com Nuxt 3 e TypeScript em Cloudflare Workers com NuxtHub.",
+                "Modelação relacional de dados type-safe com Drizzle ORM sobre base de dados SQLite / Cloudflare D1 distribuída.",
+                "Integração de serviços transacionais via Brevo e automação contínua de pipelines CI/CD com GitHub Actions."
             ],
             exp2Period: "junho de 2023 - julho de 2023",
             exp2Role: "Web Developer",
             exp2Grade: "Nota: 19/20",
             exp2Bullets: [
-                "Criação de um sistema de gestão de conteúdos (CMS) administrativo para o projeto \"Eco-Escolas\" usando Laravel e Livewire.",
-                "Desenvolvimento de funcionalidades dinâmicas CRUD permitindo a professores autorizados criar e editar secções de páginas personalizadas com envio de texto e imagens.",
-                "Construção de interfaces de utilizador reativas com componentes Livewire e lógica estruturada de base de dados via Eloquent ORM / MySQL."
+                "Desenvolvimento full-stack de sistema de gestão de conteúdos (CMS) para o projeto \"Eco-Escolas\" com Laravel e Livewire.",
+                "Implementação de módulos CRUD dinâmicos com autenticação, controlo de permissões de professores e upload de ficheiros.",
+                "Modelação e otimização de queries relacionais com Eloquent ORM sobre base de dados MySQL."
             ],
             exp3Period: "maio de 2023 - junho de 2023",
             exp3Role: "Computer Technician",
@@ -1827,13 +1856,6 @@
                 "Gestão de tickets de suporte técnico L1/L2, diagnóstico de problemas e encaminhamento de bugs complexos para a equipa de desenvolvimento.",
                 "Administração remota de servidores com AnyDesk e RDP para aceder com segurança a infraestruturas e recuperar dados críticos.",
                 "Tratamento de transferências de dados confidenciais em estrito cumprimento de protocolos de privacidade e normas de segurança interna."
-            ],
-            exp7Period: "junho de 2011 - março de 2014",
-            exp7Role: "Store Associate",
-            exp7Bullets: [
-                "Processamento de transações financeiras de clientes como operador de caixa.",
-                "Gestão de preços de inventário e reposição contínua de stock.",
-                "Atendimento e apoio ao cliente, assegurando uma experiência positiva e manutenção da organização do espaço comercial."
             ],
             projectsTitle: "Projetos",
             filterFeatured: "Destaques (8)",
@@ -1878,21 +1900,23 @@
             edu3Period: "September 2020 - July 2023",
             edu3Degree: "Level 4, IT Systems Management and Programming Technician",
             experienceTitle: "Professional Experience",
+            expGroupSoftware: "Software Engineering",
+            expGroupSystems: "Systems & Technical Infrastructure",
             exp1Period: "March 2025 - July 2025",
             exp1Role: "Web Developer",
             exp1Grade: "Grade: 20/20",
             exp1Bullets: [
-                "Developed a web platform for animal memorials using Nuxt 3 and TypeScript.",
-                "Built a serverless architecture deployed on Cloudflare Workers using NuxtHub for edge deployment and Drizzle ORM for database operations.",
-                "Integrated Brevo for transactional emails and set up GitHub Actions for CI/CD automation."
+                "Architected and deployed a serverless web platform using Nuxt 3 and TypeScript on Cloudflare Workers with NuxtHub.",
+                "Engineered type-safe relational data models with Drizzle ORM over distributed SQLite / Cloudflare D1 databases.",
+                "Integrated transactional email services via Brevo and automated CI/CD deployment pipelines with GitHub Actions."
             ],
             exp2Period: "June 2023 - July 2023",
             exp2Role: "Web Developer",
             exp2Grade: "Grade: 19/20",
             exp2Bullets: [
-                "Built an admin content management system (CMS) for the \"Eco-Escolas\" project using Laravel and Livewire.",
-                "Developed dynamic CRUD features allowing authorized teachers to create and edit custom page sections with text and image uploads.",
-                "Built reactive user interfaces using Livewire components and structured database logic via Eloquent ORM / MySQL."
+                "Developed a full-stack administrative CMS for the \"Eco-Escolas\" initiative with reactive UI components using Laravel and Livewire.",
+                "Implemented dynamic CRUD workflows with authentication, teacher role-based access control, and media file uploads.",
+                "Structured and optimized relational data queries using Eloquent ORM on MySQL database."
             ],
             exp3Period: "May 2023 - June 2023",
             exp3Role: "Computer Technician",
@@ -1921,13 +1945,6 @@
                 "Managed L1/L2 IT support tickets, diagnosing incoming issues and escalating complex bugs to the development team.",
                 "Provided remote server administration using AnyDesk and RDP to access infrastructure and retrieve sensitive data securely.",
                 "Handled confidential data transfers while adhering to privacy protocols and internal security standards."
-            ],
-            exp7Period: "June 2011 - March 2014",
-            exp7Role: "Store Associate",
-            exp7Bullets: [
-                "Processed customer transactions as a Cashier.",
-                "Managed inventory pricing and stock replenishment.",
-                "Provided customer support ensuring a positive shopping experience and maintaining shop organization."
             ],
             projectsTitle: "Projects",
             filterFeatured: "Featured (8)",
