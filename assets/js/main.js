@@ -16,6 +16,7 @@ const projectsData = [
         },
         skills: ["C# / .NET", "Next.js", "Vercel", "Stripe", "Supabase", "Telegram Bot"],
         github: "https://github.com/tskxz/hrbetting-api",
+        website: "https://hrbetting.org/",
         gridSpan: "span-6",
         featured: true,
         categories: ["systems", "fullstack", "data"]
@@ -63,7 +64,7 @@ const projectsData = [
             en: "Personal Android app built with Kotlin in Android Studio to record gym training sessions without the ads and distractions common in other video-recording apps."
         },
         skills: ["Kotlin", "Android Studio", "Mobile Dev"],
-        github: "https://github.com/tskxz/",
+        github: "https://github.com/tskxz/bvr-gym",
         gridSpan: "span-6",
         featured: true,
         categories: ["mobile", "systems"]
@@ -516,7 +517,8 @@ const translations = {
         langEnLevel: "Nível Profissional / Trabalho",
         footerRole: "Software Engineer",
         footerText: "Portfólio Pessoal",
-        viewCode: "Ver no GitHub"
+        viewCode: "Ver no GitHub",
+        viewWebsite: "Website"
     },
     en: {
         role: "Software Engineer",
@@ -605,7 +607,8 @@ const translations = {
         langEnLevel: "Professional Working Proficiency",
         footerRole: "Software Engineer",
         footerText: "Personal Portfolio",
-        viewCode: "View on GitHub"
+        viewCode: "View on GitHub",
+        viewWebsite: "Website"
     }
 };
 
@@ -645,6 +648,7 @@ function renderProjects(lang) {
     if (!container) return;
 
     const githubIconSvg = `<svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>`;
+    const externalIconSvg = `<svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V7h7V5H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h-2v7z"/></svg>`;
     const t = translations[lang];
 
     const filteredProjects = projectsData.filter(p => {
@@ -661,6 +665,7 @@ function renderProjects(lang) {
         const association = p.association[lang] || p.association.pt;
         const desc = p.desc[lang] || p.desc.pt;
         const btnLabel = t.viewCode;
+        const websiteLabel = t.viewWebsite || "Website";
         const spanClass = p.gridSpan || "span-6";
         const featuredCardClass = p.featured ? "featured-card" : "";
 
@@ -689,12 +694,18 @@ function renderProjects(lang) {
                 </div>
                 <div class="project-footer">
                     <div class="project-skill-cluster">${skillsHtml}</div>
-                    ${p.github ? `
-                    <div class="project-action-row">
-                        <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn-code">
+                    ${(p.github || p.website) ? `
+                    <div class="project-action-row" style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap;">
+                        ${p.website ? `
+                        <a href="${p.website}" target="_blank" rel="noopener noreferrer" class="btn-code" title="${websiteLabel}">
+                            ${externalIconSvg}
+                            <span>${websiteLabel}</span>
+                        </a>` : ''}
+                        ${p.github ? `
+                        <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn-code" title="${btnLabel}">
                             ${githubIconSvg}
                             <span>${btnLabel}</span>
-                        </a>
+                        </a>` : ''}
                     </div>` : ''}
                 </div>
             </article>
