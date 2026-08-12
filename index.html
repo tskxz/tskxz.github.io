@@ -1,84 +1,361 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Website em construção.">
-    <title>Em Construção</title>
+    <meta name="description" content="Tanjil Khan - Software Engineer Portfolio. Backend APIs, Distributed Systems, AI Integration, and High-Performance Software.">
+    <title>Tanjil Khan | Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            color: #111111;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            text-align: center;
-            max-width: 560px;
-        }
-
-        .status-tag {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #666666;
-            background-color: #f4f4f5;
-            border: 1px solid #e4e4e7;
-            border-radius: 9999px;
-            padding: 6px 14px;
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: 2.25rem;
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            line-height: 1.2;
-            color: #09090b;
-            margin-bottom: 12px;
-        }
-
-        p {
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.6;
-            color: #71717a;
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.75rem;
-            }
-
-            p {
-                font-size: 0.9375rem;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <main class="container">
-        <div class="status-tag">Portfolio</div>
-        <h1>Em construção</h1>
-        <p>O novo website estará disponível brevemente.</p>
-    </main>
+
+<div class="container">
+    <!-- Header -->
+    <header>
+        <div class="header-top-bar">
+            <!-- Language & Theme Controls -->
+            <div class="controls-cluster">
+                <!-- Theme Switcher -->
+                <button type="button" class="theme-btn" id="btn-theme-toggle" onclick="toggleTheme()" title="Alternar Tema / Toggle Theme" aria-label="Alternar Tema">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <!-- Language Selector -->
+                <div class="segmented-control" role="group" aria-label="Language Selector">
+                    <button type="button" class="segment-btn active" id="btn-pt" onclick="setLanguage('pt')">PT</button>
+                    <button type="button" class="segment-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-main">
+            <h1 class="hero-title">Tanjil Khan</h1>
+            <div class="hero-role" data-i18n="role">Software Engineer</div>
+        </div>
+
+        <div class="hero-links">
+            <span class="contact-pill">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span data-i18n="location">Moreira da Maia, Porto, Portugal</span>
+            </span>
+            <a href="mailto:tanjilkh@gmail.com" class="contact-pill">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <span>tanjilkh@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/tanjil-khan" target="_blank" rel="noopener noreferrer" class="contact-pill">
+                <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.9 0-1.63.73-1.63 1.64s.73 1.63 1.63 1.63c.9 0 1.63-.73 1.63-1.63s-.73-1.64-1.63-1.64z"/></svg>
+                <span>linkedin.com/in/tanjil-khan</span>
+            </a>
+            <a href="https://github.com/tskxz/" target="_blank" rel="noopener noreferrer" class="contact-pill">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span>github.com/tskxz</span>
+            </a>
+        </div>
+
+        <!-- Dot Navigation (Side, Desktop) -->
+        <nav class="dot-nav" aria-label="Navegação rápida">
+            <div class="dot-nav-item">
+                <a href="#about" class="nav-dot" data-section="about"></a>
+                <span class="dot-label" data-i18n="navAbout">Sobre</span>
+            </div>
+            <div class="dot-nav-item">
+                <a href="#education" class="nav-dot" data-section="education"></a>
+                <span class="dot-label" data-i18n="navEducation">Educação</span>
+            </div>
+            <div class="dot-nav-item">
+                <a href="#experience" class="nav-dot" data-section="experience"></a>
+                <span class="dot-label" data-i18n="navExperience">Experiência</span>
+            </div>
+            <div class="dot-nav-item">
+                <a href="#projects" class="nav-dot" data-section="projects"></a>
+                <span class="dot-label" data-i18n="navProjects">Projetos</span>
+            </div>
+            <div class="dot-nav-item">
+                <a href="#certifications" class="nav-dot" data-section="certifications"></a>
+                <span class="dot-label" data-i18n="navCertifications">Certificados</span>
+            </div>
+            <div class="dot-nav-item">
+                <a href="#languages" class="nav-dot" data-section="languages"></a>
+                <span class="dot-label" data-i18n="navLanguages">Idiomas</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- About -->
+    <section id="about">
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="aboutTitle">Sobre</h2>
+        </div>
+        <div class="about-text" data-i18n-html="aboutHtml">
+            <p>Estudante de Engenharia Informática no ISTEC, com foco em Backend Engineering e APIs.</p>
+            <p>Desenvolvo soluções backend e REST APIs utilizando Node.js, Python e bases de dados SQL/NoSQL. Tenho também experiência Full-Stack a construir aplicações com Next.js, Nuxt, MERN e Laravel, e atualmente estou a explorar a integração de IA com LangChain.</p>
+        </div>
+    </section>
+
+    <!-- 1. Education -->
+    <section id="education">
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="educationTitle">Formação Académica</h2>
+        </div>
+        <div class="timeline-stream">
+            <!-- ISTEC Licenciatura -->
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/istec.png" alt="ISTEC Porto" onerror="this.style.display='none'">
+                    </div>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">ISTEC - Instituto Superior de Tecnologias Avançadas do Porto</h3>
+                            <span class="timeline-period" data-i18n="edu1Period">setembro de 2025 - setembro de 2028</span>
+                        </div>
+                        <div class="timeline-sub" data-i18n="edu1Degree">Nível 6, Licenciatura em Engenharia Informática (Computer Software Engineering)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ISTEC CTESP -->
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/istec.png" alt="ISTEC Porto" onerror="this.style.display='none'">
+                    </div>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">ISTEC - Instituto Superior de Tecnologias Avançadas do Porto</h3>
+                            <span class="timeline-period" data-i18n="edu2Period">outubro de 2023 - setembro de 2025</span>
+                        </div>
+                        <div class="timeline-sub" data-i18n="edu2Degree">Nível 5, CTESP em Desenvolvimento de Software</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filipa de Vilhena -->
+            <div class="timeline-item">
+                <div class="timeline-content-wrap">
+                    <div class="timeline-logo-slot">
+                        <img src="assets/images/logos/filipa-de-vilhena.png" alt="Escola Secundária Filipa de Vilhena" onerror="this.style.display='none'">
+                    </div>
+                    <div class="timeline-body">
+                        <div class="timeline-header-row">
+                            <h3 class="timeline-title">Escola Secundária Filipa de Vilhena</h3>
+                            <span class="timeline-period" data-i18n="edu3Period">setembro de 2020 - julho de 2023</span>
+                        </div>
+                        <div class="timeline-sub" data-i18n="edu3Degree">Nível 4, Técnico de Gestão e Programação de Sistemas Informáticos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Experience -->
+    <section id="experience">
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="experienceTitle">Experiência Profissional</h2>
+        </div>
+        
+        <!-- Stream 1: Core Software Engineering -->
+        <div class="experience-group">
+            <div class="experience-stream-header">
+                <h3 class="experience-stream-title" data-i18n="expGroupSoftware">Desenvolvimento de Software</h3>
+                <div class="experience-stream-line"></div>
+            </div>
+            <div class="timeline-stream">
+                <!-- Cogniwave -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/cogniwave.png" alt="Cogniwave" onerror="this.style.display='none'">
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">Cogniwave</h3>
+                                <span class="timeline-period" data-i18n="exp1Period">março de 2025 - julho de 2025</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp1Role">Web Developer</span> &middot; Portugal</div>
+                            <div class="timeline-grade" data-i18n="exp1Grade">Nota: 20/20</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp1Bullets">
+                                <li>Arquitetura e implementação de backend serverless e plataforma web com Nuxt 3 e TypeScript em Cloudflare Workers com NuxtHub.</li>
+                                <li>Modelação relacional de dados type-safe com Drizzle ORM sobre base de dados SQLite / Cloudflare D1 distribuída.</li>
+                                <li>Integração de serviços transacionais via Brevo e automação contínua de pipelines CI/CD com GitHub Actions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filipa de Vilhena -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/filipa-de-vilhena.png" alt="Filipa de Vilhena" onerror="this.style.display='none'">
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">Filipa de Vilhena</h3>
+                                <span class="timeline-period" data-i18n="exp2Period">junho de 2023 - julho de 2023</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp2Role">Web Developer</span> &middot; Porto, Portugal</div>
+                            <div class="timeline-grade" data-i18n="exp2Grade">Nota: 19/20</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp2Bullets">
+                                <li>Desenvolvimento full-stack de sistema de gestão de conteúdos (CMS) para o projeto "Eco-Escolas" com Laravel e Livewire.</li>
+                                <li>Implementação de módulos CRUD dinâmicos com autenticação, controlo de permissões de professores e upload de ficheiros.</li>
+                                <li>Modelação e otimização de queries relacionais com Eloquent ORM sobre base de dados MySQL.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stream 2: Systems & Technical Infrastructure -->
+        <div class="experience-group">
+            <div class="experience-stream-header">
+                <h3 class="experience-stream-title" data-i18n="expGroupSystems">Sistemas & Infraestrutura Técnica</h3>
+                <div class="experience-stream-line"></div>
+            </div>
+            <div class="timeline-stream">
+                <!-- Vanguarda Soluções e Gestão -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/vanguarda.png" alt="Vanguarda Soluções e Gestão" onerror="this.style.display='none'">
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">Vanguarda Soluções e Gestão</h3>
+                                <span class="timeline-period" data-i18n="exp6Period">maio de 2022 - julho de 2022</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp6Role">Support Worker</span> &middot; Maia, Portugal</div>
+                            <div class="timeline-grade" data-i18n="exp6Grade">Nota: 19/20</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp6Bullets">
+                                <li>Gestão de tickets de suporte técnico L1/L2, diagnóstico de problemas e encaminhamento de bugs complexos para a equipa de desenvolvimento.</li>
+                                <li>Administração remota de servidores com AnyDesk e RDP para aceder com segurança a infraestruturas e recuperar dados críticos.</li>
+                                <li>Tratamento de transferências de dados confidenciais em estrito cumprimento de protocolos de privacidade e normas de segurança interna.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AGIFODENT -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/agifodent.png" alt="AGIFODENT" onerror="this.style.display='none'">
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">AGIFODENT</h3>
+                                <span class="timeline-period" data-i18n="exp4Period">maio de 2023</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp4Role">IT Technician</span> &middot; Granada, Espanha</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp4Bullets">
+                                <li>Implementação de distribuições Linux ultra-leves (Tiny Core Linux e antiX) em portáteis de baixo desempenho, ajustando a escolha do SO a fortes restrições de hardware, RAM e armazenamento.</li>
+                                <li>Transporte físico e instalação de múltiplos servidores pesados para locais designados, assegurando a configuração e implementação segura do equipamento.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colegio Caja General de Ahorros de Granada -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/colegio-caja-granada.png" alt="Colegio Caja General de Ahorros de Granada" onerror="this.style.display='none'">
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">Colegio Caja General de Ahorros de Granada</h3>
+                                <span class="timeline-period" data-i18n="exp3Period">maio de 2023 - junho de 2023</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp3Role">Computer Technician</span> &middot; Granada, Espanha</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp3Bullets">
+                                <li>Atualização do website institucional em Wix, ajustando a estrutura de páginas e layouts para melhorar a experiência do utilizador (UI/UX).</li>
+                                <li>Implementação do Reboot Restore Rx em postos de trabalho públicos para restaurar automaticamente alterações de sistema não autorizadas após reinicialização.</li>
+                                <li>Otimização do desempenho do Windows através da edição de chaves de registo (Regedit), desativação de serviços de arranque não essenciais e limpeza de caches do sistema.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Palacio de Congresos -->
+                <div class="timeline-item">
+                    <div class="timeline-content-wrap">
+                        <div class="timeline-logo-slot">
+                            <img src="assets/images/logos/palacio-congresos-granada.png" alt="Palacio de Congresos de Granada" onerror="this.style.display='none'">
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-header-row">
+                                <h3 class="timeline-title">Palacio de Exposiciones y Congresos de Granada SA</h3>
+                                <span class="timeline-period" data-i18n="exp5Period">maio de 2023</span>
+                            </div>
+                            <div class="timeline-sub"><span data-i18n="exp5Role">Stage Technician</span> &middot; Granada, Espanha</div>
+                            <ul class="timeline-bullets" data-i18n-list="exp5Bullets">
+                                <li>Gestão de iluminação de palco ao vivo, sistemas de som e equipamento de projeção durante eventos no Palacio de Congresos de Granada.</li>
+                                <li>Operação de consolas de mistura AV e iluminação em tempo real, assegurando a execução sonora e visual para audiências ao vivo.</li>
+                                <li>Configuração, testes e manutenção preventiva de tecnologia de palco para prevenir falhas durante eventos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Projects (Bento 2.0 Layout) -->
+    <section id="projects">
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="projectsTitle">Projetos</h2>
+        </div>
+        <div class="project-filters" id="project-filters">
+            <!-- Rendered dynamically by JS -->
+        </div>
+        <div class="projects-grid" id="projects-container">
+            <!-- Rendered dynamically by JS -->
+        </div>
+    </section>
+
+    <!-- 4. Certifications & Awards -->
+    <section id="certifications">
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="certificationsTitle">Certificados & Prémios</h2>
+        </div>
+        <div class="cert-grid" id="certificates-container">
+            <!-- Rendered dynamically by JS -->
+        </div>
+    </section>
+
+    <!-- 5. Languages -->
+    <section id="languages">
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="languagesTitle">Idiomas</h2>
+        </div>
+        <div class="lang-cluster">
+            <div class="lang-pill">
+                <span data-i18n="langPt">Português</span>
+                <span class="lang-level-badge" data-i18n="langPtLevel">Nativo ou Bilingue</span>
+            </div>
+            <div class="lang-pill">
+                <span data-i18n="langEn">Inglês</span>
+                <span class="lang-level-badge" data-i18n="langEnLevel">Nível Profissional / Trabalho</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-left">
+            <span>&copy; <span id="year"></span> Tanjil Khan</span>
+            <span>&middot;</span>
+            <span data-i18n="footerRole">Software Engineer</span>
+        </div>
+        <div class="footer-right">
+            <span data-i18n="footerText">Portfólio Pessoal</span>
+        </div>
+    </footer>
+</div>
+
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
