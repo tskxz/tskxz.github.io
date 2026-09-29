@@ -533,7 +533,7 @@ const translations = {
         navCertifications: "Certifications",
         navLanguages: "Languages",
         aboutTitle: "About",
-        aboutHtml: `<p>Computer Software Engineering student at ISTEC, focused on Backend Engineering and APIs.</p><p>I develop backend solutions and REST APIs using Node.js, Python, and SQL/NoSQL databases. I also have Full-Stack experience building applications with Next.js, Nuxt, MERN, and Laravel, and I am currently exploring AI integration with LangChain.</p>`,
+        aboutHtml: `<p>Computer Software Engineering student at ISTEC, focused on Backend Engineering and APIs.</p><p>I develop backend solutions and REST APIs using Node.js, Python, and SQL/NoSQL databases. I also have Full-Stack experience building applications with Next.js, Nuxt, MERN, and Laravel.</p>`,
         educationTitle: "Education",
         edu1Period: "September 2025 - September 2028",
         edu1Degree: "Level 6, Bachelor in Computer Software Engineering",
