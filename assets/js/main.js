@@ -443,7 +443,7 @@ const translations = {
         navCertifications: "Certificados",
         navLanguages: "Idiomas",
         aboutTitle: "Sobre",
-        aboutHtml: `<p>Estudante de Engenharia Informática no ISTEC, com foco em Backend Engineering e APIs.</p><p>Desenvolvo soluções backend e REST APIs utilizando Node.js, Python e bases de dados SQL/NoSQL. Tenho também experiência Full-Stack a construir aplicações com Next.js, Nuxt, MERN e Laravel, e atualmente estou a explorar a integração de IA com LangChain.</p>`,
+        aboutHtml: `<p>Estudante de Engenharia Informática no ISTEC, com foco em Backend Engineering e APIs.</p><p>Desenvolvo soluções backend e REST APIs utilizando Node.js, Python e bases de dados SQL/NoSQL. Tenho também experiência Full-Stack a construir aplicações com Next.js, Nuxt, MERN e Laravel.</p>`,
         educationTitle: "Formação Académica",
         edu1Period: "setembro de 2025 - setembro de 2028",
         edu1Degree: "Nível 6, Licenciatura em Engenharia Informática (Computer Software Engineering)",
